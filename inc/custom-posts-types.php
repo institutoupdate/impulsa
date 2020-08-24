@@ -27,16 +27,16 @@ function register_post_types() {
         )
     );
 
-    // Trails
+    // Tracks
     register_post_type(
-        'trails', array(
+        'tracks', array(
             'public' => true,
             'labels' => array(
-                'name' => __('Trails', 'theme'),
-                'singular_name' => __('Trail', 'theme'),
+                'name' => __('Tracks', 'theme'),
+                'singular_name' => __('Track', 'theme'),
             ),
             'rewrite' => array(
-                'slug' => 'trails'
+                'slug' => 'tracks'
             ),
             'has_archive' => true,
             'menu_icon' => 'dashicons-excerpt-view',
