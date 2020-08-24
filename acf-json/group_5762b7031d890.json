@@ -1,10 +1,10 @@
 {
     "key": "group_5762b7031d890",
-    "title": "Opciones genéricas",
+    "title": "Generic options",
     "fields": [
         {
             "key": "field_5762b71f40faf",
-            "label": "Descripción del sitio",
+            "label": "Site description",
             "name": "meta_description",
             "type": "textarea",
             "instructions": "Descripción general del sitio. Aparecerá en los buscadores y cuando se compartan en las redes sociales la página principal o páginas genéricas.",
@@ -19,13 +19,11 @@
             "placeholder": "",
             "maxlength": "",
             "rows": 4,
-            "new_lines": "",
-            "readonly": 0,
-            "disabled": 0
+            "new_lines": ""
         },
         {
             "key": "field_5762bd2740fb4",
-            "label": "Color para cabecera",
+            "label": "Theme color",
             "name": "meta_theme_color",
             "type": "color_picker",
             "instructions": "",
@@ -64,7 +62,7 @@
         },
         {
             "key": "field_5762bafd40fb1",
-            "label": "Imagen para compartir",
+            "label": "Image for share",
             "name": "meta_thumb",
             "type": "image",
             "instructions": "Preferentemente de 1200 x 630 px",
@@ -88,7 +86,7 @@
         },
         {
             "key": "field_5762bce940fb2",
-            "label": "Usuario de Twitter",
+            "label": "Twitter user",
             "name": "meta_twitter_user",
             "type": "text",
             "instructions": "",
@@ -103,13 +101,11 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_5762bcef40fb3",
-            "label": "ID de usuario de Facebook",
+            "label": "Facebook user ID",
             "name": "meta_facebook_id",
             "type": "text",
             "instructions": "Separado por comas en caso de ser más de uno",
@@ -124,9 +120,7 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
         },
         {
             "key": "field_5762c7a33e793",
@@ -186,5 +180,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598023556
+    "modified": 1598272471
 }

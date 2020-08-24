@@ -1,6 +1,6 @@
 {
     "key": "group_5f4015e3472ea",
-    "title": "País",
+    "title": "Country",
     "fields": [
         {
             "key": "field_5f4015f8a2744",
@@ -27,7 +27,7 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "paises"
+                "value": "countries"
             }
         ]
     ],
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598035465
+    "modified": 1598271386
 }

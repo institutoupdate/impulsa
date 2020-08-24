@@ -1,11 +1,11 @@
 {
     "key": "group_5f4010a67412a",
-    "title": "Materiales y Entradas",
+    "title": "Materials and Posts",
     "fields": [
         {
             "key": "field_5f4010b99a0b7",
             "label": "",
-            "name": "sendero_relationship",
+            "name": "trail_relationship",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -16,7 +16,6 @@
                 "id": ""
             },
             "post_type": [
-                "materiales",
                 "post"
             ],
             "taxonomy": "",
@@ -37,7 +36,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "senderos"
+                "value": "trails"
             }
         ]
     ],
@@ -49,5 +48,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598034210
+    "modified": 1598271304
 }

@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5f40125fa4c74",
-            "label": "Preguntas y respuestas",
+            "label": "Questions and answers",
             "name": "faq",
             "type": "repeater",
             "instructions": "",
@@ -23,7 +23,7 @@
             "sub_fields": [
                 {
                     "key": "field_5f40126ba4c75",
-                    "label": "Pregunta",
+                    "label": "Question",
                     "name": "faq-question",
                     "type": "text",
                     "instructions": "",
@@ -42,7 +42,7 @@
                 },
                 {
                     "key": "field_5f4012a2a4c76",
-                    "label": "Respuesta",
+                    "label": "Answer",
                     "name": "faq-answer",
                     "type": "wysiwyg",
                     "instructions": "",
@@ -79,5 +79,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598034636
+    "modified": 1598274746
 }

@@ -3,16 +3,16 @@
 
 function register_post_types() {
 
-    // Materiales
+    // Materials
     register_post_type(
-        'materiales', array(
+        'materials', array(
             'public' => true,
             'labels' => array(
-                'name' => __('Materiales', 'theme'),
+                'name' => __('Materials', 'theme'),
                 'singular_name' => __('Material', 'theme'),
             ),
             'rewrite' => array(
-                'slug' => 'materiales'
+                'slug' => 'materials'
             ),
             'has_archive' => true,
             'menu_icon' => 'dashicons-playlist-video',
@@ -27,16 +27,16 @@ function register_post_types() {
         )
     );
 
-    // Senderos
+    // Trails
     register_post_type(
-        'senderos', array(
+        'trails', array(
             'public' => true,
             'labels' => array(
-                'name' => __('Senderos', 'theme'),
-                'singular_name' => __('Sendero', 'theme'),
+                'name' => __('Trails', 'theme'),
+                'singular_name' => __('Trail', 'theme'),
             ),
             'rewrite' => array(
-                'slug' => 'senderos'
+                'slug' => 'trails'
             ),
             'has_archive' => true,
             'menu_icon' => 'dashicons-excerpt-view',

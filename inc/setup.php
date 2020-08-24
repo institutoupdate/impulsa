@@ -74,9 +74,7 @@ if ( ! function_exists( 'theme_setup' ) ) :
 
 		function rename_post_formats($translation, $text, $context, $domain) {
 			$names = array(
-				'Standar' => 'Estándar',
 				'Aside' => 'PDF',
-				'Link'  => 'Enlace externo'
 			);
 			if ($context == 'Post format') {
 				$translation = str_replace(array_keys($names), array_values($names), $text);

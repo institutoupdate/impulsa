@@ -1,6 +1,6 @@
 {
     "key": "group_5f3fead8e4019",
-    "title": "Video y archivos",
+    "title": "Video and files",
     "fields": [
         {
             "key": "field_5f3feb00d0c92",
@@ -105,7 +105,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "materiales"
+                "value": "materials"
             },
             {
                 "param": "post_format",
@@ -122,5 +122,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598025150
+    "modified": 1598271344
 }

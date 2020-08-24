@@ -2,10 +2,10 @@
 
 function register_taxonomies() {
 
-	// Países
+	// Countries
 	$labels = array(
-		'name'                       => 'Países',
-		'singular_name'              => 'País',
+		'name'                       => 'Countries',
+		'singular_name'              => 'Country',
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -16,12 +16,12 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'paises', array( 'materiales', 'post' ), $args );
+	register_taxonomy( 'countries', array( 'materials', 'post' ), $args );
 
-	// Tipos
+	// Types
 	$labels = array(
-		'name'                       => 'Tipos',
-		'singular_name'              => 'Tipo',
+		'name'                       => 'Types',
+		'singular_name'              => 'Type',
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -32,12 +32,12 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'tipos', array( 'materiales' ), $args );
+	register_taxonomy( 'types', array( 'materials' ), $args );
 
-	// Temas
+	// Topics
 	$labels = array(
-		'name'                       => 'Temas',
-		'singular_name'              => 'tema',
+		'name'                       => 'Topics',
+		'singular_name'              => 'Topic',
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -48,12 +48,12 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'temas', array( 'materiales' ), $args );
+	register_taxonomy( 'topics', array( 'materials' ), $args );
 
-	// Periodos
+	// Periods
 	$labels = array(
-		'name'                       => 'Periodos',
-		'singular_name'              => 'Periodo',
+		'name'                       => 'Periods',
+		'singular_name'              => 'Period',
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -64,12 +64,12 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'periodos', array( 'materiales' ), $args );
+	register_taxonomy( 'periods', array( 'materials' ), $args );
 
-	// Público
+	// Audience
 	$labels = array(
-		'name'                       => 'Público',
-		'singular_name'              => 'Público',
+		'name'                       => 'Audience',
+		'singular_name'              => 'Audience',
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -80,12 +80,12 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'publico', array( 'materiales' ), $args );
+	register_taxonomy( 'audience', array( 'materials' ), $args );
 
-	// Entornos
+	// Environment
 	$labels = array(
-		'name'                       => 'Entorno',
-		'singular_name'              => 'Entorno',
+		'name'                       => 'Environment',
+		'singular_name'              => 'Environment',
 	);
 	$args = array(
 		'labels'                     => $labels,
@@ -96,7 +96,7 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'entorno', array( 'materiales' ), $args );
+	register_taxonomy( 'environment', array( 'materials' ), $args );
 
 }
 
