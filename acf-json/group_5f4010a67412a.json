@@ -5,7 +5,7 @@
         {
             "key": "field_5f4010b99a0b7",
             "label": "",
-            "name": "trail_relationship",
+            "name": "track_relationship",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -16,7 +16,8 @@
                 "id": ""
             },
             "post_type": [
-                "post"
+                "post",
+                "materials"
             ],
             "taxonomy": "",
             "filters": [
@@ -36,7 +37,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "trails"
+                "value": "materials"
             }
         ]
     ],
@@ -48,5 +49,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598271304
+    "modified": 1598531668
 }

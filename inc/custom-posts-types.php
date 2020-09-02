@@ -21,7 +21,9 @@ function register_post_types() {
                 'title',
                 'thumbnail',
                 'editor',
-                'post-formats'
+                'post-formats',
+                'author',
+                'excerpt',
             ),
             'taxonomies' => array('post_tag'),
         )
@@ -45,7 +47,10 @@ function register_post_types() {
                 'title',
                 'thumbnail',
                 'editor',
+                'author',
+                'excerpt',
             ),
+            'taxonomies' => array('post_tag'),
         )
     );
 

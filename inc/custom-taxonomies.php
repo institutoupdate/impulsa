@@ -16,7 +16,7 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'countries', array( 'materials', 'post' ), $args );
+	register_taxonomy( 'countries', array( 'materials', 'tracks', 'post' ), $args );
 
 	// Types
 	$labels = array(
@@ -48,7 +48,7 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'topics', array( 'materials' ), $args );
+	register_taxonomy( 'topics', array( 'materials', 'tracks' ), $args );
 
 	// Periods
 	$labels = array(
@@ -64,7 +64,7 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'periods', array( 'materials' ), $args );
+	register_taxonomy( 'periods', array( 'materials', 'tracks' ), $args );
 
 	// Audience
 	$labels = array(
@@ -80,7 +80,7 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'audience', array( 'materials' ), $args );
+	register_taxonomy( 'audience', array( 'materials', 'tracks' ), $args );
 
 	// Environment
 	$labels = array(
@@ -96,7 +96,7 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'environment', array( 'materials' ), $args );
+	register_taxonomy( 'environment', array( 'materials', 'tracks' ), $args );
 
 }
 
