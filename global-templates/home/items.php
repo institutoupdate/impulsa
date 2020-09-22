@@ -34,7 +34,7 @@ $items_title = get_field('items-home-title');
                 <?php } ?>
             </div>
             <!--/box-1-->
-            <?php $i++; endwhile; ?>
+            <?php endwhile; ?>
 
         </div>
         <!--/grid-3-box-->

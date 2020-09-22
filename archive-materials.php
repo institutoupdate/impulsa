@@ -50,7 +50,7 @@ $count = 0;
                                     <?php foreach ($topics as $topic) { ?>
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="topic" value="<?php echo $topic->slug; ?>" <?php if($topic->slug == $_GET['topic'] ) { echo 'checked'; } ?> >
+                                            <input type="checkbox" name="topic" value="<?php echo $topic->slug; ?>" <?php if(isset($_GET['topic']) && ($topic->slug == $_GET['topic']) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $topic->name; ?></span>
                                         </label>
@@ -69,7 +69,7 @@ $count = 0;
                                     <?php foreach ($types as $type) { ?>
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="type" value="<?php echo $type->slug; ?>" <?php if($type->slug == $_GET['type'] ) { echo 'checked'; } ?> >
+                                            <input type="checkbox" name="type" value="<?php echo $type->slug; ?>" <?php if(isset($_GET['type']) && ($type->slug == $_GET['type']) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $type->name; ?></span>
                                         </label>
@@ -88,7 +88,7 @@ $count = 0;
                                     <?php foreach ($countries as $country) { ?>
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="country" value="<?php echo $country->slug; ?>" <?php if($country->slug == $_GET['country'] ) { echo 'checked'; } ?> >
+                                            <input type="checkbox" name="country" value="<?php echo $country->slug; ?>" <?php if(isset($_GET['country']) && ($country->slug == $_GET['country']) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $country->name; ?></span>
                                         </label>
@@ -137,8 +137,8 @@ $count = 0;
                         <label for="form__order" class="input__label">Ordenar por</label>
                         <div class="input__select">
                             <select name="order" id="form__order" class="js-order">
-                                <option value="DESC" <?php if($_GET['order'] == 'DESC') { echo 'selected'; } ?>>Más reciente</option>
-                                <option value="ASC" <?php if($_GET['order'] == 'ASC' ) { echo 'selected'; } ?>>Más antigua</option>
+                                <option value="DESC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'DESC')) { echo 'selected'; } ?>>Más reciente</option>
+                                <option value="ASC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'ASC' )) { echo 'selected'; } ?>>Más antigua</option>
                             </select>
                             <i class="icon-angle-down-solid"></i>
                         </div>

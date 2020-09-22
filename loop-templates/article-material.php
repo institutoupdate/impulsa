@@ -4,10 +4,6 @@ $id_post = get_the_ID();
 // Excerpt lenght
 $excerpt = get_query_var('article_excerpt');
 
-// Author
-$author_id = get_the_author_id();
-$author_name = get_the_author_meta('display_name', $author_id);
-
 // Date
 $date_day = get_the_date('j');
 $date_month = get_the_date('F');

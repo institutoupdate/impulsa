@@ -5,7 +5,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 $id_post = get_the_ID();
 
 // Author
-$author_id = get_the_author_id();
+$author_id = get_the_author_meta('ID');
 $author_name = get_the_author_meta('display_name', $author_id);
 $author_description = get_the_author_meta('description', $author_id);
 
