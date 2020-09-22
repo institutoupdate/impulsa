@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_5f40125fa4c74",
-            "label": "Questions and answers",
-            "name": "faq",
+            "label": "FAQ Section",
+            "name": "faq-section",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -18,13 +18,13 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "table",
-            "button_label": "Agregar pregunta",
+            "layout": "block",
+            "button_label": "Add section",
             "sub_fields": [
                 {
-                    "key": "field_5f40126ba4c75",
-                    "label": "Question",
-                    "name": "faq-question",
+                    "key": "field_5f6a62b60e8e4",
+                    "label": "Title",
+                    "name": "faq-section_title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -41,10 +41,10 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5f4012a2a4c76",
-                    "label": "Answer",
-                    "name": "faq-answer",
-                    "type": "wysiwyg",
+                    "key": "field_5f6a62043eea3",
+                    "label": "Questions and answers",
+                    "name": "faq",
+                    "type": "repeater",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -53,11 +53,51 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "basic",
-                    "media_upload": 0,
-                    "delay": 0
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "table",
+                    "button_label": "Add question",
+                    "sub_fields": [
+                        {
+                            "key": "field_5f40126ba4c75",
+                            "label": "Question",
+                            "name": "faq-question",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5f4012a2a4c76",
+                            "label": "Answer",
+                            "name": "faq-answer",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
+                        }
+                    ]
                 }
             ]
         }
@@ -79,5 +119,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598274746
+    "modified": 1600807636
 }

@@ -26,3 +26,6 @@ require get_template_directory() . '/inc/custom-taxonomies.php';
 
 // Shortcodes
 require get_template_directory() . '/inc/shortcodes.php';
+
+// Custom functions
+require get_template_directory() . '/inc/custom-functions.php';

@@ -4,7 +4,6 @@ $meta_description = get_field('meta_description', 'option');
 $meta_thumb = get_field('meta_thumb', 'option');
 $meta_twitter_user = get_field('meta_twitter_user', 'option');
 $meta_facebook_id = get_field('meta_facebook_id', 'option');
-$meta_google_site_verification = get_field('meta_google_site_verification', 'option');
 ?>
 <!DOCTYPE html>
 <html>
@@ -106,10 +105,6 @@ $meta_google_site_verification = get_field('meta_google_site_verification', 'opt
 
 	<meta name="robots" content="index, follow">
 
-	<?php if(!empty($meta_google_site_verification)) { ?>
-		<meta name="google-site-verification" content="<?php echo $meta_google_site_verification ?>">
-	<?php } ?>
-
 	<?php if(is_single()) { // Data SEO particular para páginas individuales ?>
 
 		<meta name="author" content="<?php bloginfo('name') ?>">
@@ -123,6 +118,8 @@ $meta_google_site_verification = get_field('meta_google_site_verification', 'opt
 		<meta name="description" content="<?php echo $meta_description ?>">
 
 	<?php } ?>
+
+	<script src="https://www.google.com/recaptcha/api.js?render=6LdSW88ZAAAAABfjCxhlUeUBm10CuQTBr4UEO_3P"></script>
 
 	<?php wp_head(); ?>
 

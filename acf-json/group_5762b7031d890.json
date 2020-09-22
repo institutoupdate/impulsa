@@ -3,11 +3,27 @@
     "title": "Generic options",
     "fields": [
         {
+            "key": "field_5f68e818e599e",
+            "label": "Options",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_5762b71f40faf",
             "label": "Site description",
             "name": "meta_description",
             "type": "textarea",
-            "instructions": "Descripción general del sitio. Aparecerá en los buscadores y cuando se compartan en las redes sociales la página principal o páginas genéricas.",
+            "instructions": "General description of the site. It will appear in search engines and when the main page or generic pages are shared on social networks.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -22,8 +38,32 @@
             "new_lines": ""
         },
         {
+            "key": "field_5762bafd40fb1",
+            "label": "Social share image",
+            "name": "meta_thumb",
+            "type": "image",
+            "instructions": "Preferably 1200x630 PX",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5762bd2740fb4",
-            "label": "Theme color",
+            "label": "Meta Theme Color",
             "name": "meta_theme_color",
             "type": "color_picker",
             "instructions": "",
@@ -61,11 +101,11 @@
             "mime_types": "ico"
         },
         {
-            "key": "field_5762bafd40fb1",
-            "label": "Image for share",
-            "name": "meta_thumb",
-            "type": "image",
-            "instructions": "Preferentemente de 1200 x 630 px",
+            "key": "field_5762c7a33e793",
+            "label": "Scripts",
+            "name": "meta_scripts",
+            "type": "textarea",
+            "instructions": "Google analytics code, FB pixel, etc",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -73,21 +113,16 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "url",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 8,
+            "new_lines": ""
         },
         {
-            "key": "field_5762bce940fb2",
-            "label": "Twitter user",
-            "name": "meta_twitter_user",
+            "key": "field_5f2db9d753073",
+            "label": "Sender email",
+            "name": "meta_email_sender",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -104,11 +139,11 @@
             "maxlength": ""
         },
         {
-            "key": "field_5762bcef40fb3",
-            "label": "Facebook user ID",
-            "name": "meta_facebook_id",
+            "key": "field_5f2db9e853074",
+            "label": "Recipient email",
+            "name": "meta_email_recipient",
             "type": "text",
-            "instructions": "Separado por comas en caso de ser más de uno",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -123,11 +158,11 @@
             "maxlength": ""
         },
         {
-            "key": "field_5762c7a33e793",
-            "label": "Google Analytics",
-            "name": "meta_analytics",
-            "type": "textarea",
-            "instructions": "Código que provee Google Analytics",
+            "key": "field_5f68e7d7e599d",
+            "label": "Social networks",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -135,20 +170,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 8,
-            "new_lines": "",
-            "readonly": 0,
-            "disabled": 0
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_5849aacf8c261",
-            "label": "Google Site Verification",
-            "name": "meta_google_site_verification",
-            "type": "text",
-            "instructions": "Código que provee Google Site Verification para tag",
+            "key": "field_5f68e7c903077",
+            "label": "Instagram URL",
+            "name": "instagram_url",
+            "type": "url",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -157,10 +187,55 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "placeholder": ""
+        },
+        {
+            "key": "field_5f68e7ba03076",
+            "label": "Youtube URL",
+            "name": "youtube_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5762bcef40fb3",
+            "label": "Facebook URL",
+            "name": "facebook_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5762bce940fb2",
+            "label": "Twitter URL",
+            "name": "twitter_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -168,7 +243,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options-opciones"
+                "value": "acf-options-options"
             }
         ]
     ],
@@ -180,5 +255,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598272471
+    "modified": 1600712395
 }

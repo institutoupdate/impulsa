@@ -1,0 +1,68 @@
+// A map of breakpoints.
+$breakpoints: (
+  mobile: 380px,
+  phone-sm: 420px,
+  phone: 767px,
+  tablet-lg: 1024px,
+  desktop-lg: 1202px,
+  desktop-xlg: 1680px
+);
+
+:root {
+
+    // Fonts 
+    --main-font: 'Open Sans Condensed', Arial;
+    --font-2: 'Open Sans', Arial;
+    --font-3: 'Peace Sans', Arial;
+    --font-4: 'Morganite', Arial;
+    --font-5: 'Roboto Mono', Arial;
+
+    // Colors 
+    --color-primary-light: #E63B87;
+    --color-primary: #E00A69;
+    --color-primary-dark: #A8084F;
+    --color-secondary-light: #71CBBE;
+    --color-secondary: #4BBEAF;
+    --color-secondary-dark: #3A8F83;
+    --color-tertiary-light: #735F87;
+    --color-tertiary: #503769;
+    --color-tertiary-dark: #3C294F;
+    --color-quinary: #3C294F;
+    --color-sextary: #F6A300;
+    --color-octary: #DDDDDD;
+    --color-white: #FFFFFF;
+    --color-white-33: rgba(255,255,255,.33);
+    //--color-white-50: rgba(255,255,255,.5);
+    --color-white-50: rgba(244,244,244,.5);
+    --color-black: #000000;
+    --color-black-0: rgba(0,0,0,0);
+    --color-black-16: rgba(0,0,0,.16);
+    --color-btn-circle-hover: #ff7a8b;
+
+    // Text 
+    --color-text: #333333;
+    --color-text-2: #666666;
+    --color-text-3: #cccccc;
+    --color-text-4: #999999;
+
+    // Bg 
+    --color-bg: #F0F0F0;
+    --color-bg-2: rgba(244, 244, 244, .5);
+    --color-bg-3: rgb(51, 49, 255);
+
+    // Border
+    --color-border: #dddddd;
+    --color-border-2: #ECECEC;
+    --color-border-3: #707070;
+
+    // Header
+    --header-height-sm: 70px;
+    --header-height-lg: 120px;
+    --header-height-xlg: 150px;
+
+    // Logos
+    --logo-h-md: 60px;
+    --logo-h-lg: 75px;
+    --logo-h-xlg: 75px;
+
+}

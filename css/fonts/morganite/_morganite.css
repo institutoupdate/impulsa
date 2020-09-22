@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Morganite';
+    src: url('fonts/morganite/Morganite-Book.eot');
+    src: url('fonts/morganite/Morganite-Book.eot?#iefix') format('embedded-opentype'),
+        url('fonts/morganite/Morganite-Book.woff2') format('woff2'),
+        url('fonts/morganite/Morganite-Book.woff') format('woff'),
+        url('fonts/morganite/Morganite-Book.svg#Morganite-Book') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Morganite';
+    src: url('fonts/morganite/Morganite-BookItalic.eot');
+    src: url('fonts/morganite/Morganite-BookItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/morganite/Morganite-BookItalic.woff2') format('woff2'),
+        url('fonts/morganite/Morganite-BookItalic.woff') format('woff'),
+        url('fonts/morganite/Morganite-BookItalic.svg#Morganite-BookItalic') format('svg');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Morganite';
+    src: url('fonts/morganite/Morganite-Medium.eot');
+    src: url('fonts/morganite/Morganite-Medium.eot?#iefix') format('embedded-opentype'),
+        url('fonts/morganite/Morganite-Medium.woff2') format('woff2'),
+        url('fonts/morganite/Morganite-Medium.woff') format('woff'),
+        url('fonts/morganite/Morganite-Medium.svg#Morganite-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Morganite';
+    src: url('fonts/morganite/Morganite-MediumItalic.eot');
+    src: url('fonts/morganite/Morganite-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/morganite/Morganite-MediumItalic.woff2') format('woff2'),
+        url('fonts/morganite/Morganite-MediumItalic.woff') format('woff'),
+        url('fonts/morganite/Morganite-MediumItalic.svg#Morganite-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Morganite';
+    src: url('fonts/morganite/Morganite-Bold.eot');
+    src: url('fonts/morganite/Morganite-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/morganite/Morganite-Bold.woff2') format('woff2'),
+        url('fonts/morganite/Morganite-Bold.woff') format('woff'),
+        url('fonts/morganite/Morganite-Bold.svg#Morganite-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Morganite';
+    src: url('fonts/morganite/Morganite-BoldItalic.eot');
+    src: url('fonts/morganite/Morganite-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/morganite/Morganite-BoldItalic.woff2') format('woff2'),
+        url('fonts/morganite/Morganite-BoldItalic.woff') format('woff'),
+        url('fonts/morganite/Morganite-BoldItalic.svg#Morganite-BoldItalic') format('svg');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Morganite';
+    src: url('fonts/morganite/Morganite-Black.eot');
+    src: url('fonts/morganite/Morganite-Black.eot?#iefix') format('embedded-opentype'),
+        url('fonts/morganite/Morganite-Black.woff2') format('woff2'),
+        url('fonts/morganite/Morganite-Black.woff') format('woff'),
+        url('fonts/morganite/Morganite-Black.svg#Morganite-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Morganite';
+    src: url('fonts/morganite/Morganite-BlackItalic.eot');
+    src: url('fonts/morganite/Morganite-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/morganite/Morganite-BlackItalic.woff2') format('woff2'),
+        url('fonts/morganite/Morganite-BlackItalic.woff') format('woff'),
+        url('fonts/morganite/Morganite-BlackItalic.svg#Morganite-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+

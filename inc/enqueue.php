@@ -9,11 +9,13 @@ if ( ! function_exists( 'enqueue_scripts' ) ) {
 
 		//$the_theme = wp_get_theme();
 		// Get the custom theme data.
-		//wp_enqueue_style( 'styles', get_stylesheet_directory_uri() . '/css/screen.css', array(), false );
+		wp_enqueue_style( 'styles', get_stylesheet_directory_uri() . '/css/screen.css', array(), false );
 
-		//wp_enqueue_script( 'jquery-last', get_template_directory_uri() . '/vendor/js/jquery-3.2.1.min.js', array(), '', true);
+		wp_enqueue_script( 'jquery-last', get_template_directory_uri() . '/vendor/js/jquery-3.2.1.min.js', array(), '', true);
+		wp_enqueue_script( 'jquery-fancybox', get_template_directory_uri() . '/vendor/js/jquery.fancybox.min.js', array(), '', true);
+		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/vendor/js/swiper.min.js', array(), '', true);
 
-		//wp_enqueue_script( 'theme-scripts', get_template_directory_uri() . '/js/app.min.js', array(), '', true );
+		wp_enqueue_script( 'theme-scripts', get_template_directory_uri() . '/js/app.min.js', array(), '', true );
 
 		wp_localize_script( 'theme-scripts', 'config', array(
 			'ajax_url'	=>	admin_url('admin-ajax.php'),
