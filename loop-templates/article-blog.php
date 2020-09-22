@@ -1,6 +1,7 @@
 <?php
 // Author
-$author_name = get_author_name();
+$author_id = get_the_author_id();
+$author_name = get_the_author_meta('display_name', $author_id);
 
 // Date
 $date_day = get_the_date('j');

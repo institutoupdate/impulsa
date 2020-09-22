@@ -6,7 +6,7 @@ $facebook_url = get_field( 'facebook_url', 'option' );
 $twitter_url = get_field( 'twitter_url', 'option' );
 
 // Main Menu
-$main_nav = wp_get_nav_menu_object(2);
+$main_nav = wp_get_nav_menu_object(6);
 $main_nav_name = $main_nav->name;
 $main_nav_menu = wp_nav_menu( array(
    'theme_location' => 'main-nav',
@@ -17,7 +17,7 @@ $main_nav_menu = wp_nav_menu( array(
 ) );
 
 // Alt Menu
-$alt_nav = wp_get_nav_menu_object(3);
+$alt_nav = wp_get_nav_menu_object(7);
 $alt_nav_name = $alt_nav->name;
 $alt_nav_menu = wp_nav_menu( array(
    'theme_location' => 'alt-nav',
