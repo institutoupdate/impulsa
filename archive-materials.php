@@ -1,5 +1,4 @@
 <?php
-// Template name: Library
 get_header();
 
 // Type

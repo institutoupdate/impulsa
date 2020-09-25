@@ -2,6 +2,7 @@
 // Template name: FAQ
 get_header();
 if (have_posts()) : while (have_posts()) : the_post(); 
+$headline = get_field('headline');
 ?>
 
 <main class="block block--pad-3 js-first-block">
@@ -12,8 +13,13 @@ if (have_posts()) : while (have_posts()) : the_post();
         <div class="grid grid--4y8">
 
             <aside class="sidebar">
-                <h3 class="title title--m-bottom"><strong class="title__block title__900">Lorem ipsum</strong>Lorem ipsum dolor sit amet</h3>
-            
+
+                <?php if($headline) { ?>
+                <h3 class="title title--strong-primary title--m-bottom">
+                   <?php echo $headline; ?>
+                </h3>
+                <?php } ?>
+
                 <div class="text-3 text-3--m-bottom">
                     <?php the_content(); ?>
                 </div>
@@ -50,7 +56,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                 <!--/question-->
                 <?php endwhile; else : endif; ?>
 
-                <p class="title title--sm">¿Dudas? Podés escribirnos en nuestra <a href="<?php echo home_url();?>/contato">Sección de contactos</a></p>  
+                <p class="title title--sm">¿Dudas? Podés escribirnos en nuestra <a href="<?php echo home_url();?>/contato">Sección de contacto</a></p>  
             
             </div>
             <!-- /block__main -->

@@ -133,3 +133,10 @@ add_filter('sanitize_file_name', 'sa_sanitize_spanish_chars', 10);
 function sa_sanitize_spanish_chars ($filename) {
   return remove_accents( $filename );
 }
+
+//Support SVG
+function cc_mime_types($mimes) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');

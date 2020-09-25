@@ -12,6 +12,8 @@ $youtube_url = get_field( 'youtube_url', 'option' );
 $facebook_url = get_field( 'facebook_url', 'option' );
 $twitter_url = get_field( 'twitter_url', 'option' );
 
+$headline = get_field('headline');
+
 if (have_posts()) : while (have_posts()) : the_post(); 
 ?>
 <main class="block block--pad-3 js-first-block">
@@ -23,7 +25,11 @@ if (have_posts()) : while (have_posts()) : the_post();
 
             <aside class="sidebar">
 
-                <h3 class="title title--m-bottom"><strong class="title__block title__900">Lorem ipsum</strong>Lorem ipsum dolor sit amet</h3>
+                <?php if($headline) { ?>
+                <h3 class="title title--strong-primary title--m-bottom">
+                   <?php echo $headline; ?>
+                </h3>
+                <?php } ?>
                 
                 <div class="text-3 text-3--m-bottom">
                     <?php the_content(); ?>
@@ -31,10 +37,10 @@ if (have_posts()) : while (have_posts()) : the_post();
                 <!--/text-->
                 
                 <ul class="social-list">
-                    <?php echo ($instagram_url != '') ? '<li><i class="icon-instagram"></i><a href="'.$instagram_url.'" rel="nofollow" target="_blank">Instagram</a></li>' : ''; ?>
-                    <?php echo ($youtube_url != '') ? '<li><i class="icon-youtube-play"></i><a href="'.$youtube_url.'" rel="nofollow" target="_blank">Youtube</a></li>' : ''; ?>
-                    <?php echo ($facebook_url != '') ? '<li><i class="icon-facebook"></i><a href="'.$facebook_url.'" rel="nofollow" target="_blank">Facebook</a></li>' : ''; ?>
-                    <?php echo ($twitter_url != '') ? '<li><i class="icon-twitter"></i><a href="'.$twitter_url.'" rel="nofollow" target="_blank">Twitter</a></li>' : ''; ?>
+                    <?php echo ($instagram_url != '') ? '<li><a href="'.$instagram_url.'" rel="nofollow" target="_blank"><i class="icon-instagram"></i>Instagram</a></li>' : ''; ?>
+                    <?php echo ($youtube_url != '') ? '<li><a href="'.$youtube_url.'" rel="nofollow" target="_blank"><i class="icon-youtube-play"></i>Youtube</a></li>' : ''; ?>
+                    <?php echo ($facebook_url != '') ? '<li><a href="'.$facebook_url.'" rel="nofollow" target="_blank"><i class="icon-facebook"></i>Facebook</a></li>' : ''; ?>
+                    <?php echo ($twitter_url != '') ? '<li><a href="'.$twitter_url.'" rel="nofollow" target="_blank"><i class="icon-twitter"></i>Twitter</a></li>' : ''; ?>
                 </ul>
                 <!--/social-list-->
                 

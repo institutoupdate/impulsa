@@ -311,6 +311,12 @@ body {
         color: var(--color-primary);
         text-decoration: underline;  
     }
+    &.title--strong--primary {
+        strong {
+            color: var(--color-primary);
+            font-weight: 900;
+        }
+    }
     &.title--sm {
         font-size: 22px;
         @include breakpoint(tablet-lg) {
@@ -575,6 +581,15 @@ body {
         }
         @include breakpoint(desktop-xlg) {
             font-size: 54px;
+        }
+    }
+    &.title-4--m-bottom-xs {
+        margin-bottom: 15px;
+        @include breakpoint(tablet-lg) {
+            margin-bottom: 22px;
+        }
+        @include breakpoint(desktop-lg) {
+            margin-bottom: 25px;
         }
     }
     &.title-4--m-bottom-sm {
@@ -1189,21 +1204,6 @@ body {
                 }
             }
         }
-        span {
-            font-size: 12px;
-            font-family: var(--font-2);
-            font-weight: 400;
-                    
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: calc(100% - 184px);
-            display: inline-block;
-            margin-left: 10px;
-            @include breakpoint(phone) {
-                margin-left: 15px;
-            }
-        }
     }
     &.list--btns {
         display: block;
@@ -1220,6 +1220,21 @@ body {
             }
             &:last-child {
                 margin-bottom: 0;
+            }
+        }
+        span {
+            font-size: 12px;
+            font-family: var(--font-2);
+            font-weight: 400;
+                    
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: calc(100% - 184px);
+            display: inline-block;
+            margin-left: 10px;
+            @include breakpoint(phone) {
+                margin-left: 15px;
             }
         }
     }
@@ -1241,10 +1256,12 @@ body {
                         }
                     }
                 }
-                span {
-                    span {
-                        text-decoration: underline;
-                    }
+                .list__data {
+                    margin-left: 5px;
+                    text-transform: uppercase;
+                }
+                .list__title {
+                    text-decoration: underline;
                 }
             }
         }
@@ -1270,9 +1287,10 @@ body {
         font-size: 18px;
     }
     a {
+        color: var(--color-black);
         &:hover {
-            color: black;
-            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: underline;
         }
     }
 }
@@ -2164,6 +2182,15 @@ select {
     .article__video {
         position: relative;
         background-color: var(--color-bg);
+        &.article__img-m-bottom-sm {
+            margin-bottom: 15px;
+            @include breakpoint(tablet-lg) {
+                margin-bottom: 25px;
+            }
+            @include breakpoint(desktop-lg) {
+                margin-bottom: 30px;
+            }
+        }
     }
     .article__date {
         text-transform: uppercase;
@@ -3394,6 +3421,7 @@ select {
         opacity: 0.33;
         min-width: 2000px;
         font-size: 500px;
+        user-select: none; 
         @include breakpoint(phone) {
             font-size: 500px;
         }

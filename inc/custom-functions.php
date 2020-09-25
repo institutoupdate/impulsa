@@ -19,13 +19,19 @@ function the_excerpt_max_charlength($charlength) {
 	}
 }
 
+// Custom previous and next posts link
 add_filter('previous_posts_link_attributes', 'previous_posts_link_attributes');
 add_filter('next_posts_link_attributes', 'next_posts_link_attributes');
-
 
 function previous_posts_link_attributes() {
 	return 'class="btn-bg btn-bg--sz-sm btn-bg--border-1 pagination__prev"';
 }
 function next_posts_link_attributes() {
 	return 'class="btn-bg btn-bg--sz-sm btn-bg--border-1 pagination__next"';
+}
+
+// Get File Size
+function get_file_size($size) {
+	$units = array('Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB');
+	return @round($size / pow(1024, ($i = floor(log($size, 1024))))).$units[$i];
 }
