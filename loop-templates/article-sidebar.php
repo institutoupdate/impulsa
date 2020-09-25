@@ -16,7 +16,7 @@ $article_types = get_the_terms( $track_related_post_id, 'types' );
             <ul class="article__tag-list">
                 <?php if($post_type == 'post') { ?>
                 <li><span class="article__tag article__tag--bg-3">Blog</span></li>
-                <?php } else { 
+                <?php } elseif($article_types) { 
                     foreach ($article_types as $type) { ?>
                 <li><span class="article__tag article__tag--bg-2"><?php echo $type->name; ?></span></li>
                 <?php } } ?>
