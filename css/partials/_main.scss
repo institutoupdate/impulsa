@@ -3110,7 +3110,8 @@ select {
 
 .search-order2,
 .dropdown.dropdown--order .dropdown__btn,
-.dropdown.dropdown--order .dropdown__option {
+.dropdown.dropdown--order .dropdown__option, 
+.dropdown.dropdown--order li{
     font-weight: 700;
     line-height: 1.4;
     text-transform: uppercase;
@@ -3168,17 +3169,20 @@ select {
             align-items: center;
             justify-content: space-between;
         }
-        .dropdown__option {
+        .dropdown__option, li {
             display: block;
             width: 100%;
             text-align: left;
-            padding: 10px 15px;
-            @include breakpoint(tablet-lg) {
-                padding: 5px 10px;
-            }
-            &:hover {
-                color: var(--color-white);
-                background-color: var(--color-bg-3);
+            a {
+                display: block;
+                padding: 10px 15px;
+                @include breakpoint(tablet-lg) {
+                    padding: 5px 10px;
+                }
+                &:hover {
+                    color: var(--color-white);
+                    background-color: var(--color-bg-3);
+                }
             }
         }
         .dropdown__options {
@@ -3228,7 +3232,8 @@ select {
         }
         &.dropdown--language {
             .dropdown__btn,
-            .dropdown__option {
+            .dropdown__option,
+            li {
                 font-weight: 700;
                 line-height: 1.5;
                 font-size: 15px;
@@ -3268,7 +3273,8 @@ select {
                     }
                 }
             }
-            .dropdown__option {
+            .dropdown__option,
+            li {
                 color: var(--color-black);
                 &:hover {
                     color: var(--color-white);
@@ -3277,7 +3283,8 @@ select {
         }
         &.dropdown--language2 {
             .dropdown__btn,
-            .dropdown__option {
+            .dropdown__option,
+            li {
                 font-family: var(--font-2);
                 font-weight: 400;
                 line-height: 1.4;
@@ -3318,7 +3325,8 @@ select {
                     }
                 }
             }
-            .dropdown__option {
+            .dropdown__option,
+            li {
                 color: var(--color-black);
                 &:hover {
                     color: var(--color-white);

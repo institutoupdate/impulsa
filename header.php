@@ -35,12 +35,10 @@ $main_nav_menu = wp_nav_menu( array(
             <?php } ?>
             
             <div class="dropdown dropdown--select dropdown--language">
-                <button class="dropdown__btn" id="btn-language-header">Português <i class="icon-angle-down-regular"></i></button>
+                <button class="dropdown__btn" id="btn-language-header"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-regular"></i></button>
                 <div class="dropdown__options" id="language-header">
                     <ul>
-                        <li><a href="#" class="dropdown__option">Português</a></li>
-                        <li><a href="#" class="dropdown__option">Espanhol</a></li>
-                        <li><a href="#" class="dropdown__option">Inglês</a></li>
+                        <?php pll_the_languages(array('hide_current'=>1)); ?>
                     </ul>
                 </div>
                 <!--/dropdown-options-->

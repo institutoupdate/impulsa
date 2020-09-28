@@ -351,7 +351,7 @@
                     "key": "field_5f6b72826c79e",
                     "label": "Link",
                     "name": "about-who-finances_logos_link",
-                    "type": "link",
+                    "type": "url",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -360,7 +360,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         },
@@ -406,7 +407,7 @@
                     "key": "field_5f6b7194eed70",
                     "label": "Link",
                     "name": "about-who-finances_links_link",
-                    "type": "link",
+                    "type": "url",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -415,7 +416,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         }
@@ -439,5 +441,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1600877262
+    "modified": 1601301640
 }

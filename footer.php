@@ -73,12 +73,10 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 				
 					<div class="dropdown dropdown--select dropdown--language2">
-						<button class="dropdown__btn" id="btn-language-footer">Português <i class="icon-angle-down-light"></i></button>
+						<button class="dropdown__btn" id="btn-language-footer"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-light"></i></button>
 						<div class="dropdown__options" id="language-footer">
 							<ul>
-								<li><a href="#" class="dropdown__option">Português</a></li>
-								<li><a href="#" class="dropdown__option">Espanhol</a></li>
-								<li><a href="#" class="dropdown__option">Inglês</a></li>
+                        		<?php pll_the_languages(array('hide_current'=>1)); ?>
 							</ul>
 						</div>
 						<!--/dropdown-options-->
