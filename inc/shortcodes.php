@@ -32,7 +32,7 @@ function sc_youtube($atts) {
                $variables = $start.$end.$autoplay;
           $sc_return .= '?'.substr($variables, 1);
           $sc_return .= '" frameborder="0" allowfullscreen></iframe></div>';
-          $sc_return .= '</div></div>';  
+          $sc_return .= '</div></div>';
 
      return $sc_return;
 }
@@ -103,5 +103,48 @@ function sc_giphy($atts) {
 }
 add_shortcode('giphy', 'sc_giphy');
 
+function impulsa_shortcode_quote($atts = array(), $content = null) {
+  ob_start();
+  ?>
+  <div class="impulsa-quote">
+    <blockquote>
+      <?php echo $content; ?>
+    </blockquote>
+  </div>
+  <?php
+  return ob_get_clean();
+}
+add_shortcode('quote', 'impulsa_shortcode_quote');
+
+function impulsa_shortcode_content_snippet($atts = array()) {
+  if(!$atts['id'])
+    return '';
+  $p = get_post($atts['id']);
+  if(!$p)
+    return '';
+  global $post;
+  $post = $p;
+  setup_postdata($post);
+  ob_start();
+  ?>
+    <div class="impulsa-content-snippet">
+      <div class="snippet-icon">
+        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/svg/snippet-icon.svg" />
+        </a>
+      </div>
+      <div class="snippet-content">
+        <h4>
+          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+        </h4>
+        <?php the_excerpt(); ?>
+      </div>
+    </div>
+  <?php
+  wp_reset_postdata();
+  return ob_get_clean();
+
+}
+add_shortcode('content_snippet', 'impulsa_shortcode_content_snippet');
 
 ?>
