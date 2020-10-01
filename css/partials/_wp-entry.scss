@@ -45,16 +45,27 @@
         }
     }
     h1, h2, h3, h4, h5, h6 {
-        font-family: var(--font-5);
-        font-weight: 700;
-        line-height: 95%;
-        letter-spacing: -.05em;
-        margin-bottom: 20px;
+      line-height: 95%;
+      margin-bottom: 20px;
+    @include breakpoint(tablet-lg) {
+        margin-bottom: 30px;
+      }
+    @include breakpoint(desktop-xlg) {
+        margin-bottom: 35px;
+      }
+    }
+    h1, h2, h3 {
+        font-family: var(--font-3);
+        font-weight: 400;
+    }
+    h4, h5, h6 {
+        font-size: 16px;
+        font-family: var(--font-2);
     	@include breakpoint(tablet-lg) {
-        	margin-bottom: 30px;
+            font-size: 22px;
         }
     	@include breakpoint(desktop-xlg) {
-        	margin-bottom: 35px;
+            font-size: 28px;
         }
     }
     h1 {
@@ -68,6 +79,9 @@
     }
     h2 {
         font-size: 26px;
+        strong {
+          color: var(--color-sextary);
+        }
     	@include breakpoint(tablet-lg) {
             font-size: 36px;
         }
@@ -76,40 +90,22 @@
         }
     }
     h3 {
-        font-size: 23px;
+        font-size: 18px;
+        text-transform: uppercase;
+        background-color: var(--color-sextary);
+        color: #fff;
+        display: inline-block;
+        padding: 4px;
     	@include breakpoint(tablet-lg) {
-            font-size: 32px;
+            font-size: 24px;
         }
     	@include breakpoint(desktop-xlg) {
-            font-size: 45px;
+            font-size: 30px;
         }
     }
     h4 {
-        font-size: 21px;
-    	@include breakpoint(tablet-lg) {
-            font-size: 30px;
-        }
-    	@include breakpoint(desktop-xlg) {
-            font-size: 40px;
-        }
-    }
-    h5 {
-        font-size: 19px;
-    	@include breakpoint(tablet-lg) {
-            font-size: 27px;
-        }
-    	@include breakpoint(desktop-xlg) {
-            font-size: 35px;
-        }
-    }
-    h6 {
-        font-size: 17px;
-    	@include breakpoint(tablet-lg) {
-            font-size: 25px;
-        }
-    	@include breakpoint(desktop-xlg) {
-            font-size: 30px;
-        }
+      color: var(--color-sextary);
+      font-weight: 800;
     }
     ul, ol {
         font-family: var(--font-2);
@@ -137,33 +133,107 @@
             list-style: decimal;
         }
     }
-    blockquote {
-        font-family: var(--font-3);
+    // blockquote {
+    //     font-family: var(--font-3);
+    //     font-weight: 400;
+    //     color: var(--color-primary);
+    //     width: 60%;
+    //     letter-spacing: -.05em;
+    //     line-height: 1.05;
+    //     font-size: 28px;
+    //     margin: 30px 0;
+    // 	@include breakpoint(tablet-lg) {
+    //         font-size: 35px;
+    //     }
+    //     @include breakpoint(desktop-xlg) {
+    //         margin: 40px 0;
+    //         font-size: 40px;
+    //         width: 50%;
+    //     }
+    //     strong {
+    //         font-weight: 900;
+    //     }
+    //     p {
+	  //       font-size: 22px;
+	  //       font-weight: 700;
+	  //   	@include breakpoint(tablet-lg) {
+	  //           font-size: 40px;
+	  //       }
+	  //   }
+    // }
+    .impulsa-quote {
+      blockquote {
+        font-family: var(--font-2);
+        font-size: 14px;
         font-weight: 400;
-        color: var(--color-primary);
-        width: 60%;
-        letter-spacing: -.05em;
-        line-height: 1.05;
-        font-size: 28px;
-        margin: 30px 0;
-    	@include breakpoint(tablet-lg) {
-            font-size: 35px;
+        line-height: 1.55;
+        margin-bottom: 15px;
+        border: 2px solid #edb652;
+        padding: 15px;
+        @include breakpoint(tablet-lg) {
+            font-size: 16px;
         }
         @include breakpoint(desktop-xlg) {
-            margin: 40px 0;
-            font-size: 40px;
-            width: 50%;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
         }
         strong {
-            font-weight: 900;
+            font-weight: 700;
+        }
+      }
+    }
+    .impulsa-content-snippet {
+      display: flex;
+      align-items: center;
+      border-left: 2px solid var(--color-sextary);
+      margin-top: 30px;
+      margin-bottom: 30px;
+      .snippet-icon {
+        flex: 0 0 auto;
+        padding: 0 20px;
+        img {
+          width: 50px;
+          height: auto;
+          margin: 0;
+          display: block;
+        }
+      }
+      .snippet-content {
+        flex: 1 1 100%;
+        h4 {
+          color: var(--color-text);
+          margin: 0 0 5px;
+          font-size: 16px;
+          a {
+            color: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+          }
         }
         p {
-	        font-size: 22px;
-	        font-weight: 700;
-	    	@include breakpoint(tablet-lg) {
-	            font-size: 40px;
-	        }
-	    }
+          margin: 0;
+          font-size: 14px;
+        }
+      }
+      @include breakpoint(desktop-xlg) {
+          margin-top: 40px;
+          margin-bottom: 40px;
+          .snippet-icon {
+            padding: 0 40px;
+            img {
+              width: 70px;
+            }
+          }
+          .snippet-content {
+            h4 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 16px;
+            }
+          }
+      }
     }
     table {
         width: 100%;
