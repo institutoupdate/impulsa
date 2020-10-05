@@ -52,11 +52,11 @@ if (have_posts()) : while (have_posts()) : the_post();
                 <div class="box box--bg-gray box--border box--pad-lg">
 
                     <?php if($form_result == 1 AND !empty($_POST['data-submit'])) { ?>
-                    <p class="title-3 title-3--uppercase title-3--m-bottom-md">El mensaje se ha enviado correctamente. Le responderemos a la brevedad.</p>
+                    <p class="title-3 title-3--uppercase title-3--m-bottom-md"><?php echo pll__('A mensagem foi enviada com êxito. Iremos responder prontamente'); ?></p>
                     <?php } elseif($form_result == 0 AND !empty($_POST['data-submit'])) { ?>
-                    <p class="title-3 title-3--uppercase title-3--m-bottom-md">Se ha producido un error al enviar el formulario. Inténtelo nuevamente.</p>
+                    <p class="title-3 title-3--uppercase title-3--m-bottom-md"><?php echo pll__('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.'); ?></p>
                     <?php } else { ?>
-                    <h3 class="title-3 title-3--uppercase title-3--m-bottom-md">¿Algo para decirnos?</h3>
+                    <h3 class="title-3 title-3--uppercase title-3--m-bottom-md"><?php echo pll__('Algo para nos contar?'); ?></h3>
                     <?php } ?>
 
                     <form action="#" method="POST" class="form">
@@ -64,7 +64,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                         <div class="form__grid">
 
                             <div class="input">
-                                <label class="input__label" for="input-name">Nombre</label>
+                                <label class="input__label" for="input-name"><?php echo pll__('Nome'); ?></label>
                                 <div class="input__box">
                                     <input name="data-name" id="input-name" type="text">
                                 </div>
@@ -73,7 +73,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                             <!--/input-->
 
                             <div class="input">
-                                <label class="input__label" for="input-email">Correo electrónico</label>
+                                <label class="input__label" for="input-email"><?php echo pll__('E-mail'); ?></label>
                                 <div class="input__box">
                                     <input name="data-email" id="input-email" type="email">
                                 </div>
@@ -82,7 +82,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                             <!--/input-->
 
                             <div class="input">
-                                <label class="input__label" for="input-message">Mensaje</label>
+                                <label class="input__label" for="input-message"><?php echo pll__('Mensagem'); ?></label>
                                 <textarea name="data-message" id="input-message"></textarea>
                             </div>
                             <!--/input-->
@@ -90,7 +90,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                             <div class="btn-box btn-box--right">
                                 <input type="hidden" name="url" value="">
                                 <input type="hidden" name="recaptcha_response" id="recaptchaResponse" />
-                                <input class="btn-bg btn-bg--bg-1" name="data-submit" type="submit" value="Enviar mensaje" />
+                                <input class="btn-bg btn-bg--bg-1" name="data-submit" type="submit" value="<?php echo pll__('Enviar mensagem'); ?>" />
                             </div>
                             <!--/btn-box-->
 

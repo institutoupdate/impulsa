@@ -4,20 +4,24 @@ get_header();
 // Type
 $types = get_terms([
     'taxonomy' => 'types',
-    'hide_empty' => false,
+    'hide_empty' => true,
 ]);
 
 // Topics
 $topics = get_terms([
     'taxonomy' => 'topics',
-    'hide_empty' => false,
+    'hide_empty' => true,
 ]);
 
 // Countries
 $countries = get_terms([
     'taxonomy' => 'countries',
-    'hide_empty' => false,
+    'hide_empty' => true,
 ]);
+
+$topics_selected = isset($_GET['topic']) ? $_GET['topic'] : '';
+$types_selected = isset($_GET['type']) ? $_GET['type'] : '';
+$countries_selected = isset($_GET['country']) ? $_GET['country'] : '';
 
 // Count
 $count = 0;
@@ -25,7 +29,7 @@ $count = 0;
 ?>
 <main class="block block--pad-3 js-first-block">
     <div class="container">
-        <h2 class="title-2 title-2--m-bottom-lg ">Biblioteca</h2>
+        <h2 class="title-2 title-2--m-bottom-lg "><?php echo pll__('Biblioteca'); ?></h2>
         <form action="#" method="GET" class="grid grid--4y8">
 
             <aside class="sidebar">
@@ -33,7 +37,7 @@ $count = 0;
                 <div class="dropdown dropdown--sticky">
 
                     <div class="dropdown__header">
-                        <h5 class="title-3 title-3--sm title-3--uppercase">Filtros</h5>
+                        <h5 class="title-3 title-3--sm title-3--uppercase"><?php echo pll__('Filtros'); ?></h5>
                         <button class="dropdown__btn js-dropdown__btn"><i class="icon-angle-down-solid"></i></button>
                     </div>
                     <!--/dropdwon-header-->
@@ -49,7 +53,7 @@ $count = 0;
                                     <?php foreach ($topics as $topic) { ?>
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="topic" value="<?php echo $topic->slug; ?>" <?php if(isset($_GET['topic']) && ($topic->slug == $_GET['topic']) ) { echo 'checked'; } ?> >
+                                            <input type="checkbox" name="topic[]" value="<?php echo $topic->slug; ?>" <?php if( $topics_selected && in_array($topic->slug, $topics_selected ) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $topic->name; ?></span>
                                         </label>
@@ -68,7 +72,7 @@ $count = 0;
                                     <?php foreach ($types as $type) { ?>
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="type" value="<?php echo $type->slug; ?>" <?php if(isset($_GET['type']) && ($type->slug == $_GET['type']) ) { echo 'checked'; } ?> >
+                                            <input type="checkbox" name="type[]" value="<?php echo $type->slug; ?>" <?php if( $types_selected && in_array($type->slug, $types_selected ) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $type->name; ?></span>
                                         </label>
@@ -87,7 +91,7 @@ $count = 0;
                                     <?php foreach ($countries as $country) { ?>
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="country" value="<?php echo $country->slug; ?>" <?php if(isset($_GET['country']) && ($country->slug == $_GET['country']) ) { echo 'checked'; } ?> >
+                                            <input type="checkbox" name="country[]" value="<?php echo $country->slug; ?>" <?php if( $countries_selected && in_array($country->slug, $countries_selected ) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $country->name; ?></span>
                                         </label>
@@ -118,11 +122,11 @@ $count = 0;
 
             <section class="block__main">
 
-                <div class="search search--m-bottom">
-                    <input type="text" class="search__input" name="s" placeholder="Procura algo? Tente “redes sociais” ou “voluntariado”" <?php if( isset($_GET['s']) ) { echo'value="'.$_GET['s'].'"'; } ?> >
-                    <button class="search__btn" type="submit"><i class="icon-search"></i></button>
-                </div>
-                <!--/search-->
+                <?php
+                // Search
+                set_query_var( 'search_classes', 'search--m-bottom');
+                get_template_part('global-templates/search');
+                ?>
 
                 <div class="search-header">
                 

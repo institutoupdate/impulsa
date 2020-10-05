@@ -125,7 +125,7 @@ $(document).ready(function() {
 
     // Dropdown language header
     var $dropdownHeaderTime = 400;
-    $('#btn-language-header').click(function(event) {
+    $('#btn-language-header').on('click', function(event) {
         event.preventDefault();
         $(this).toggleClass('active');
         $('#language-header').slideToggle($dropdownHeaderTime);

@@ -1,5 +1,9 @@
-<?php get_header(); ?>
-
+<?php 
+get_header();
+$current_lng = pll_current_language('slug');
+$blog_headline = get_field('blog-headline', $current_lng);
+$blog_txt = get_field('blog-txt', $current_lng);
+?>
 <main class="block block--blog block--pad-3 js-first-block">
     <div class="container">
 
@@ -8,10 +12,18 @@
         <div class="grid grid--4y8">
 
             <aside class="sidebar">
-                <h3 class="title title--m-bottom"><strong class="title__block title__900">Lorem ipsum</strong>Lorem ipsum dolor sit amet</h3>
-                <p class="text-3">
-                    Lorem ipsum dolor sit amet, consectetur <strong>adipiscing elit, sed do eiusmod tempor incididunt</strong> ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                </p>
+                <?php if($blog_headline) { ?>
+                <h3 class="title title--strong-primary title--m-bottom">
+                   <?php echo $blog_headline; ?>
+                </h3>
+                <?php } ?>
+
+                <?php if($blog_txt) { ?>
+                <div class="text-3">
+                   <?php echo $blog_txt; ?>
+                </div>
+                <!--/text-->
+                <?php } ?>
             </aside>
             <!--/sidebar-->
 

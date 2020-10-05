@@ -4,6 +4,25 @@
     "fields": [
         {
             "key": "field_5f4015f8a2744",
+            "label": "Language Code",
+            "name": "lang_code",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f74ca7a1bb57",
             "label": "Country Code",
             "name": "country_code",
             "type": "text",
@@ -39,5 +58,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1598271386
+    "modified": 1601489589
 }

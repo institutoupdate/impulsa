@@ -6,6 +6,7 @@
  * @return type
  */
 function alter_main_query( $query ) {
+
     if ( $query->is_admin || $query->is_single || !$query->is_main_query() )
         return $query;
 
@@ -17,54 +18,81 @@ function alter_main_query( $query ) {
         $query->set('posts_per_page',10);
         $query->set('paged',$paged);
 
+        $order = isset($_GET['order']) ? $_GET['order'] : '';
+        $topic = isset($_GET['topic']) ? $_GET['topic'] : '';
+        $type = isset($_GET['type']) ? $_GET['type'] : '';
+        $country = isset($_GET['country']) ? $_GET['country'] : '';
+        
+        $count = 0;
+        $tax_arr = array($topic, $type, $country);
+        foreach( $tax_arr as $tax ){
+            if(!empty($tax)){
+                $count++;
+            }
+        }
+        if( $count > 1 ){
+            $tax_query['relation'] = 'AND';
+        }
+
         // Order
-        if( isset( $_GET['order'] ) ) {
-            $query->set('order', $_GET['order']);
+        if( $order ) {
+            $query->set('order', $order);
         }
-
-        // Search
-        if( isset( $_GET['s'] ) ) {
-            $query->set('s', $_GET['s']);
-        }
-
+        
         // Taxonomies
-        if( isset( $_GET['topic'] ) || isset( $_GET['type'] ) || isset( $_GET['country'] )){
-
+        if( $topic || $type || $country ){
             $tax_query = array();
 
-            if( !empty($_GET['topic']) ){
+            // Topic
+            if( $topic ) {
                 $tax_query[] = array(
                     'taxonomy' => 'topics',
                     'field' => 'slug',
-                    'terms' => $_GET['topic']
+                    'terms' => $topic
                 );
             }
-            $query->set('tax_query', $tax_query);
 
-            if( !empty($_GET['type']) ){
+            // Type
+            if( $type ) {
                 $tax_query[] = array(
                     'taxonomy' => 'types',
                     'field' => 'slug',
-                    'terms' => $_GET['type']
+                    'terms' => $type
                 );
             }
-            $query->set('tax_query', $tax_query);
 
-            if( !empty($_GET['country']) ){
+            // Country
+            if( $country ) {
                 $tax_query[] = array(
                     'taxonomy' => 'countries',
                     'field' => 'slug',
-                    'terms' => $_GET['country']
+                    'terms' => $country
                 );
             }
+
             $query->set('tax_query', $tax_query);
 
+
         }
-    //$taxquery = array(array('taxonomy' => 'post_tags'));
     }
 
-    //echo '<pre>'; print_r($query);
-    //die();
+    // Change country query
+    /*if (isset($_COOKIE['geo_country']) && $_COOKIE['geo_country'] !== 'null' )  {
+
+        $query->set('post_type', array('materials', 'posts'));
+
+        $tax_query = array();
+        $tax_query[] = array(
+            'taxonomy' => 'countries',
+            'field' => 'slug',
+            'terms' => $_COOKIE['geo_country']
+        );
+        $query->set('tax_query', $tax_query);
+        
+    }*/
+
+    // echo '<pre>'; print_r($query); echo '</pre>';
+    // die();
 
 }
 add_action( 'pre_get_posts', 'alter_main_query' );

@@ -7,8 +7,14 @@ $main_nav_menu = wp_nav_menu( array(
     'container' => FALSE,
     'fallback_cb' => '__return_false'
 ) );
-?>
 
+// Countries
+$countries = get_terms([
+    'taxonomy' => 'countries',
+    'hide_empty' => false,
+]);
+
+?>
 <body class="body--p-top">
 
 <header class="header header--bg-transparent js-header header--mobile-3">
@@ -33,17 +39,21 @@ $main_nav_menu = wp_nav_menu( array(
             </nav>
             <!--/header-nav-->
             <?php } ?>
-            
+
+            <?php if($countries) { ?>
             <div class="dropdown dropdown--select dropdown--language">
-                <button class="dropdown__btn" id="btn-language-header"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-regular"></i></button>
+                <button class="dropdown__btn" id="btn-language-header">Selecione um pais <i class="icon-angle-down-regular"></i></button>
                 <div class="dropdown__options" id="language-header">
                     <ul>
-                        <?php pll_the_languages(array('hide_current'=>1)); ?>
+                        <?php foreach ($countries as $country) { ?>
+                        <li><a data-country-code="<?php echo $country->slug; ?>" href="#"><?php echo $country->name; ?></a></li>
+                        <?php } ?>
                     </ul>
                 </div>
                 <!--/dropdown-options-->
             </div>
             <!--/dropdown-select-->
+            <?php } ?>
             
         </div>
         <!--/header-menu-->

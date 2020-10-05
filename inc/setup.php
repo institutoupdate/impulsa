@@ -140,3 +140,45 @@ function cc_mime_types($mimes) {
 	return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
+
+// Strings translations
+add_action('init', function() {
+
+	// General
+	pll_register_string('Track', 'Trilha', 'General');
+	pll_register_string('See more', 'Ver mais', 'General');
+
+    // Newsletter
+    pll_register_string('Newsletter title', 'Fique por dentro!', 'Newsletter');
+    pll_register_string('Newsletter subtitle', 'Receba as novidades da Im.pulsa no seu e-mail', 'Newsletter');
+	pll_register_string('Name', 'Nome', 'Newsletter');
+	pll_register_string('E-mail', 'E-mail', 'Newsletter');
+	pll_register_string('Submit', 'Cadastrar', 'Newsletter');
+
+	// Footer
+	pll_register_string('Copyright', 'Todo o conteúdo desta Plataforma está disponível em Creative Commons By-SA 4.0', 'Footer');
+	pll_register_string('About Impulsa', 'Sobre Im.pulsa', 'Footer');
+	pll_register_string('Impulsa in the media', 'Im.pulsa na media', 'Footer');
+	pll_register_string('Social Networks', 'Redes', 'Footer');
+	pll_register_string('Impulsa project', 'Im.pulsa é um projeto das', 'Footer');
+
+	// Search
+	pll_register_string('Placeholder', 'Procura algo? Tente “redes sociais” ou “voluntariado”', 'Search');
+
+	// Library
+	pll_register_string('Title', 'Biblioteca', 'Library');
+	pll_register_string('Filters', 'Filtros', 'Library');
+
+	// Contact
+	pll_register_string('Title', 'Algo para nos contar?', 'Contact');
+	pll_register_string('Success', 'A mensagem foi enviada com êxito. Iremos responder prontamente', 'Contact');
+	pll_register_string('Error', 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.', 'Contact');
+	pll_register_string('Name', 'Nome', 'Contact');
+	pll_register_string('E-mail', 'E-mail', 'Contact');
+	pll_register_string('Message', 'Mensagem', 'Contact');
+	pll_register_string('Submit', 'Enviar mensagem', 'Contact');
+
+	// FAQ
+	pll_register_string('Contact section', 'Dúvidas? Você pode nos escrever em nossa seção de contato', 'FAQ');
+
+});

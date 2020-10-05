@@ -56,7 +56,7 @@ $headline = get_field('headline');
                 <!--/question-->
                 <?php endwhile; else : endif; ?>
 
-                <p class="title title--sm">¿Dudas? Podés escribirnos en nuestra <a href="<?php echo home_url();?>/contato">Sección de contacto</a></p>  
+                <p class="title title--sm"><?php echo pll__('Dúvidas? Você pode nos escrever em nossa seção de contato'); ?></p>  
             
             </div>
             <!-- /block__main -->

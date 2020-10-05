@@ -3,6 +3,60 @@
     "title": "Content",
     "fields": [
         {
+            "key": "field_5f7b19fd62bf9",
+            "label": "Tracks page",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f7b2c794c78a",
+            "label": "Title",
+            "name": "tracks-title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f7b2c532a3c4",
+            "label": "Headline",
+            "name": "tracks-headline",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_5f6e4e803331e",
             "label": "Featured Topics",
             "name": "featured-topics",
@@ -23,6 +77,60 @@
             "load_terms": 0,
             "return_format": "object",
             "multiple": 0
+        },
+        {
+            "key": "field_5f7b1a0e62bfa",
+            "label": "Blog page",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f7b1a1d62bfb",
+            "label": "Headline",
+            "name": "blog-headline",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5f7b1a3e62bfc",
+            "label": "Text",
+            "name": "blog-txt",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -30,7 +138,14 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "generic-content"
+                "value": "page-name-es"
+            }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "page-name-pt"
             }
         ]
     ],
@@ -42,5 +157,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1601065885
+    "modified": 1601907847
 }

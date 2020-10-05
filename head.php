@@ -17,7 +17,7 @@ $meta_facebook_id = get_field('meta_facebook_id', 'option');
 		else {
 			if (function_exists('is_tag') && is_tag()) { echo 'Etiqueta &quot;'.$tag.'&quot; &mdash; '; } 
 			elseif (is_archive()) { wp_title(''); echo ' &mdash; Archivo &mdash; '; } 
-			elseif (is_search()) { echo 'B&uacute;squeda para &quot;'.wp_specialchars($s).'&quot; &mdash; '; } 
+			elseif (is_search()) { echo 'B&uacute;squeda para &quot;'.esc_html($s).'&quot; &mdash; '; } 
 
 			elseif (!(is_404()) && (is_single()) || (is_page())) { // Si es post/page
 				wp_title(''); echo ' &mdash; '; 

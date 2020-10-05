@@ -9,8 +9,8 @@
 		<div class="grid grid--contact">
 
 			<div class="block__content">
-				<h3 class="block__title-2">Fique por dentro!</h3>
-				<p class="text">Receba as novidades da Im.pulsa no seu e-mail</p>
+				<h3 class="block__title-2"><?php echo pll__('Fique por dentro!'); ?></h3>
+				<p class="text"><?php echo pll__('Receba as novidades da Im.pulsa no seu e-mail'); ?></p>
 			</div>
 			<!--/block-content-->
 
@@ -20,7 +20,7 @@
 					<div class="form__grid">
 
 						<div class="input">
-							<label class="input__label" for="input-name">Nome</label>
+							<label class="input__label" for="input-name"><?php echo pll__('Nome'); ?></label>
 							<div class="input__box">
 								<input name="data-name" id="input-name" type="text">
 							</div>
@@ -29,7 +29,7 @@
 						<!--/input-->
 
 						<div class="input">
-							<label class="input__label" for="input-email">E-mail</label>
+							<label class="input__label" for="input-email"><?php echo pll__('E-mail'); ?></label>
 							<div class="input__box">
 								<input name="data-email" id="input-email" type="email">
 							</div>
@@ -38,7 +38,7 @@
 						<!--/input-->
 
 						<div class="btn-box">
-							<button class="btn-bg btn-bg--shadow" type="submit">Cadastrar</button>
+							<button class="btn-bg btn-bg--shadow" type="submit"><?php echo pll__('Cadastrar'); ?></button>
 						</div>
 						<!--/btn-box-->
 

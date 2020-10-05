@@ -18,12 +18,21 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'		=> true
     ));
 
-   /* acf_add_options_sub_page(array(
-        'page_title' 	=> 'General',
-        'menu_title'	=> 'General',
-        'parent_slug'	=> 'contenido',
-        'capability' 	=> 'edit_pages',
-    ));*/
+    foreach (['es', 'pt'] as $lang) {
+        $title_menu = '';
+        if($lang == 'es') {
+            $title_menu = 'Spanish';
+        } else {
+            $title_menu = 'Portuguese';
+        }
+        acf_add_options_sub_page([
+            'page_title' => $title_menu,
+            'menu_title' => $title_menu,
+            'menu_slug' => "page-name-${lang}",
+            'post_id' => $lang,
+            'parent' => 'generic-content'
+        ]);
+    }
 
 }
 

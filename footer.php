@@ -6,8 +6,6 @@ $facebook_url = get_field( 'facebook_url', 'option' );
 $twitter_url = get_field( 'twitter_url', 'option' );
 
 // Main Menu
-$main_nav = wp_get_nav_menu_object(6);
-$main_nav_name = $main_nav->name;
 $main_nav_menu = wp_nav_menu( array(
    'theme_location' => 'main-nav',
    'echo' => FALSE,
@@ -17,8 +15,6 @@ $main_nav_menu = wp_nav_menu( array(
 ) );
 
 // Alt Menu
-$alt_nav = wp_get_nav_menu_object(7);
-$alt_nav_name = $alt_nav->name;
 $alt_nav_menu = wp_nav_menu( array(
    'theme_location' => 'alt-nav',
    'echo' => FALSE,
@@ -38,7 +34,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 					<?php if ( ! empty ( $main_nav_menu ) ) { ?>
 					<div class="footer__col">
-						<h5 class="footer__col__title"><?php echo $main_nav_name; ?></h5>
+						<h5 class="footer__col__title"><?php echo pll__('Sobre Im.pulsa'); ?></h5>
 						<?php echo $main_nav_menu; ?>
 					</div>
 					<!--/footer-col-->
@@ -46,7 +42,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 					<?php if ( ! empty ( $alt_nav_menu ) ) { ?>
 					<div class="footer__col">
-						<h5 class="footer__col__title"><?php echo $alt_nav_name; ?></h5>
+						<h5 class="footer__col__title"><?php echo pll__('Im.pulsa na media'); ?></h5>
 						<?php echo $alt_nav_menu; ?>
 					</div>
 					<!--/footer-col-->
@@ -54,7 +50,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 					<?php if ( $instagram_url || $youtube_url || $facebook_url || $twitter_url ) { ?>
 					<div class="footer__col">
-						<h5 class="footer__col__title">Redes</h5>
+						<h5 class="footer__col__title"><?php echo pll__('Redes'); ?></h5>
 						<div class="footer__nav footer__nav--social">
 							<?php echo ($instagram_url != '') ? '<a href="'.$instagram_url.'" rel="nofollow" target="_blank"><i class="icon-instagram"></i>Instagram</a>' : ''; ?>
 							<?php echo ($youtube_url != '') ? '</i><a href="'.$youtube_url.'" rel="nofollow" target="_blank"><i class="icon-youtube-play"></i>Youtube</a>' : ''; ?>
@@ -70,8 +66,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 				<!-- /footer__columns -->
 
 				<div class="footer__bottom">
-
-				
+					
 					<div class="dropdown dropdown--select dropdown--language2">
 						<button class="dropdown__btn" id="btn-language-footer"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-light"></i></button>
 						<div class="dropdown__options" id="language-footer">
@@ -85,7 +80,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 					<div class="footer__copy">
 						<img src="<?php echo bloginfo('template_url'); ?>/images/svg/cc-heart.svg" alt="">
-						<span>Todo o conteúdo desta Plataforma está disponível em <a href="#">Creative Commons By-SA 4.0</a></span>
+						<span><?php echo pll__('Todo o conteúdo desta Plataforma está disponível em Creative Commons By-SA 4.0'); ?></span>
 					</div>
 					<!--/footer-copy-->
 
@@ -96,7 +91,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 			<div class="logos">
 
-				<h5 class="logos__title">Im.pulsa é um projeto das</h5>
+				<h5 class="logos__title"><?php echo pll__('Im.pulsa é um projeto das'); ?></h5>
 
 				<div class="logos__content">
 

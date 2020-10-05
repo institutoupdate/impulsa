@@ -1,20 +1,27 @@
 <?php
 get_header();
-$featured_topcis = get_field('featured-topics', 'options');
+$current_lng = pll_current_language('slug');
+$featured_topcis = get_field('featured-topics', $current_lng);
+$tracks_title = get_field('tracks-title', $current_lng);
+$tracks_headline = get_field('tracks-headline', $current_lng);
 if( $featured_topcis ):
 ?>
 <section class="block block--pad-2 js-first-block">
     <div class="container">
 
-        <form action="#" method="POST" class="search search--m-bottom">
-            <input type="text" class="search__input" placeholder="Procura algo? Tente “redes sociais” ou “voluntariado”">
-            <button class="search__btn" type="submit"><i class="icon-search"></i></button>
-        </form>
-        <!--/search-->
+        <?php
+        // Search
+        set_query_var( 'search_classes', 'search--m-bottom');
+        get_template_part('global-templates/search');
+        ?>
 
         <div class="block__header">
-            <h2 class="title-2">Trilhas</h2>
-            <p class="block__headline">As trilhas são percursos para te ajudar a lerem iosum. Navegue pelos temas.</p>
+            <?php if($tracks_title) { ?>
+            <h2 class="title-2"><?php echo $tracks_title; ?></h2>
+            <?php } ?>
+            <?php if($tracks_headline) { ?>
+            <p class="block__headline"><?php echo $tracks_headline; ?></p>
+            <?php } ?>
         </div>
         <!--/block-header-->
 
@@ -25,7 +32,7 @@ if( $featured_topcis ):
 
                 <div class="box__header">
                     <h4 class="title-3 title-3--uppercase"><?php echo esc_html( $topic->name ); ?></h4>
-                    <a href="<?php echo esc_url( get_term_link( $topic ) ); ?>" class="btn btn--c-gray">Ver más <i class="icon-arrow-right"></i></a>
+                    <a href="<?php echo esc_url( get_term_link( $topic ) ); ?>" class="btn btn--c-gray"><?php echo pll__('Ver mais'); ?> <i class="icon-arrow-right"></i></a>
                 </div>
                 <!-- box-header-->
                 

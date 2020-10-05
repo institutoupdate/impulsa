@@ -2,6 +2,7 @@
 $about_who_finances_title = get_field('about-who-finances_title');
 $about_who_finances_content = get_field('about-who-finances_content');
 $about_who_finances_links_title = get_field('about-who-finances_links-title');
+$about_who_finances_links_text = get_field('about-who-finances_links-text');
 ?>
 <div class="semiblock">
 
@@ -29,10 +30,8 @@ $about_who_finances_links_title = get_field('about-who-finances_links-title');
                         if($about_who_finances_logo_img) {
                             $about_who_finances_logo_img_url = $about_who_finances_logo_img['url'];
                     ?>
-                    <?php if($about_who_finances_logo_link) {
-                        $about_who_finances_logo_link_url = $about_who_finances_logo_link['url'];
-                    ?>
-                    <a href="<?php echo $about_who_finances_logo_link_url ?>" target="_blank" class="svg-link">
+                    <?php if($about_who_finances_logo_link) { ?>
+                    <a href="<?php echo $about_who_finances_logo_link; ?>" target="_blank" class="svg-link">
                     <?php } else { ?>
                     <div class="svg-link">
                     <?php } ?>
@@ -80,23 +79,15 @@ $about_who_finances_links_title = get_field('about-who-finances_links-title');
         <h4 class="title-3 title-3--uppercase title-3--m-bottom"><?php echo $about_who_finances_links_title; ?></h4>
         <?php } ?>
 
-        <?php if( have_rows('about-who-finances_links') ): ?>
+        <?php if($about_who_finances_links_text) { ?>
         <div class="grid grid--6y2">
-            <ul class="list-grid">
-            <?php while( have_rows('about-who-finances_links') ) : the_row(); 
-                $about_who_finances_link = get_sub_field('about-who-finances_links_link');
-                if($about_who_finances_link) {
-                    $about_who_finances_link_url = $about_who_finances_link['url'];
-                    $about_who_finances_link_title = $about_who_finances_link['title'];
-                    $about_who_finances_link_target = $about_who_finances_link['target'] ? $about_who_finances_link['target'] : '_self';
-            ?>
-            <li><a href="<?php echo $about_who_finances_link_url; ?>" target="<?php echo $about_who_finances_link_target; ?>"><?php echo $about_who_finances_link_title; ?></a></li>
-            <?php } endwhile; ?>
-            </ul>
-            <!--/list-grid-->
+            <div class="text">
+                <?php echo $about_who_finances_links_text; ?>
+            </div>
+            <!--/text-->
         </div>
         <!--/grid-6y2-->
-        <?php else : endif; ?>
+        <?php } ?>
 
     </div>
     <!--/box-->

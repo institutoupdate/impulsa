@@ -24,6 +24,9 @@ require get_template_directory() . '/inc/custom-posts-types.php';
 // Custom Taxonomies
 require get_template_directory() . '/inc/custom-taxonomies.php';
 
+// AJAX
+require get_template_directory() . '/inc/ajax.php';
+
 // Shortcodes
 require get_template_directory() . '/inc/shortcodes.php';
 

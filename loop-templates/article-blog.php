@@ -25,7 +25,7 @@ if(has_post_thumbnail()) {
         <div class="article__main">
 
             <div class="article__header">
-                <span class="article__header__text"><?php echo $date; ?>. By <?php echo $author_name; ?></span>
+                <span class="article__header__text"><?php echo $date; ?>. Por <?php echo $author_name; ?></span>
             </div>
             <!--/article-header-->
 

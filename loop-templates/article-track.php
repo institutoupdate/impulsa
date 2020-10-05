@@ -20,7 +20,7 @@ $article_topics = get_the_terms( $id_post, 'topics' );
         <div class="article__header">
             <?php if($article_topics) { ?>
             <ul class="article__tag-list">
-                <li><span class="article__tag article__tag--bg-1">Trilha</span></li>
+                <li><span class="article__tag article__tag--bg-1"><?php echo pll__('Trilha'); ?></span></li>
                 <?php foreach ($article_topics as $topic) { ?>
                 <li><span class="article__tag article__tag--bg-3"><?php echo $topic->name; ?></span></li>
                 <?php } ?>
@@ -40,7 +40,7 @@ $article_topics = get_the_terms( $id_post, 'topics' );
 
         <?php if($article_footer) { ?>
         <div class="article__footer">
-            <a href="<?php the_permalink(); ?>" class="btn">Ver mais <i class="icon-arrow-right"></i></a>
+            <a href="<?php the_permalink(); ?>" class="btn"><?php echo pll__('Ver mais'); ?> <i class="icon-arrow-right"></i></a>
         </div>
         <!--/article-footer-->
         <?php } ?>

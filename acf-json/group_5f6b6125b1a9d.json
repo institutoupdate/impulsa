@@ -367,7 +367,7 @@
         },
         {
             "key": "field_5f6b722f7c664",
-            "label": "Links Title",
+            "label": "Support Title",
             "name": "about-who-finances_links-title",
             "type": "text",
             "instructions": "",
@@ -386,9 +386,9 @@
         },
         {
             "key": "field_5f6b7194eed6f",
-            "label": "Links",
-            "name": "about-who-finances_links",
-            "type": "repeater",
+            "label": "Support Text",
+            "name": "about-who-finances_links-text",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -397,29 +397,11 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add Link",
-            "sub_fields": [
-                {
-                    "key": "field_5f6b7194eed70",
-                    "label": "Link",
-                    "name": "about-who-finances_links_link",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                }
-            ]
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -441,5 +423,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1601301640
+    "modified": 1601928948
 }
