@@ -1,5 +1,21 @@
 <?php
 
+// Get Youtube thumbnail
+function thumb_video_youtube( $src ){
+    $data = array();
+    if (strpos($src, 'youtube') > 0) {
+        $matches = array();
+    	preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $src, $matches);
+        $data = 'https://img.youtube.com/vi/'.$matches[1].'/maxresdefault.jpg';
+    } elseif (strpos($src, 'vimeo') > 0) {
+        $src = strtok($src, '?'); //Delete GET variables
+        $id = substr($src, strrpos($src, '/') + 1); //Get from last slash
+        $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$id.php"));
+        $data = $hash;
+    }
+    return $data;
+}
+
 // Get User IP
 function getUserIP() {
 	if( array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) && !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ) {

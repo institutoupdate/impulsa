@@ -22,10 +22,18 @@
     </div>
     <!--/entry-->
 
-    <?php if($material_video && $material_video['material_video-url']) { ?>
-    <a href="<?php echo $material_video['material_video-url']; ?>" data-fancybox class="article__video">
+    <?php if($material_video && $material_video['material_video-url']) { 
+        $material_video_url = $material_video['material_video-url'];
+        if($material_video['material_video-preview']) {
+            $material_video_bg = $material_video['material_video-preview'];
+        } else {
+            $material_video_bg = thumb_video_youtube($material_video_url);
+        }
+        
+    ?>
+    <a href="<?php echo $material_video_url; ?>" data-fancybox class="article__video">
         <span class="video-play"></span>
-        <div class="article__bg" style="background-image:url(<?php echo $material_video['material_video-preview']; ?>);"></div>
+        <div class="article__bg" style="background-image:url(<?php echo $material_video_bg; ?>);"></div>
     </a>
     <!--/article-video-->
     <?php } ?>
