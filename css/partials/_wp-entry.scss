@@ -112,6 +112,7 @@
         font-size: 14px;
         font-weight: 400;
         line-height: 1.55;
+        margin-left: 30px;
         @include breakpoint(tablet-lg) {
             font-size: 16px;
             margin-bottom: 30px;
@@ -124,13 +125,34 @@
         }
     }
     ul {
+      list-style: none;
         li {
-            list-style: square;
+            &::before {
+              content: "\2022";
+              margin-left: -20px;
+              width: 20px;
+              font-weight: bold;
+              display: inline-block;
+              color: var(--color-sextary);
+            }
         }
     }
     ol {
+      list-style: none;
+      counter-reset: section;
         li {
-            list-style: decimal;
+            &::before {
+              content: counters(section, ".") ". ";
+              color: var(--color-sextary);
+              counter-increment: section;
+              font-weight: bold;
+              display: inline-block;
+              margin-left: -25px;
+              margin-right: 10px;
+              font-size: 16px;
+              font-family: var(--font-5);
+              letter-spacing: -3px;
+            }
         }
     }
     // blockquote {
