@@ -121,9 +121,9 @@ if($index !== false && $index < count($id_array)-1) $next = $id_array[$index+1];
 
             <div class="box__header">
                 <?php if(isset($_GET['track'])) { ?>
-                <h4 class="title-3 title-3--uppercase">Trilhas relacionadas</h4>
+                <h4 class="title-3 title-3--uppercase"><?php echo pll__('Trilhas relacionadas'); ?></h4>
                 <?php } else { ?>
-                <h4 class="title-3 title-3--uppercase">Materais relacionadas</h4>
+                <h4 class="title-3 title-3--uppercase"><?php echo pll__('Materais relacionadas'); ?></h4>
                 <?php } ?>
             </div>
             <!--/box-header-->

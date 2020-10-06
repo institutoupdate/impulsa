@@ -11,7 +11,7 @@
         </ul>
         <!--/article-tag-list-->
         <?php } ?>
-        <span class="article__header__text"><?php echo $date; ?>. By <?php echo $author_name; ?></span>
+        <span class="article__header__text"><?php echo $date; ?>. Por <?php echo $author_name; ?></span>
     </div>
     <!--/article-header-->
 
@@ -47,7 +47,7 @@
             $material_filename = $material_file['filename'];
         ?>
         <li>
-            <a href="<?php echo $material_file_url; ?>" download class="btn-bg btn-bg--sz-sm btn-bg--border-2">Descargar materais</a>
+            <a href="<?php echo $material_file_url; ?>" download class="btn-bg btn-bg--sz-sm btn-bg--border-2"><?php echo pll__('Descargar materais'); ?> </a>
             <span><?php echo $material_filename; ?></span>
         </li>
         <!--/pagination-flex-->

@@ -41,8 +41,8 @@ $blog_txt = get_field('blog-txt', $current_lng);
         		<?php else: endif; ?>
 
                 <div class="pagination-flex">
-                    <?php previous_posts_link('<span class="btn__mobile">Recientes</span><span class="btn__desktop">Entradas recientes</span>'); ?>
-                    <?php next_posts_link('<span class="btn__mobile">Anteriores</span><span class="btn__desktop">Entradas anteriores</span>'); ?>
+                    <?php previous_posts_link('<span class="btn__mobile">'. pll__('Recentes'). '</span><span class="btn__desktop">'. pll__('Postagens recentes'). '</span>'); ?>
+                    <?php next_posts_link('<span class="btn__mobile">'. pll__('Anteriores'). '</span><span class="btn__desktop">'. pll__('Postagens anteriores'). '</span>'); ?>
                 </div>
                 <!--/pagination-flex-->
 

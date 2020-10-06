@@ -459,6 +459,9 @@ body {
             color: var(--color-secondary);
         }
     }
+    &.title--lowercase {
+        text-transform: lowercase;
+    }
     &.title-3--c-1 {
         color: var(--color-primary);
     }

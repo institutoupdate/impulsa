@@ -24,8 +24,8 @@ $types_selected = isset($_GET['type']) ? $_GET['type'] : '';
 $countries_selected = isset($_GET['country']) ? $_GET['country'] : '';
 
 // Count
-$count = 0;
-
+global $wp_query;
+$count = $wp_query->found_posts;
 ?>
 <main class="block block--pad-3 js-first-block">
     <div class="container">
@@ -105,7 +105,7 @@ $count = 0;
 
                             <div class="btn-box btn-box--filter btn-box--m-top">
                                 <button type="submit" class="btn-bg btn-bg--border-1 btn-bg--sz-sm">Filtrar</button>
-                                <a href="<?php echo get_post_type_archive_link( 'materials' ); ?>" class="link-underline link-underline--c-1">Limpiar filtros</a>
+                                <a href="<?php echo get_post_type_archive_link( 'materials' ); ?>" class="link-underline link-underline--c-1"><?php echo pll__('Limpar filtros'); ?></a>
                             </div>
                             <!--/btn-box-filter-->
 
@@ -130,18 +130,14 @@ $count = 0;
 
                 <div class="search-header">
                 
-                    <?php if (have_posts()) : while (have_posts()) : the_post(); $count++; endwhile; ?>
-                    <span class="title-3 title-3--sm2 title-3--strong-c-2"><strong><?php echo $count; ?></strong> materais</span>
-                    <?php else: ?>
-                    <span class="title-3 title-3--sm2 title-3--strong-c-2"><strong>0</strong> materais</span>
-                    <?php endif; ?>
+                    <span class="title-3 title-3--sm2 title-3--strong-c-2 title--lowercase"><strong><?php echo $count; ?></strong> <?php if($count === 1) { echo pll__('Material'); } else { echo pll__('Materais'); } ?></span>
                     
                     <div class="input input--order">
-                        <label for="form__order" class="input__label">Ordenar por</label>
+                        <label for="form__order" class="input__label"><?php echo pll__('Ordenar por'); ?></label>
                         <div class="input__select">
                             <select name="order" id="form__order" class="js-order">
-                                <option value="DESC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'DESC')) { echo 'selected'; } ?>>Más reciente</option>
-                                <option value="ASC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'ASC' )) { echo 'selected'; } ?>>Más antigua</option>
+                                <option value="DESC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'DESC')) { echo 'selected'; } ?>><?php echo pll__('Mais antiga'); ?></option>
+                                <option value="ASC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'ASC' )) { echo 'selected'; } ?>><?php echo pll__('Mais recente'); ?></option>
                             </select>
                             <i class="icon-angle-down-solid"></i>
                         </div>
@@ -160,7 +156,7 @@ $count = 0;
                 </div>
                 <!-- /grid-1-box -->
                 <?php else: ?>
-                    <p class="text text--m-bottom">No se han encontrado resultados. <a href="<?php echo get_post_type_archive_link( 'materials' ); ?>">Limpiar filtros</a>.</p>
+                    <p class="text text--m-bottom"><?php echo pll__('Nenhum resultado encontrado'); ?>. <a href="<?php echo get_post_type_archive_link( 'materials' ); ?>"><?php echo pll__('Limpar filtros'); ?></a>.</p>
                 <?php endif; ?>
 
                 <div class="pagination pagiantion--c-1">

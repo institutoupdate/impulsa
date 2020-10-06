@@ -1,6 +1,6 @@
 <div class="social-bar">
     <div class="social-box">
-        <span class="social__text">Goustou?</span>
+        <span class="social__text"><?php echo pll__('Gostou?'); ?></span>
         <div class="social social--bg">
             <a class="btn-circle" href="#"><i class="icon-thumbs-up"></i></a>
             <a class="btn-circle" href="#"><i class="icon-thumbs-down"></i></a>
@@ -10,7 +10,7 @@
     <!--/social-box-->
 
     <div class="social-box">
-        <span class="social__text">Compartilhe</span>
+        <span class="social__text"><?php echo pll__('Compartilhe'); ?></span>
         <div class="social social--bg">
             <a class="btn-circle" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>"><i class="icon-facebook"></i></a>
             <a class="btn-circle" target="_blank" href="https://twitter.com/intent/tweet?text=<?php the_title() ?>&url=<?php the_permalink()?>"><i class="icon-twitter"></i></a>

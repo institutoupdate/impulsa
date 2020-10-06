@@ -9,7 +9,7 @@ $term_description = term_description();
     <div class="container">
         
         <ul class="breadcrum">
-            <li><a href="<?php echo get_post_type_archive_link('tracks'); ?>">Trilhas</a><i class="icon-angle-right-solid"></i></li>
+            <li><a href="<?php echo get_post_type_archive_link('tracks'); ?>"><?php echo pll__('Trilhas'); ?></a><i class="icon-angle-right-solid"></i></li>
             <li><?php single_term_title(); ?></li>
         </ul>
         <div class="block__header">
@@ -23,7 +23,7 @@ $term_description = term_description();
         <div class="box box--border box--bg-gray box--pad-3">
 
             <div class="box__header">
-                <h4 class="title-3 title-3--uppercase">Trilhas</h4>
+                <h4 class="title-3 title-3--uppercase"><?php echo pll__('Trilhas'); ?></h4>
             </div>
             <!--/box-header-->
 
@@ -82,7 +82,7 @@ $term_description = term_description();
         <div class="grid grid--12">
             <div class="col-8 col-8--center">
 
-                <h4 class="title-3 title-3--uppercase title-3--m-bottom">Materiais mais recentes</h4>
+                <h4 class="title-3 title-3--uppercase title-3--m-bottom"><?php echo pll__('Materiais mais recentes'); ?></h4>
                 <div class="grid grid--1-box grid--m-bottom-lg">
                     <?php 
                     while($latestMaterials->have_posts()) { $latestMaterials->the_post(); 
@@ -94,7 +94,7 @@ $term_description = term_description();
                 <!--/grid-1-box-->
 
                 <div class="pagination-flex">
-                    <a href="<?php echo get_post_type_archive_link('materials').'?topic='.$term_slug; ?>" class="btn-bg btn-bg--sz-sm btn-bg--border-1 pagination__next">Ver mais matérias de <?php single_term_title(); ?></a>
+                    <a href="<?php echo get_post_type_archive_link('materials').'?topic='.$term_slug; ?>" class="btn-bg btn-bg--sz-sm btn-bg--border-1 pagination__next"><?php echo pll__('Ver mais matérias de'); ?> <?php single_term_title(); ?></a>
                 </div>
                 <!--/pagination-flex-->
 

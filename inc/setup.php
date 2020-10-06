@@ -146,8 +146,39 @@ add_action('init', function() {
 
 	// General
 	pll_register_string('Track', 'Trilha', 'General');
-	pll_register_string('See more', 'Ver mais', 'General');
+	pll_register_string('Tracks', 'Trilhas', 'General');
+	pll_register_string('You are on the track', 'Você está na trilha', 'General');
+	pll_register_string('Materials', 'Materais', 'General');
+	pll_register_string('Material', 'Material', 'General');
+	
+	pll_register_string('Latest materials', 'Materiais mais recentes', 'General');
+	pll_register_string('See more articles from', 'Ver mais matérias de', 'General');
 
+	pll_register_string('Download materials', 'Descargar materais', 'General');
+	pll_register_string('Related tracks', 'Trilhas relacionadas', 'General');
+	pll_register_string('Related materials', 'Materais relacionadas', 'General');
+	pll_register_string('About track', 'Sobre la trilha', 'General');
+
+	pll_register_string('Prev material', 'Materais anterior', 'General');
+	pll_register_string('Next material', 'Seguinte materais', 'General');
+	pll_register_string('Prev', 'Anterior', 'General');
+	pll_register_string('Next', 'Seguinte', 'General');
+	
+	pll_register_string('Recent posts', 'Postagens recentes', 'General');
+	pll_register_string('Previous posts', 'Postagens anteriores', 'General');
+	pll_register_string('Recent', 'Recentes', 'General');
+	pll_register_string('Previous', 'Anteriores', 'General');
+
+	pll_register_string('Order by', 'Ordenar por', 'General');
+	pll_register_string('Newer', 'Mais recente', 'General');
+	pll_register_string('Older', 'Mais antiga', 'General');
+	pll_register_string('Clean filters', 'Limpar filtros', 'General');
+	pll_register_string('No results found', 'Nenhum resultado encontrado', 'General');
+
+	pll_register_string('See more', 'Ver mais', 'General');
+	pll_register_string('Share', 'Compartilhe', 'General');
+	pll_register_string('Like', 'Gostou?', 'General');
+	
     // Newsletter
     pll_register_string('Newsletter title', 'Fique por dentro!', 'Newsletter');
     pll_register_string('Newsletter subtitle', 'Receba as novidades da Im.pulsa no seu e-mail', 'Newsletter');
@@ -181,4 +212,7 @@ add_action('init', function() {
 	// FAQ
 	pll_register_string('Contact section', 'Dúvidas? Você pode nos escrever em nossa seção de contato', 'FAQ');
 
+    // Publishings
+	pll_register_string('Media', 'Midia', 'Publishings');
+	pll_register_string('Open on external website', 'Abrir em site externo', 'Publishings');
 });

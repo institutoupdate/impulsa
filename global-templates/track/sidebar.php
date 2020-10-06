@@ -1,7 +1,7 @@
 <div class="dropdown dropdown--sticky">
 
     <div class="dropdown__header">
-        <h5 class="title-3 title-3--sm title-3--uppercase"><?php echo $track_related_count; ?> Materais, <?php echo $reading_time_total; if($reading_time_total == 1) { echo ' minuto'; } else { echo ' minutos'; } ?></h5>
+        <h5 class="title-3 title-3--sm title-3--uppercase"><?php echo $track_related_count.' '; if($track_related_count === 1) { echo pll__('Material'); } else { echo pll__('Materais'); } ?>, <?php echo $reading_time_total; if($reading_time_total == 1) { echo ' minuto'; } else { echo ' minutos'; } ?></h5>
         <button class="dropdown__btn js-dropdown__btn"><i class="icon-angle-down-solid"></i></button>
     </div>
     <!--/dropdwon-header-->

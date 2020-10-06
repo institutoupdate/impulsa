@@ -92,7 +92,7 @@ $downloads_title = get_field('downloads-title');
 
                             <div class="article__header">
                                 <ul class="article__tag-list">
-                                    <li><span class="article__tag article__tag--bg-2">Midia</span></li>
+                                    <li><span class="article__tag article__tag--bg-2"><?php echo pll__('Midia'); ?></span></li>
                                 </ul>
                                 <?php if($publishings_publishing_media || $publishings_publishing_date) { ?>
                                 <span class="article__header__text"><?php echo $publishings_publishing_media; ?>. <?php echo $publishings_publishing_date; ?></span>
@@ -103,7 +103,7 @@ $downloads_title = get_field('downloads-title');
                             <div class="article__content">
 
                                 <?php if($publishings_publishing_link) { ?>
-                                <h5 class="article__title"><a href="<?php echo $publishings_publishing_link; ?>"><?php echo $publishings_publishing_title; ?></a></h5>
+                                <h5 class="article__title"><a href="<?php echo $publishings_publishing_link; ?>" target="_blank" rel="nofollow"><?php echo $publishings_publishing_title; ?></a></h5>
                                 <?php } else { ?>
                                 <h5 class="article__title"><?php echo $publishings_publishing_title; ?></h5>
                                 <?php } ?>
@@ -117,7 +117,7 @@ $downloads_title = get_field('downloads-title');
 
                             <?php if($publishings_publishing_link) { ?>
                             <div class="article__footer">
-                                <a href="<?php echo $publishings_publishing_link; ?>" class="btn" target="_blank" rel="nofollow noopener noreferrer">Abrir en sitio externo <i class="icon-external-link"></i></a>
+                                <a href="<?php echo $publishings_publishing_link; ?>" class="btn" target="_blank" rel="nofollow"><?php echo pll__('Abrir em site externo'); ?> <i class="icon-external-link"></i></a>
                             </div>
                             <!--/article__footer-->
                             <?php } ?>
