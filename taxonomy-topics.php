@@ -94,7 +94,7 @@ $term_description = term_description();
                 <!--/grid-1-box-->
 
                 <div class="pagination-flex">
-                    <a href="<?php echo get_post_type_archive_link('materials').'?topic='.$term_slug; ?>" class="btn-bg btn-bg--sz-sm btn-bg--border-1 pagination__next"><?php echo pll__('Ver mais matérias de'); ?> <?php single_term_title(); ?></a>
+                    <a href="<?php echo get_post_type_archive_link('materials').'?topic[]='.$term_slug; ?>" class="btn-bg btn-bg--sz-sm btn-bg--border-1 pagination__next"><?php echo pll__('Ver mais matérias de'); ?> <?php single_term_title(); ?></a>
                 </div>
                 <!--/pagination-flex-->
 

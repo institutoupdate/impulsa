@@ -136,8 +136,8 @@ $count = $wp_query->found_posts;
                         <label for="form__order" class="input__label"><?php echo pll__('Ordenar por'); ?></label>
                         <div class="input__select">
                             <select name="order" id="form__order" class="js-order">
-                                <option value="DESC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'DESC')) { echo 'selected'; } ?>><?php echo pll__('Mais antiga'); ?></option>
-                                <option value="ASC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'ASC' )) { echo 'selected'; } ?>><?php echo pll__('Mais recente'); ?></option>
+                                <option value="DESC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'DESC')) { echo 'selected'; } ?>><?php echo pll__('Mais recente'); ?></option>
+                                <option value="ASC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'ASC' )) { echo 'selected'; } ?>><?php echo pll__('Mais antiga'); ?></option>
                             </select>
                             <i class="icon-angle-down-solid"></i>
                         </div>
