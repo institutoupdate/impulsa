@@ -17,7 +17,9 @@
     </div>
     <!--/grid-12-->
 
-    <?php if(has_post_thumbnail()) { 
+    <?php
+    /*
+    <?php if(has_post_thumbnail()) {
         $thumb = get_the_post_thumbnail_url(get_the_ID(), 'large');
     ?>
     <div class="grid grid--12 grid--m-bottom-md">
@@ -28,6 +30,8 @@
     </div>
     <!--/grid-12-->
     <?php } ?>
+    */
+    ?>
 
     <div class="grid grid--12">
         <div class="col-8 col-8--center">
