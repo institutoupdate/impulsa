@@ -147,4 +147,17 @@ function impulsa_shortcode_content_snippet($atts = array()) {
 }
 add_shortcode('content_snippet', 'impulsa_shortcode_content_snippet');
 
+function impulsa_shortcode_button($atts = array(), $content = null) {
+  ob_start();
+  ?>
+  <p>
+    <a href="<?php echo $atts["href"]; ?>" class="impulsa-button button btn-bg btn-bg--sz-sm btn-bg--border-2">
+      <?php echo $content; ?>
+    </a>
+  </p>
+  <?php
+  return ob_get_clean();
+}
+add_shortcode('button', 'impulsa_shortcode_button');
+
 ?>
