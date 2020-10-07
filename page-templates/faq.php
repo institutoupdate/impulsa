@@ -42,9 +42,10 @@ $headline = get_field('headline');
                             while( have_rows('faq') ) : the_row(); 
                             $faq_question = get_sub_field('faq-question');
                             $faq_answer = get_sub_field('faq-answer');
+                            $faq_slug = sanitize_title($faq_question);
                     ?>
-                    <div class="question__item">
-                        <p class="question"><?php echo $faq_question; ?><span>#</span></p>
+                    <div id="<?php echo $faq_slug; ?>" class="question__item">
+                        <p class="question"><?php echo $faq_question; ?><span><a href="#<?php echo $faq_slug; ?>">#</a></span></p>
                         <div class="text">
                             <?php echo $faq_answer; ?>
                         </div>
