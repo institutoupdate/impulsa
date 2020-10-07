@@ -47,10 +47,13 @@
     h1, h2, h3, h4, h5, h6 {
       line-height: 95%;
       margin-bottom: 20px;
+      margin-top: 20px;
     @include breakpoint(tablet-lg) {
+        margin-top: 30px;
         margin-bottom: 30px;
       }
     @include breakpoint(desktop-xlg) {
+        margin-top: 35px;
         margin-bottom: 35px;
       }
     }
