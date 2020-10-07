@@ -151,7 +151,7 @@ function impulsa_shortcode_button($atts = array(), $content = null) {
   ob_start();
   ?>
   <p>
-    <a href="<?php echo $atts["href"]; ?>" class="impulsa-button button btn-bg btn-bg--sz-sm btn-bg--border-2">
+    <a href="<?php echo $atts["href"]; ?>" rel="external" target="_blank" class="impulsa-button button btn-bg btn-bg--sz-sm btn-bg--border-2">
       <?php echo $content; ?>
     </a>
   </p>
