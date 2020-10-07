@@ -10,9 +10,8 @@ $track_related_posts = get_field('track_relationship', $id_post);
 
 // Reading time total
 $reading_time_array = array();
-foreach( $track_related_posts as $post ): 
-    setup_postdata($post);
-    $reading_time = get_field('reading-time');
+foreach( $track_related_posts as $related_post ):
+    $reading_time = get_field('reading-time', $related_post->ID);
     $reading_time_array[] = $reading_time;
 endforeach;
 $reading_time_total = array_sum($reading_time_array);
