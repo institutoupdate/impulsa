@@ -8,12 +8,13 @@ add_action('wp_ajax_nopriv_data_fetch','data_fetch');
 function data_fetch(){
 
     $args = array(
+        'post_status' => 'published',
         'post_type' => array('post', 'materials', 'tracks'),
         'posts_per_page' => -1,
         's' => esc_attr( $_POST['s'] )
     );
     $the_query = new WP_Query($args);
-    
+
     if( $the_query->have_posts() ) :
 
         while( $the_query->have_posts() ): $the_query->the_post();
@@ -39,6 +40,6 @@ function data_fetch(){
         echo '<div class="search__container"><p>No se han encontrado resultados. Prueba con otra búsqueda.</p></div>';
 
     endif;
-    
+
     die();
 }
