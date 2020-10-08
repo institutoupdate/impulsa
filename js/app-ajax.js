@@ -14,12 +14,13 @@ function debounce(func, wait, immediate) {
 };
 
 var _fetch = debounce(function(node) {
-  if(node.val().length && node.val().length > 3) {
+  var val = node.val();
+  if(val.length && val.length > 3) {
       $('#datafetch').slideDown();
       $.ajax({
           type: "POST",
           url: config.ajax_url,
-          data: { action: 'data_fetch', s: $('#keyword').val() },
+          data: { action: 'data_fetch', s: val },
           success: function(data) {
               $('#datafetch').html( data );
           }
