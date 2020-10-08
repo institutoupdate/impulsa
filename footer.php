@@ -121,7 +121,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 						</div>
 						<!-- /logo__item -->
 						<div class="logos__item">
-							<a href="#" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/bancada-ativista.svg" alt=""></a>
+							<a href="https://www.bancadaativista.org/" target="_blank" rel="external" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/bancada-ativista.svg" alt=""></a>
 						</div>
 						<!-- /logo__item -->
 						<div class="logos__item">
@@ -154,7 +154,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 					<!-- A esta fila se le pueden agregar logos nuevos -->
 					<div class="logos__rows-5">
 						<div class="logos__item">
-							<a href="#" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/allma.svg" alt=""></a>
+							<a href="https://www.facebook.com/Allma-hub-criativo-101790571172853/" target="_blank" rel="external" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/allma.svg" alt=""></a>
 						</div>
 						<!-- /logo__item -->
 						<div class="logos__item">
@@ -170,7 +170,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 						</div>
 						<!-- /logo__item -->
 						<div class="logos__item">
-							<a href="#" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/atados.svg" alt=""></a>
+							<a href="https://www.atados.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/atados.svg" alt=""></a>
 						</div>
 						<!-- /logo__item -->
 					</div>
