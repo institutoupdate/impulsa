@@ -67,16 +67,20 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 				<div class="footer__bottom">
 
+          <?php
+          /*
 					<div class="dropdown dropdown--select dropdown--language2">
 						<button class="dropdown__btn" id="btn-language-footer"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-light"></i></button>
 						<div class="dropdown__options" id="language-footer">
 							<ul>
-                        		<?php pll_the_languages(array('hide_current'=>1)); ?>
+            		<?php pll_the_languages(array('hide_current'=>1)); ?>
 							</ul>
 						</div>
 						<!--/dropdown-options-->
 					</div>
 					<!--/dropdown-select-->
+          */
+          ?>
 
 					<div class="footer__copy">
 						<img src="<?php echo bloginfo('template_url'); ?>/images/svg/cc-heart.svg" alt="">

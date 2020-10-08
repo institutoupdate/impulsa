@@ -17,11 +17,11 @@ $main_nav_menu = wp_nav_menu( array(
         <h1 class="header__logo"><a href="<?php echo get_home_url(); ?>"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/logo.svg" alt="<?php echo bloginfo('name'); ?>"></a></h1>
 
         <button class="btn-hamburger js-btn-hamburger"><span></span></button>
-        
+
         <div class="header__menu js-header__menu">
 
             <div class="header__logo"><a href="<?php echo get_home_url(); ?>"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/logo.svg" alt="<?php echo bloginfo('name'); ?>"></a></div>
-    
+
             <?php if ( ! empty ( $main_nav_menu ) ) { ?>
             <nav class="header__nav">
                 <?php echo strip_tags(
@@ -34,6 +34,8 @@ $main_nav_menu = wp_nav_menu( array(
             <!--/header-nav-->
             <?php } ?>
 
+            <?php
+            /*
             <div class="dropdown dropdown--select dropdown--language">
                 <button class="dropdown__btn" id="btn-language-header"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-regular"></i></button>
                 <div class="dropdown__options" id="language-header">
@@ -44,7 +46,9 @@ $main_nav_menu = wp_nav_menu( array(
                 <!--/dropdown-options-->
             </div>
             <!--/dropdown-select-->
-            
+            */
+            ?>
+
         </div>
         <!--/header-menu-->
     </div>
