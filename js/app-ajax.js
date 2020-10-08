@@ -1,18 +1,36 @@
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+var _fetch = debounce(function(node) {
+  if(node.val().length && node.val().length > 3) {
+      $('#datafetch').slideDown();
+      $.ajax({
+          type: "POST",
+          url: config.ajax_url,
+          data: { action: 'data_fetch', s: $('#keyword').val() },
+          success: function(data) {
+              $('#datafetch').html( data );
+          }
+      });
+  } else {
+      $('#datafetch').slideUp();
+  }
+}, 300);
+
 function fetch(){
     $('body').on('input', "#keyword", function() {
-        if($(this).val().length) {
-            $('#datafetch').slideDown();
-            $.ajax({
-                type: "POST",
-                url: config.ajax_url,
-                data: { action: 'data_fetch', s: $('#keyword').val() },
-                success: function(data) {
-                    $('#datafetch').html( data );
-                }
-            });
-        } else {
-            $('#datafetch').slideUp();
-        }
+        _fetch($(this));
     });
 }
-
