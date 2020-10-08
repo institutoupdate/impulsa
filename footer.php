@@ -97,11 +97,11 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 					<div class="logos__rows-2">
 						<div class="logos__item">
-							<a href="#" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/elasnopoder.svg" alt=""></a>
+							<a href="https://elasnopoder.org/" target="_blank" rel="external" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/elasnopoder.svg" alt=""></a>
 						</div>
 						<!-- /logo__item -->
 						<div class="logos__item">
-							<a href="#" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/update.svg" alt=""></a>
+							<a href="https://institutoupdate.org.br" target="_blank" rel="external" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/update.svg" alt=""></a>
 						</div>
 						<!-- /logo__item -->
 					</div>
