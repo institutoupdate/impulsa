@@ -8,7 +8,7 @@ add_action('wp_ajax_nopriv_data_fetch','data_fetch');
 function data_fetch(){
 
     $args = array(
-        'post_status' => 'published',
+        'post_status' => 'publish',
         'post_type' => array('post', 'materials', 'tracks'),
         'posts_per_page' => -1,
         's' => esc_attr( $_POST['s'] )
