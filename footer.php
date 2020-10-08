@@ -25,7 +25,7 @@ $alt_nav_menu = wp_nav_menu( array(
 
 // Newsletter
 require get_template_directory() . '/global-templates/newsletter.php';
-?> 
+?>
 <footer class="footer">
 	<div class="container">
 		<div class="footer__grid">
@@ -66,7 +66,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 				<!-- /footer__columns -->
 
 				<div class="footer__bottom">
-					
+
 					<div class="dropdown dropdown--select dropdown--language2">
 						<button class="dropdown__btn" id="btn-language-footer"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-light"></i></button>
 						<div class="dropdown__options" id="language-footer">
@@ -80,7 +80,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 					<div class="footer__copy">
 						<img src="<?php echo bloginfo('template_url'); ?>/images/svg/cc-heart.svg" alt="">
-						<span><?php echo pll__('Todo o conteúdo desta Plataforma está disponível em Creative Commons By-SA 4.0'); ?></span>
+						<span><?php echo pll__('Todo o conteúdo desta Plataforma está disponível em Creative Commons BY-SA 4.0'); ?></span>
 					</div>
 					<!--/footer-copy-->
 
