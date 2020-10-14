@@ -1,9 +1,15 @@
 <div class="social-bar">
     <div class="social-box">
         <span class="social__text"><?php echo pll__('Gostou?'); ?></span>
-        <div class="social social--bg">
-            <a class="btn-circle" href="#"><i class="icon-thumbs-up"></i></a>
-            <a class="btn-circle" href="#"><i class="icon-thumbs-down"></i></a>
+        <div id="post-vote" data-postid="<?php the_ID(); ?>" class="social social--bg">
+            <a id="post-upvote" class="btn-circle" href="#">
+              <i class="icon-thumbs-up"></i>
+              <?php if(current_user_can("edit_pages")) echo '<span class="count">' . get_post_meta($post->ID, "impulsa_votes_up", true) . '</span>'; ?>
+            </a>
+            <a id="post-downvote" class="btn-circle" href="#">
+              <i class="icon-thumbs-down"></i>
+              <?php if(current_user_can("edit_pages")) echo '<span class="count">' . get_post_meta($post->ID, "impulsa_votes_down", true) . '</span>'; ?>
+            </a>
         </div>
         <!--/social-->
     </div>
