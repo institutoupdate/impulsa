@@ -40,3 +40,15 @@ function ajax_fetch() {
 function remove_type_attr($tag, $handle) {
     return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
 }
+
+// remove yarpp css
+add_action( 'wp_print_styles', 'impulsa_deregister_yarpp_header_styles' );
+function impulsa_deregister_yarpp_header_styles() {
+   wp_dequeue_style('yarppWidgetCss');
+   // Next line is required if the related.css is loaded in header when disabled in footer.
+   wp_deregister_style('yarppRelatedCss');
+}
+add_action( 'wp_footer', 'impulsa_deregister_yarpp_footer_styles' );
+function impulsa_deregister_yarpp_footer_styles() {
+   wp_dequeue_style('yarppRelatedCss');
+}

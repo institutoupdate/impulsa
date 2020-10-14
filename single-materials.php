@@ -1,6 +1,6 @@
-<?php 
+<?php
 get_header();
-if (have_posts()) : while (have_posts()) : the_post(); 
+if (have_posts()) : while (have_posts()) : the_post();
 
 $id_post = get_the_ID();
 
@@ -25,10 +25,10 @@ $article_type = get_the_terms( $id_post, 'types' );
 $article_topics = get_the_terms( $id_post, 'topics' );
 ?>
 
-<?php if(isset($_GET['track'])) { 
+<?php if(isset($_GET['track'])) {
 
 // Track variables
-$track_id = $_GET['track']; 
+$track_id = $_GET['track'];
 $track_content_post = get_post($track_id);
 $track_content = $track_content_post->post_content;
 $track_author_id = get_post_field ('post_author', $track_id);
@@ -39,7 +39,7 @@ $track_related_posts = get_field('track_relationship', $track_id);
 // Reading time total
 $reading_time_array = array();
 $id_array = array();
-foreach( $track_related_posts as $post ): 
+foreach( $track_related_posts as $post ):
     setup_postdata($post);
     $reading_time = get_field('reading-time');
     $reading_time_array[] = $reading_time;
@@ -57,7 +57,7 @@ if($index !== false && $index < count($id_array)-1) $next = $id_array[$index+1];
 <main class="block block--pad-3 js-first-block">
     <div class="container">
 
-        <?php 
+        <?php
         // Header Track
         require get_template_directory() . '/global-templates/track/header.php';
         ?>
@@ -65,7 +65,7 @@ if($index !== false && $index < count($id_array)-1) $next = $id_array[$index+1];
         <div class="grid grid--4y8">
 
             <aside class="sidebar">
-                <?php 
+                <?php
                 // Author Track
                 require get_template_directory() . '/global-templates/track/author.php';
 
@@ -78,7 +78,7 @@ if($index !== false && $index < count($id_array)-1) $next = $id_array[$index+1];
             <!--/sidebar-->
 
             <section class="block__main">
-                <?php 
+                <?php
                 // Content Track
                 require get_template_directory() . '/global-templates/track/content.php';
 
@@ -86,11 +86,11 @@ if($index !== false && $index < count($id_array)-1) $next = $id_array[$index+1];
                 require get_template_directory() . '/global-templates/material/content.php';
 
                 // Pagination Track
-                require get_template_directory() . '/global-templates/track/pagination.php'; 
+                require get_template_directory() . '/global-templates/track/pagination.php';
                 ?>
             </section>
             <!--/block-main-->
-            
+
         </div>
         <!--/grid-4y8-->
 
@@ -115,61 +115,19 @@ if($index !== false && $index < count($id_array)-1) $next = $id_array[$index+1];
 <!--/block-->
 <?php } ?>
 
-<section class="block block--p-bottom-lg">
-    <div class="container">
-        <div class="box box--border box--bg-gray box--pad-3">
+<?php
+if(function_exists('yarpp_related')) {
+  yarpp_related(array(
+      "template" => "yarpp-template-materials.php",
+      "limit" => 3,
+      "post_type" => isset($_GET['track']) ? array("tracks") : array("materials")
+    ),
+    isset($_GET['track']) ? $_GET['track'] : get_the_ID()
+  );
+}
+?>
 
-            <div class="box__header">
-                <?php if(isset($_GET['track'])) { ?>
-                <h4 class="title-3 title-3--uppercase"><?php echo pll__('Trilhas relacionadas'); ?></h4>
-                <?php } else { ?>
-                <h4 class="title-3 title-3--uppercase"><?php echo pll__('Materais relacionadas'); ?></h4>
-                <?php } ?>
-            </div>
-            <!--/box-header-->
-
-            <?php
-                if(isset($_GET['track'])) { 
-                    $args = array(
-                        'post_type' => array( 'tracks' ),
-                        'order' => 'DESC',
-                        'posts_per_page' => 3,
-                        'post__not_in' => array ($_GET['track']),
-                    );
-                    $latestPosts = new WP_Query($args);
-                } else {
-                    $args = array(
-                        'post_type' => array( 'materials' ),
-                        'order' => 'DESC',
-                        'posts_per_page' => 3,
-                        'post__not_in' => array (get_the_ID()),
-                    );
-                    $latestPosts = new WP_Query($args);
-                }
-                if($latestPosts->have_posts()) {
-            ?>
-            <div class="grid grid--3-box">
-                <?php 
-                while($latestPosts->have_posts()) { $latestPosts->the_post(); 
-                    set_query_var( 'article_excerpt', 125);
-                    if(isset($_GET['track'])) { 
-                        get_template_part('loop-templates/article-track');
-                    } else {
-                        get_template_part('loop-templates/article-material');
-                    }
-                }
-                ?>
-            </div>
-            <!--/grid-->
-            <?php } ?>
-        </div>
-        <!--/box--> 
-    </div>
-    <!--/container-->
-</section>
-<!--/block-->
-
-<?php 
+<?php
 endwhile; else: endif;
 get_footer();
 ?>
