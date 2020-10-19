@@ -8,6 +8,13 @@ $main_nav_menu = wp_nav_menu( array(
     'fallback_cb' => '__return_false'
 ) );
 
+// Countries
+$countries = get_terms([
+    'taxonomy' => 'countries',
+    'hide_empty' => false,
+]);
+
+$current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
 ?>
 <body class="body--p-top">
 
@@ -34,20 +41,24 @@ $main_nav_menu = wp_nav_menu( array(
             <!--/header-nav-->
             <?php } ?>
 
-            <?php
-            /*
-            <div class="dropdown dropdown--select dropdown--language">
-                <button class="dropdown__btn" id="btn-language-header"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-regular"></i></button>
-                <div class="dropdown__options" id="language-header">
-                    <ul>
-                        <?php pll_the_languages(array('hide_current'=>1)); ?>
-                    </ul>
+            <?php if($countries) { ?>
+            <div class="language">
+                <div class="input input--btn">
+                    <div class="input__select">
+                        <select name="data-language" class="js-change-country">
+                            <?php foreach ($countries as $country) { 
+                                $countryCode = get_field('country_code', 'term_' . $country->term_id);
+                            ?>
+                            <option <?php if($current_country === $countryCode) { echo 'selected'; } ?> value="<?php echo $countryCode; ?>"><?php echo $country->name; ?></option>
+                            <?php } ?>
+                        </select>
+                        <i class="icon-angle-down-regular"></i>
+                    </div>
+                    <!--/input-select-->
                 </div>
-                <!--/dropdown-options-->
-            </div>
-            <!--/dropdown-select-->
-            */
-            ?>
+                <!--/input-btn-->
+                </div>
+            <?php } ?>
 
         </div>
         <!--/header-menu-->

@@ -15,8 +15,8 @@ require get_template_directory() . '/inc/editor.php';
 // Pre Get Posts
 require get_template_directory() . '/inc/pre-get-posts.php';
 
-// Template redirects
-require get_template_directory() . '/inc/template-redirects.php';
+// Country redirects
+require get_template_directory() . '/inc/country-redirects.php';
 
 // Custom Posts Types
 require get_template_directory() . '/inc/custom-posts-types.php';

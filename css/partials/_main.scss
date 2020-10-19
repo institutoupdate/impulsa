@@ -4526,18 +4526,17 @@ select {
         }
     }
     .footer__content {
+        margin-bottom: 50px;
         @include breakpoint(tablet-lg) {
             padding: 20px 0;
+            margin-bottom: 0;
         }
         @include breakpoint(desktop-xlg) {
             padding: 30px 0;
         }
     }
     .logos {
-        display: none;
-        @include breakpoint(tablet-lg) {
-            display: block;
-        }
+        display: block;
         .logos__title {
             text-transform: uppercase;
             font-weight: 700;
@@ -4545,7 +4544,8 @@ select {
             color: var(--color-white);
             text-align: center;
             font-size: 15px;
-            @include breakpoint(tablet-lg) {
+            margin-bottom: 20px;
+            @include breakpoint(phone) {
                 margin-bottom: 30px;
             }
             @include breakpoint(desktop-lg) {
@@ -4575,6 +4575,8 @@ select {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            margin: 0 10px;
+            margin-bottom: 12px !important;
             @include breakpoint(tablet-lg) {
                 margin-bottom: 12px !important;
                 height: var(--logo-h-md);
@@ -4591,7 +4593,10 @@ select {
         .logos__rows-2 {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
+            @include breakpoint(tablet-lg) {
+                justify-content: center;
+            }
             .logos__item {
                 align-items: flex-start;
                 @include breakpoint(tablet-lg) {
@@ -4613,8 +4618,11 @@ select {
         .logos__rows-4 {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+            justify-content: space-evenly;
+            @include breakpoint(tablet-lg) {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
             .logos__item {
                 @include breakpoint(tablet-lg) {
                     width: 80px;
@@ -4633,8 +4641,11 @@ select {
         .logos__rows-5 {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+            justify-content: space-evenly;
+            @include breakpoint(tablet-lg) {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
             .logos__item {
                 @include breakpoint(tablet-lg) {
                     width: 60px;
@@ -4672,7 +4683,18 @@ select {
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    flex-direction: column;
+    @include breakpoint(tablet-lg) {
+        flex-direction: row;
+    }
     .header__logo {
-        margin-right: 40px;
+        margin-bottom: 40px;
+        @include breakpoint(tablet-lg) {
+            margin-bottom: 0;
+            margin-right: 40px;
+        }
+    }
+    .input {
+        min-width: 200px;
     }
 }

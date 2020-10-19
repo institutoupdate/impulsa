@@ -158,5 +158,20 @@
           $(this).parents('form').submit();
       });
 
+	$('.js-change-country').change(function(){
+		value = $(this).val();
+		console.log(value);
+		document.cookie = "current_country="+value+"; expires=Thu, 31 Dec 2023 23:59:59 UTC; path=/";
+		location.reload();
+	});
+	$('.js-select-country').change(function(){
+        homeUrl = $(this).data('url');
+		value = $(this).val();
+		console.log(value);
+		document.cookie = "current_country="+value+"; expires=Thu, 31 Dec 2023 23:59:59 UTC; path=/";
+		document.location.href=homeUrl;
+	});
+
+
   });
 })(jQuery);

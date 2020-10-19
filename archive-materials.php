@@ -13,15 +13,8 @@ $topics = get_terms([
     'hide_empty' => true,
 ]);
 
-// Countries
-$countries = get_terms([
-    'taxonomy' => 'countries',
-    'hide_empty' => true,
-]);
-
 $topics_selected = isset($_GET['topic']) ? $_GET['topic'] : '';
 $types_selected = isset($_GET['type']) ? $_GET['type'] : '';
-$countries_selected = isset($_GET['country']) ? $_GET['country'] : '';
 
 // Count
 global $wp_query;
@@ -75,25 +68,6 @@ $count = $wp_query->found_posts;
                                             <input type="checkbox" name="type[]" value="<?php echo $type->slug; ?>" <?php if( $types_selected && in_array($type->slug, $types_selected ) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $type->name; ?></span>
-                                        </label>
-                                    </li>
-                                    <?php } ?>
-                                </ul>
-                                <!--/checkbox-list-->
-                            </div>
-                            <!--/form-box-->
-                            <?php } ?>
-
-                            <?php if($countries) { ?>
-                            <div class="form__box">
-                                <h6 class="form__box__title">País</h6>
-                                <ul class="checkbox-list checkbox-list--c-2">
-                                    <?php foreach ($countries as $country) { ?>
-                                    <li>
-                                        <label class="checkbox">
-                                            <input type="checkbox" name="country[]" value="<?php echo $country->slug; ?>" <?php if( $countries_selected && in_array($country->slug, $countries_selected ) ) { echo 'checked'; } ?> >
-                                            <span class="checkmark"><i class="icon-ok"></i></span>
-                                            <span class="checkbox__text"><?php echo $country->name; ?></span>
                                         </label>
                                     </li>
                                     <?php } ?>

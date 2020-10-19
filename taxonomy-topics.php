@@ -4,6 +4,24 @@ get_header();
 // Vars
 $term_slug = get_query_var('topics');
 $term_description = term_description();
+
+$current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
+$countries = get_terms([
+    'taxonomy' => 'countries',
+    'hide_empty' => false,
+]);
+
+if($countries) {
+    foreach ($countries as $country) { 
+        $country_code = get_field('country_code', 'term_' . $country->term_id);
+        if($country_code === $current_country) {
+            $current_country_slug = $country->slug;
+            $current_country_id = $country->term_id;
+        }
+    }
+}
+
 ?>
 <section class="block block--pad-4 js-first-block">
     <div class="container">
@@ -20,14 +38,38 @@ $term_description = term_description();
         </div>
         <!--/block-header-->
 
-        <div class="box box--border box--bg-gray box--pad-3">
+        <?php
+            if ($current_country)  {
 
-            <div class="box__header">
-                <h4 class="title-3 title-3--uppercase"><?php echo pll__('Trilhas'); ?></h4>
-            </div>
-            <!--/box-header-->
+                // Get all terms in the taxonomy and exclude current country ID
+                $countries = get_terms([
+                    'taxonomy'   => 'countries',
+                    'hide_empty' => false,
+                    'exclude'    => $current_country_id,
+                ]);
+    
+                // Convert array of term objects to array of term slugs
+                $countries_slugs = wp_list_pluck( $countries, 'slug' );
 
-            <?php
+                $args = array(
+                    'post_type' => array( 'tracks' ),
+                    'order' => 'DESC',
+                    'posts_per_page' => -1,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'topics',
+                            'terms' => $term_slug,
+                            'field' => 'slug',
+                        ),
+                        array(
+                            'taxonomy' => 'countries',
+                            'field' => 'slug',
+                            'terms' => $countries_slugs,
+                            'operator' => 'NOT IN'
+                        )
+                    ),
+                );
+            } else {
                 $args = array(
                     'post_type' => array( 'tracks' ),
                     'order' => 'DESC',
@@ -40,9 +82,17 @@ $term_description = term_description();
                         )
                     ),
                 );
-                $latestTracks = new WP_Query($args);
-                if($latestTracks->have_posts()) {
-            ?>
+            }
+            $latestTracks = new WP_Query($args);
+            if($latestTracks->have_posts()) {
+        ?>
+        <div class="box box--border box--bg-gray box--pad-3">
+
+            <div class="box__header">
+                <h4 class="title-3 title-3--uppercase"><?php echo pll__('Trilhas'); ?></h4>
+            </div>
+            <!--/box-header-->
+
             <div class="grid grid--3-box">
                 <?php 
                 while($latestTracks->have_posts()) { $latestTracks->the_post(); 
@@ -52,28 +102,49 @@ $term_description = term_description();
                 ?>
             </div>
             <!--/grid-->
-            <?php }  ?>
-
         </div>
         <!--/box--> 
+        <?php }  ?>
+
     </div>
     <!--/container-->
 </section>
 <!--/block-->
 
 <?php
-    $args = array(
-        'post_type' => array( 'materials' ),
-        'order' => 'DESC',
-        'posts_per_page' => 3,
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'topics',
-                'terms' => $term_slug,
-                'field' => 'slug',
-            )
-        ),
-    );
+    if ($current_country)  {
+        $args = array(
+            'post_type' => array( 'materials' ),
+            'order' => 'DESC',
+            'posts_per_page' => 3,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'topics',
+                    'terms' => $term_slug,
+                    'field' => 'slug',
+                ),
+                array(
+                    'taxonomy' => 'countries',
+                    'field' => 'slug',
+                    'terms' => $countries_slugs,
+                    'operator' => 'NOT IN'
+                )
+            ),
+        );
+    } else {
+        $args = array(
+            'post_type' => array( 'materials' ),
+            'order' => 'DESC',
+            'posts_per_page' => 3,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'topics',
+                    'terms' => $term_slug,
+                    'field' => 'slug',
+                )
+            ),
+        );
+    }
     $latestMaterials = new WP_Query($args);
     if($latestMaterials->have_posts()) {
 ?>

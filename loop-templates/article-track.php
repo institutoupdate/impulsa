@@ -4,18 +4,26 @@ $id_post = get_the_ID();
 // Excerpt lenght
 $excerpt = get_query_var('article_excerpt');
 
+// Date
+$date_day = get_the_date('j');
+$date_month = get_the_date('F');
+$date_year = get_the_date('Y');
+$date = ucfirst($date_month).' '.$date_day.', '.$date_year;
+
 $article_footer = get_query_var('article_footer');
 
 $track_related_posts = get_field('track_relationship', $id_post);
 
 // Reading time total
-$reading_time_array = array();
-foreach( $track_related_posts as $related_post ):
-    $reading_time = get_field('reading-time', $related_post->ID);
-    $reading_time_array[] = $reading_time;
-endforeach;
-$reading_time_total = array_sum($reading_time_array);
-$track_related_count = count($track_related_posts);
+if($track_related_posts) {
+    $reading_time_array = array();
+    foreach( $track_related_posts as $related_post ):
+        $reading_time = get_field('reading-time', $related_post->ID);
+        $reading_time_array[] = $reading_time;
+    endforeach;
+    $reading_time_total = array_sum($reading_time_array);
+    $track_related_count = count($track_related_posts);
+}
 
 // Topics
 $article_topics = get_the_terms( $id_post, 'topics' );
@@ -32,7 +40,11 @@ $article_topics = get_the_terms( $id_post, 'topics' );
             </ul>
             <!--/article-tag-list-->
             <?php } ?>
+            <?php if($track_related_posts) { ?>
             <span class="article__header__text"><?php echo $track_related_count.' '; if($track_related_count === 1) { echo pll__('Material'); } else { echo pll__('Materais'); } ?>, <?php echo $reading_time_total; if($reading_time_total == 1) { echo ' minuto'; } else { echo ' minutos'; } ?></span>
+            <?php } else { ?>
+            <span class="article__header__text"><?php echo $date; ?></span>
+            <?php } ?>
         </div>
         <!--/article-header-->
         <div class="article__content">

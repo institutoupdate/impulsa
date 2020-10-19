@@ -23,6 +23,14 @@ $alt_nav_menu = wp_nav_menu( array(
    'fallback_cb' => '__return_false'
 ) );
 
+// Countries
+$countries = get_terms([
+    'taxonomy' => 'countries',
+    'hide_empty' => false,
+]);
+
+$current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
 // Newsletter
 require get_template_directory() . '/global-templates/newsletter.php';
 ?>
@@ -67,20 +75,25 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 				<div class="footer__bottom">
 
-          <?php
-          /*
-					<div class="dropdown dropdown--select dropdown--language2">
-						<button class="dropdown__btn" id="btn-language-footer"><?php echo pll_current_language('name'); ?> <i class="icon-angle-down-light"></i></button>
-						<div class="dropdown__options" id="language-footer">
-							<ul>
-            		<?php pll_the_languages(array('hide_current'=>1)); ?>
-							</ul>
+					<?php if($countries) { ?>
+					<div class="language">
+						<div class="input input--btn">
+							<div class="input__select">
+								<select name="data-language" class="js-change-country">
+									<?php foreach ($countries as $country) { 
+										$countryCode = get_field('country_code', 'term_' . $country->term_id);
+									?>
+									<option <?php if($current_country === $countryCode) { echo 'selected'; } ?> value="<?php echo $countryCode; ?>"><?php echo $country->name; ?></option>
+									<?php } ?>
+								</select>
+								<i class="icon-angle-down-regular"></i>
+							</div>
+							<!--/input-select-->
 						</div>
-						<!--/dropdown-options-->
+						<!--/input-btn-->
 					</div>
-					<!--/dropdown-select-->
-          */
-          ?>
+					<!--/language-->
+					<?php } ?>
 
 					<div class="footer__copy">
 						<img src="<?php echo bloginfo('template_url'); ?>/images/svg/cc-heart.svg" alt="">

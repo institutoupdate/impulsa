@@ -4,6 +4,24 @@ $current_lng = pll_current_language('slug');
 $featured_topcis = get_field('featured-topics', $current_lng);
 $tracks_title = get_field('tracks-title', $current_lng);
 $tracks_headline = get_field('tracks-headline', $current_lng);
+
+$current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
+$countries = get_terms([
+    'taxonomy' => 'countries',
+    'hide_empty' => false,
+]);
+
+if($countries) {
+    foreach ($countries as $country) { 
+        $country_code = get_field('country_code', 'term_' . $country->term_id);
+        if($country_code === $current_country) {
+            $current_country_slug = $country->slug;
+            $current_country_id = $country->term_id;
+        }
+    }
+}
+
 if( $featured_topcis ):
 ?>
 <section class="block block--pad-2 js-first-block">
@@ -37,18 +55,51 @@ if( $featured_topcis ):
                 <!-- box-header-->
                 
                 <?php
-                    $args = array(
-                        'post_type' => array( 'tracks' ),
-                        'order' => 'DESC',
-                        'posts_per_page' => 3,
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'topics',
-                                'terms' => $topic->slug,
-                                'field' => 'slug',
-                            )
-                        ),
-                    );
+                    if ($current_country)  {
+
+                        // Get all terms in the taxonomy and exclude current country ID
+                        $countries = get_terms([
+                            'taxonomy'   => 'countries',
+                            'hide_empty' => false,
+                            'exclude'    => $current_country_id,
+                        ]);
+            
+                        // Convert array of term objects to array of term slugs
+                        $countries_slugs = wp_list_pluck( $countries, 'slug' );
+
+                        $args = array(
+                            'post_type' => array( 'tracks' ),
+                            'order' => 'DESC',
+                            'posts_per_page' => 3,
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'topics',
+                                    'terms' => $topic->slug,
+                                    'field' => 'slug',
+                                ),
+                                array(
+                                    'taxonomy' => 'countries',
+                                    'field' => 'slug',
+                                    'terms' => $countries_slugs,
+                                    'operator' => 'NOT IN'
+                                )
+                            ),
+                        );
+                    } else {
+                        $args = array(
+                            'post_type' => array( 'tracks' ),
+                            'order' => 'DESC',
+                            'posts_per_page' => 3,
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'topics',
+                                    'terms' => $topic->slug,
+                                    'field' => 'slug',
+                                )
+                            ),
+                        );
+                    }
+
                     $latestTracks = new WP_Query($args);
                     if($latestTracks->have_posts()) {
                 ?>

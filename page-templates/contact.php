@@ -55,10 +55,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                     <p class="title-3 title-3--uppercase title-3--m-bottom-md"><?php echo pll__('A mensagem foi enviada com êxito. Iremos responder prontamente'); ?></p>
                     <?php } elseif($form_result == 0 AND !empty($_POST['data-submit'])) { ?>
                     <p class="title-3 title-3--uppercase title-3--m-bottom-md"><?php echo pll__('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.'); ?></p>
-                    <?php } else { ?>
-                    <h3 class="title-3 title-3--uppercase title-3--m-bottom-md"><?php echo pll__('Algo para nos contar?'); ?></h3>
                     <?php } ?>
-
                     <form action="#" method="POST" class="form">
 
                         <div class="form__grid">
