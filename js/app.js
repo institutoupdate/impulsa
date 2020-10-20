@@ -90,6 +90,7 @@
       // Slider
       var slider = new Swiper ('.js-slider', {
           // Optional parameters
+          autoHeight: true,
           loop: true,
           slidesPerView: 1,
 

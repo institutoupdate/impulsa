@@ -192,6 +192,7 @@ add_action('init', function() {
 	pll_register_string('Impulsa in the media', 'Im.pulsa na media', 'Footer');
 	pll_register_string('Social Networks', 'Redes', 'Footer');
 	pll_register_string('Impulsa project', 'Im.pulsa é um projeto das', 'Footer');
+	pll_register_string('Developed by', 'Desenvolvido por', 'Footer');
 
 	// Search
 	pll_register_string('Placeholder', 'Procura algo? Tente “redes sociais” ou “voluntariado”', 'Search');

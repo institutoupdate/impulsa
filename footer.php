@@ -95,11 +95,17 @@ require get_template_directory() . '/global-templates/newsletter.php';
 					<!--/language-->
 					<?php } ?>
 
-					<div class="footer__copy">
-						<img src="<?php echo bloginfo('template_url'); ?>/images/svg/cc-heart.svg" alt="">
-						<span><?php echo pll__('Todo o conteúdo desta Plataforma está disponível em Creative Commons BY-SA 4.0'); ?></span>
+					<div class="footer__content">
+						<div class="footer__copy">
+							<img src="<?php echo bloginfo('template_url'); ?>/images/svg/cc-heart.svg" alt="">
+							<span><?php echo pll__('Todo o conteúdo desta Plataforma está disponível em Creative Commons BY-SA 4.0'); ?></span>
+						</div>
+						<!--/footer-copy-->
+						<a href="https://onlines.com.ar" class="footer__logo" target="_blank">
+							<span><?php echo pll__('Desenvolvido por'); ?> </span>
+							<img src="<?php echo bloginfo('template_url'); ?>/images/logo-onlines.svg" alt="Onlines&amp;co">
+						</a>
 					</div>
-					<!--/footer-copy-->
 
 				</div>
 				<!--/footer-bottom-->

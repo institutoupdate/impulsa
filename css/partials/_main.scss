@@ -3145,9 +3145,16 @@ select {
     position: relative;
     z-index: 5;
     .slide {
-        height: 300px;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
+        padding: 50px 0 150px 0;
+        min-height: 300px;
+        @include breakpoint(phone) {
+            min-height: auto;
+            height: 300px;
+            padding: 0;
+            align-items: center;
+        }
         @include breakpoint(tablet-lg) {
             height: 450px;
         }
@@ -3163,21 +3170,30 @@ select {
             right: 0;
             z-index: -1;
             background-size: cover;
-            background-position: center;
+            background-position: right center;
             background-repeat: no-repeat;
+            @include breakpoint(phone) {
+                background-position: center;
+            }
         }
         .slide__title {
             font-family: var(--font-3);
             font-weight: 400;
             line-height: 1.05;
             color: var(--color-white);
-            width: 50%;
-            font-size: 35px;
+            font-size: 25px;
+            @include breakpoint(phone) {
+                width: 50%;
+                font-size: 35px;
+            }
             @include breakpoint(tablet-lg) {
+                font-size: 50px;
+            }
+            @include breakpoint(desktop-lg) {
                 font-size: 65px;
             }
             @include breakpoint(desktop-xlg) {
-                font-size: 90px;
+                font-size: 80px;
             }
         }
         .container {
@@ -4423,9 +4439,45 @@ select {
             width: 100%;
         }
     }
+    .footer__logo {
+        display: flex;
+        align-items: center;
+        @include breakpoint(tablet-lg) {
+            align-items: flex-start;
+            margin-left: 20px;
+        }
+        @include breakpoint(desktop-lg) {
+            align-items: center;
+        }
+        &:hover {
+            img {
+                opacity: 1;
+            }
+        }
+        span {
+            font-family: var(--font-2);
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-white-50);
+            margin-right: 6px;
+            @include breakpoint(tablet-lg) {
+                font-size: 12px;
+            }
+            @include breakpoint(desktop-xlg) {
+                font-size: 13px;
+            }
+        }
+        img {
+            max-height: 12px;
+            display: block;
+            opacity: .5;
+        }
+    }
     .footer__copy {
         display: flex;
         align-items: center;
+        margin-bottom: 10px;
         @include breakpoint(tablet-lg) {
             align-items: flex-start;
             margin-left: 20px;
