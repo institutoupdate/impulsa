@@ -6,15 +6,21 @@ function country_redirects() {
 
     $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
 
+    $countries = get_terms([
+        'taxonomy' => 'countries',
+        'hide_empty' => false,
+    ]);
+
+    if(count($countries) == 1) {
+      $country_code = get_field('country_code', 'term_' . $countries[0]->term_id);
+      $current_country = $country_code;
+      $current_country_slug = $countries[0]->slug;
+    }
+
     if( $current_country ) {
 
-        $countries = get_terms([
-            'taxonomy' => 'countries',
-            'hide_empty' => false,
-        ]);
-        
-        if($countries) {
-            foreach ($countries as $country) { 
+        if($countries && !$country_code) {
+            foreach ($countries as $country) {
                 $country_code = get_field('country_code', 'term_' . $country->term_id);
                 if($country_code === $current_country) {
                     $current_country_slug = $country->slug;
@@ -40,15 +46,15 @@ function country_redirects() {
             wp_redirect($translation_url_selected);
             exit;
         }
-    
+
     } else {
         $userIP = getUserIP();
 
         $getCountry = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$userIP));
         $getCountryStatus = $getCountry['geoplugin_status'];
-        
+
         if($getCountryStatus !== 404) {
-            
+
             $getCountryCode = $getCountry['geoplugin_countryCode'];
 
             $countries = get_terms([
@@ -57,7 +63,7 @@ function country_redirects() {
             ]);
             $countriesCodes = array();
             if($countries) {
-                foreach ($countries as $country) { 
+                foreach ($countries as $country) {
                     $countryCode = get_field('country_code', 'term_' . $country->term_id);
                     array_push($countriesCodes, $countryCode);
                 }
@@ -69,14 +75,15 @@ function country_redirects() {
                 wp_redirect(get_home_url());
                 exit;
             } else {
-                if(!is_page_template('page-templates/select-language.php')) { 
+                if(!is_page_template('page-templates/select-language.php')) {
                     wp_redirect(get_page_url('page-templates/select-language'));
                     exit;
                 }
             }
 
         } else {
-            if(!is_page_template('page-templates/select-language.php')) { 
+            error_log(get_page_url('page-templates/select-language'));
+            if(!is_page_template('page-templates/select-language.php')) {
                 wp_redirect(get_page_url('page-templates/select-language'));
                 exit;
             }

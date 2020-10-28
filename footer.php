@@ -75,12 +75,12 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 				<div class="footer__bottom">
 
-					<?php if($countries) { ?>
+					<?php if($countries && count($countries) > 1) { ?>
 					<div class="language">
 						<div class="input input--btn">
 							<div class="input__select">
 								<select name="data-language" class="js-change-country">
-									<?php foreach ($countries as $country) { 
+									<?php foreach ($countries as $country) {
 										$countryCode = get_field('country_code', 'term_' . $country->term_id);
 									?>
 									<option <?php if($current_country === $countryCode) { echo 'selected'; } ?> value="<?php echo $countryCode; ?>"><?php echo $country->name; ?></option>

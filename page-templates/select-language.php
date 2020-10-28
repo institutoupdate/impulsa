@@ -3,7 +3,7 @@
 
 $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
 
-if($current_country) { 
+if($current_country) {
     wp_redirect(get_home_url());
     exit;
 } else {
@@ -22,7 +22,7 @@ if($current_country) {
         <div class="input__select">
             <select data-url="<?php echo get_home_url(); ?>" name="data-language" class="js-select-country">
                 <option value="" selected disabled style="display:none;"><?php the_title(); ?></option>
-                <?php foreach ($countries as $country) { 
+                <?php foreach ($countries as $country) {
                     $countryCode = get_field('country_code', 'term_' . $country->term_id);
                 ?>
                 <option value="<?php echo $countryCode; ?>"><?php echo $country->name; ?></option>
