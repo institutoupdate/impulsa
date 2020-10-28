@@ -24,11 +24,11 @@ function data_fetch(){
             <a href="<?php the_permalink(); ?>" class="search__item article article--sz-sm">
                 <p class="article__title"><?php the_title(); ?></p>
                 <?php if($post_type === 'post') { ?>
-                <span class="article__tag article__tag--bg-3">Blog</span>
+                <span class="article__tag article__tag--bg-3"><?php echo pll__('Blog'); ?></span>
                 <?php } elseif($post_type == 'materials') { ?>
-                <span class="article__tag article__tag--bg-2">Material</span>
+                <span class="article__tag article__tag--bg-2"><?php echo pll__('Material'); ?></span>
                 <?php } else { ?>
-                <span class="article__tag article__tag--bg-1">Sendero</span>
+                <span class="article__tag article__tag--bg-1"><?php echo pll__('Trilha'); ?></span>
                 <?php } ?>
             </a>
 
@@ -37,7 +37,7 @@ function data_fetch(){
 
         else :
 
-        echo '<div class="search__container"><p>No se han encontrado resultados. Prueba con otra búsqueda.</p></div>';
+        echo '<div class="search__container"><p>' . pll__('Não foram encontrados resultados. Tente outra busca.') . '</p></div>';
 
     endif;
 
