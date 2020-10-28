@@ -41,7 +41,7 @@ function country_redirects() {
             $translation_url_selected = $translations[$country_code]['url'];
         }
 
-        if($permalink !== $translation_url_selected) {
+        if($permalink !== preg_replace('/\?.*/', '', $translation_url_selected)) {
             setcookie("pll_language", $translation_url_slug, 0);
             wp_redirect($translation_url_selected);
             exit;
