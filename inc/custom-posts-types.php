@@ -8,8 +8,8 @@ function register_post_types() {
         'materials', array(
             'public' => true,
             'labels' => array(
-                'name' => __('Materials', 'theme'),
-                'singular_name' => __('Material', 'theme'),
+                'name' => pll__('Materials'),
+                'singular_name' => pll__('Material'),
             ),
             'rewrite' => array(
                 'slug' => 'materials'
@@ -34,8 +34,8 @@ function register_post_types() {
         'tracks', array(
             'public' => true,
             'labels' => array(
-                'name' => __('Tracks', 'theme'),
-                'singular_name' => __('Track', 'theme'),
+                'name' => pll__('Tracks'),
+                'singular_name' => pll__('Track'),
             ),
             'rewrite' => array(
                 'slug' => 'tracks'
