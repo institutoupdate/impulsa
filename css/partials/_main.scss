@@ -296,7 +296,7 @@ body {
     @include breakpoint(desktop-xlg) {
         font-size: 50px;
     }
-    .primary-color {
+    &.primary-color {
       color: var(--color-primary);
     }
     strong {
