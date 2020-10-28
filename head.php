@@ -1,5 +1,5 @@
 <?php
-// Parámetros generales y para compartir en redes sociales 
+// Parámetros generales y para compartir en redes sociales
 $meta_description = get_field('meta_description', 'option');
 $meta_thumb = get_field('meta_thumb', 'option');
 $meta_twitter_user = get_field('meta_twitter_user', 'option');
@@ -11,23 +11,7 @@ $meta_facebook_id = get_field('meta_facebook_id', 'option');
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>
-		<?php 	
-		if (is_front_page()) { bloginfo('name'); if ( get_bloginfo( 'description' ) ) { echo ' &mdash; '; bloginfo('description'); } }
-		else {
-			if (function_exists('is_tag') && is_tag()) { echo 'Etiqueta &quot;'.$tag.'&quot; &mdash; '; } 
-			elseif (is_archive()) { wp_title(''); echo ' &mdash; Archivo &mdash; '; } 
-			elseif (is_search()) { echo 'B&uacute;squeda para &quot;'.esc_html($s).'&quot; &mdash; '; } 
-
-			elseif (!(is_404()) && (is_single()) || (is_page())) { // Si es post/page
-				wp_title(''); echo ' &mdash; '; 
-			} 
-
-			elseif (is_404()) { echo 'No encontrado &mdash; '; }
-			bloginfo('name');
-		}	
-		?>
-	</title>
+	<title><?php wp_title('&mdash;'); ?></title>
 
 	<?php // Favicon
 		$meta_favicon = get_field('meta_favicon', 'option');
@@ -43,7 +27,7 @@ $meta_facebook_id = get_field('meta_facebook_id', 'option');
 		}
 	?>
 
-	<?php 
+	<?php
 
 	if(is_single()) {
 		while (have_posts()) : the_post(); // Hago el loop
@@ -53,7 +37,7 @@ $meta_facebook_id = get_field('meta_facebook_id', 'option');
 				$image_info = wp_get_attachment_image_src($image_id,'large', true);
 				$image_url = $image_info[0];
 			} else {
-				$image_url = $meta_thumb; 
+				$image_url = $meta_thumb;
 			}
 
 			$excerpt = strip_tags( get_the_excerpt() );
@@ -97,7 +81,7 @@ $meta_facebook_id = get_field('meta_facebook_id', 'option');
 			<meta name="twitter:site" content="<?php echo $meta_twitter_user ?>">
 			<meta name="twitter:title" content="<?php bloginfo('name') ?>">
 			<meta name="twitter:description" content="<?php echo $meta_description ?>">
-			<meta name="twitter:image:src" content="<?php echo $meta_thumb ?>">  	  
+			<meta name="twitter:image:src" content="<?php echo $meta_thumb ?>">
 
 	<?php } ?>
 
