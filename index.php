@@ -1,4 +1,4 @@
-<?php 
+<?php
 get_header();
 $current_lng = pll_current_language('slug');
 $blog_headline = get_field('blog-headline', $current_lng);
@@ -13,7 +13,7 @@ $blog_txt = get_field('blog-txt', $current_lng);
 
             <aside class="sidebar">
                 <?php if($blog_headline) { ?>
-                <h3 class="title title--strong-primary title--m-bottom">
+                <h3 class="title title--strong-primary title--m-bottom primary-color">
                    <?php echo $blog_headline; ?>
                 </h3>
                 <?php } ?>
@@ -31,8 +31,8 @@ $blog_txt = get_field('blog-txt', $current_lng);
 
                 <?php if (have_posts()) : ?>
                 <div class="grid grid--1-box grid--m-bottom-lg">
-                    <?php 
-                        while (have_posts()) : the_post(); 
+                    <?php
+                        while (have_posts()) : the_post();
                             get_template_part('loop-templates/article-blog');
                         endwhile;
                     ?>
