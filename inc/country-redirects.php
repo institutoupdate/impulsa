@@ -82,7 +82,6 @@ function country_redirects() {
             }
 
         } else {
-            error_log(get_page_url('page-templates/select-language'));
             if(!is_page_template('page-templates/select-language.php')) {
                 wp_redirect(get_page_url('page-templates/select-language'));
                 exit;
