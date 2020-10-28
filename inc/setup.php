@@ -216,4 +216,4 @@ add_action('init', function() {
     // Publishings
 	pll_register_string('Media', 'Midia', 'Publishings');
 	pll_register_string('Open on external website', 'Abrir em site externo', 'Publishings');
-});
+}, 5);

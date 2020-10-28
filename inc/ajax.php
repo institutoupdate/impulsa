@@ -10,7 +10,7 @@ function data_fetch(){
     $args = array(
         'post_status' => 'publish',
         'post_type' => array('post', 'materials', 'tracks'),
-        'posts_per_page' => -1,
+        'posts_per_page' => 10,
         's' => esc_attr( $_POST['s'] )
     );
     $the_query = new WP_Query($args);
@@ -26,9 +26,9 @@ function data_fetch(){
                 <?php if($post_type === 'post') { ?>
                 <span class="article__tag article__tag--bg-3"><?php echo pll__('Blog'); ?></span>
                 <?php } elseif($post_type == 'materials') { ?>
-                <span class="article__tag article__tag--bg-2"><?php echo pll__('Material'); ?></span>
+                <span class="article__tag article__tag--bg-2"><?php echo pll__('Materais'); ?></span>
                 <?php } else { ?>
-                <span class="article__tag article__tag--bg-1"><?php echo pll__('Trilha'); ?></span>
+                <span class="article__tag article__tag--bg-1"><?php echo pll__('Trilhas'); ?></span>
                 <?php } ?>
             </a>
 
