@@ -86,10 +86,10 @@ if ( ! function_exists( 'theme_setup' ) ) :
 
 		// Add excerpt in pages
 		add_post_type_support( 'page', 'excerpt' );
-		
+
 		// remove wp version
 		remove_action( 'wp_head', 'wp_generator' );
-		
+
 
 	}
 endif; // theme_setup.
@@ -150,7 +150,7 @@ add_action('init', function() {
 	pll_register_string('You are on the track', 'Você está na trilha', 'General');
 	pll_register_string('Materials', 'Materais', 'General');
 	pll_register_string('Material', 'Material', 'General');
-	
+
 	pll_register_string('Latest materials', 'Materiais mais recentes', 'General');
 	pll_register_string('See more articles from', 'Ver mais matérias de', 'General');
 
@@ -163,7 +163,7 @@ add_action('init', function() {
 	pll_register_string('Next material', 'Seguinte materais', 'General');
 	pll_register_string('Prev', 'Anterior', 'General');
 	pll_register_string('Next', 'Seguinte', 'General');
-	
+
 	pll_register_string('Recent posts', 'Postagens recentes', 'General');
 	pll_register_string('Previous posts', 'Postagens anteriores', 'General');
 	pll_register_string('Recent', 'Recentes', 'General');
@@ -178,10 +178,10 @@ add_action('init', function() {
 	pll_register_string('See more', 'Ver mais', 'General');
 	pll_register_string('Share', 'Compartilhe', 'General');
 	pll_register_string('Like', 'Gostou?', 'General');
-	
-    // Newsletter
-    pll_register_string('Newsletter title', 'Fique por dentro!', 'Newsletter');
-    pll_register_string('Newsletter subtitle', 'Receba as novidades da Im.pulsa no seu e-mail', 'Newsletter');
+
+  // Newsletter
+  pll_register_string('Newsletter title', 'Fique por dentro!', 'Newsletter');
+  pll_register_string('Newsletter subtitle', 'Receba as novidades da Im.pulsa no seu e-mail', 'Newsletter');
 	pll_register_string('Name', 'Nome', 'Newsletter');
 	pll_register_string('E-mail', 'E-mail', 'Newsletter');
 	pll_register_string('Submit', 'Cadastrar', 'Newsletter');
