@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Theme setup and custom theme supports.
 require get_template_directory() . '/inc/setup.php';
@@ -32,3 +32,6 @@ require get_template_directory() . '/inc/shortcodes.php';
 
 // Custom functions
 require get_template_directory() . '/inc/custom-functions.php';
+
+// REST API
+require get_template_directory() . '/inc/rest-api.php';
