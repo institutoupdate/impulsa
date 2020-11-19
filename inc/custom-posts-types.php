@@ -7,6 +7,7 @@ function register_post_types() {
     register_post_type(
         'materials', array(
             'public' => true,
+            'show_in_rest' => true,
             'labels' => array(
                 'name' => pll__('Materais'),
                 'singular_name' => pll__('Material'),
@@ -33,6 +34,7 @@ function register_post_types() {
     register_post_type(
         'tracks', array(
             'public' => true,
+            'show_in_rest' => true,
             'labels' => array(
                 'name' => pll__('Trilhas'),
                 'singular_name' => pll__('Trilha'),
