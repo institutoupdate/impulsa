@@ -29,28 +29,27 @@
                   if ($scroll >= $scrollHeader) {
                       $(".js-header").removeClass('header--bg-transparent');
                       $(".js-header").addClass('header--shadow');
-                  }
-
-                  // Si llego arriba de todo
-                  if ($scroll === 0) {
-                      $(".js-header").addClass('header--bg-transparent');
-                      $(".js-header").removeClass('header--shadow');
+                  } else {
+                    $(".js-header").addClass('header--bg-transparent');
+                    $(".js-header").removeClass('header--shadow');
                   }
               }
 
               // Desktop
-              else if ($width >= 1024) {
+              else {
                   // Si scroleo para abajo y se pasa el primer bloque
                   if ($scroll >= $scrollHeader) {
-                      $(".js-header").addClass('header--up');
-                      $(".js-header").removeClass('header--bg-transparent');
-                      $(".js-header").addClass('header--shadow');
+                    $(".js-header").addClass('header--up');
+                    $(".js-header").removeClass('header--bg-transparent');
+                    $(".js-header").addClass('header--shadow');
+                  } else {
+                    $(".js-header").removeClass('header--up');
                   }
 
                   // Si scroleo para arriba
                   if ($prevScrollpos > $scroll) {
                       // Si llego arriba de todo
-                      if ($scroll === 0) {
+                      if ($scroll <= 0) {
                           $(".js-header").addClass('header--down');
                           $(".js-header").removeClass('header--up');
                           $(".js-header").addClass('header--bg-transparent');
@@ -61,7 +60,12 @@
                           $(".js-header").addClass('header--down');
                           $(".js-header").removeClass('header--up');
                       }
-                  }
+									}
+									else if(($scroll < 0) || ($prevScrollpos < 0)) {
+                    $(".js-header").removeClass('header--up');
+                    $('.js-header').removeClass('header--shadow');
+
+									}
                   // Si sigo scroleando para abajo
                   else {
                       $(".js-header").addClass('header--up');
