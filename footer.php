@@ -6,8 +6,8 @@ $facebook_url = get_field( 'facebook_url', 'option' );
 $twitter_url = get_field( 'twitter_url', 'option' );
 
 // Main Menu
-$main_nav_menu = wp_nav_menu( array(
-   'theme_location' => 'main-nav',
+$footer_nav_menu = wp_nav_menu( array(
+   'theme_location' => 'footer-nav',
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__nav',
