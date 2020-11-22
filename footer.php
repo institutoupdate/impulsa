@@ -40,10 +40,10 @@ require get_template_directory() . '/global-templates/newsletter.php';
 			<div class="footer__content">
 				<div class="footer__columns">
 
-					<?php if ( ! empty ( $main_nav_menu ) ) { ?>
+					<?php if ( ! empty ( $footer_nav_menu ) ) { ?>
 					<div class="footer__col">
 						<h5 class="footer__col__title"><?php echo pll__('Sobre Im.pulsa'); ?></h5>
-						<?php echo $main_nav_menu; ?>
+						<?php echo $footer_nav_menu; ?>
 					</div>
 					<!--/footer-col-->
 					<?php } ?>
