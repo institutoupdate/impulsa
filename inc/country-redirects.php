@@ -1,6 +1,8 @@
 <?php
 function country_redirects() {
 
+    if(!current_user_can("edit_posts")) return;
+
     global $wp;
     $permalink = home_url( $wp->request ).'/';
 
