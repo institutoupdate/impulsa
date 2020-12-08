@@ -61,7 +61,7 @@ add_action( 'pre_get_posts', 'alter_main_query' );
 
 function materials_pre_get_posts($query) {
 
-  if (!$query->is_main_query()) return;
+  if ($query->is_admin || !$query->is_main_query()) return;
 
   if ($query->is_post_type_archive('materials')) {
 
