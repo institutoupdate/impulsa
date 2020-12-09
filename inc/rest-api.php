@@ -5,7 +5,7 @@ function impulsa_rest_prepare_tracks($response, $post) {
   if($track_related_posts) {
       $reading_time_array = array();
       foreach( $track_related_posts as $related_post ) {
-          $reading_time = get_field('reading-time', $related_post->ID);
+          $reading_time = get_field('reading-time', $related_post["ID"]);
           $reading_time_array[] = $reading_time;
       }
       $reading_time_total = array_sum($reading_time_array);
