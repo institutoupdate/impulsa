@@ -18,7 +18,7 @@
 
 				<form method="POST" class="form form--footer" action="https://voto.us10.list-manage.com/subscribe/post" method="post" target="popupwindow" onsubmit="window.open('https://voto.us10.list-manage.com/subscribe/post', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
 					<div class="form__grid">
-						
+
 						<input type="hidden" name="u" value="5fd1872fc9e6862c76e6066ef">
 						<input type="hidden" name="id" value="09d33d31d3">
 
@@ -30,6 +30,21 @@
 							<!--/input-box-->
 						</div>
 						<!--/input-->
+
+						<div class="input">
+							<label class="input__label" for="input-country"><?php echo pll__("País"); ?></label>
+							<div class="input__box">
+								<select name="MERGE2" id="input-country">
+									<option value=""></option>
+									<option value="AR"><?php pll_e("Argentina"); ?></option>
+									<option value="BR"><?php pll_e("Brasil"); ?></option>
+									<option value="CH"><?php pll_e("Chile"); ?></option>
+									<option value="CO"><?php pll_e("Colômbia"); ?></option>
+									<option value="MX"><?php pll_e("México"); ?></option>
+									<option value=""><?php pll_e("Outro"); ?></option>
+								</select>
+							</div>
+						</div>
 
 						<div class="input">
 							<label class="input__label" for="input-email"><?php echo pll__('E-mail'); ?></label>

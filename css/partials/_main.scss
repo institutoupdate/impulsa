@@ -1944,11 +1944,11 @@ select {
     &.form--footer {
         .form__grid {
             @include breakpoint(phone) {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 grid-gap: 20px 15px;
             }
             @include breakpoint(tablet-lg) {
-                grid-template-columns: 3fr 3fr 2fr;
+                grid-template-columns: 3fr 3fr 4fr 1fr;
             }
             .btn-bg {
                 @include breakpoint(tablet-lg) {
@@ -3925,12 +3925,17 @@ select {
         .block__title-2,
         .text,
         .input__label,
-        .input input {
+        .input input,
+        select {
             color: var(--color-white);
+        }
+        select option {
+          background: var(--color-tertiary);
         }
         .input {
             .input__box {
-                input {
+                input,
+                select {
                     background-color: transparent;
                     border-color: var(--color-white);
                     &:focus {
