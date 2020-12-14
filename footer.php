@@ -56,19 +56,21 @@ require get_template_directory() . '/global-templates/newsletter.php';
 					<!--/footer-col-->
 					<?php } ?>
 
-					<?php if ( $instagram_url || $youtube_url || $facebook_url || $twitter_url ) { ?>
-					<div class="footer__col">
-						<h5 class="footer__col__title"><?php echo pll__('Redes'); ?></h5>
-						<div class="footer__nav footer__nav--social">
-							<?php echo ($instagram_url != '') ? '<a href="'.$instagram_url.'" rel="nofollow" target="_blank"><i class="icon-instagram"></i>Instagram</a>' : ''; ?>
-							<?php echo ($youtube_url != '') ? '</i><a href="'.$youtube_url.'" rel="nofollow" target="_blank"><i class="icon-youtube-play"></i>Youtube</a>' : ''; ?>
-							<?php echo ($facebook_url != '') ? '<a href="'.$facebook_url.'" rel="nofollow" target="_blank"><i class="icon-facebook"></i>Facebook</a>' : ''; ?>
-							<?php echo ($twitter_url != '') ? '<a href="'.$twitter_url.'" rel="nofollow" target="_blank"><i class="icon-twitter"></i>Twitter</a>' : ''; ?>
-						</div>
-						<!--/footer-nav-social-->
-					</div>
-					<!--/footer-col-->
-					<?php } ?>
+          <?php if(pll_current_language() == "pt") : ?>
+  					<?php if ( $instagram_url || $youtube_url || $facebook_url || $twitter_url ) { ?>
+  					<div class="footer__col">
+  						<h5 class="footer__col__title"><?php echo pll__('Redes'); ?></h5>
+  						<div class="footer__nav footer__nav--social">
+  							<?php echo ($instagram_url != '') ? '<a href="'.$instagram_url.'" rel="nofollow" target="_blank"><i class="icon-instagram"></i>Instagram</a>' : ''; ?>
+  							<?php echo ($youtube_url != '') ? '</i><a href="'.$youtube_url.'" rel="nofollow" target="_blank"><i class="icon-youtube-play"></i>Youtube</a>' : ''; ?>
+  							<?php echo ($facebook_url != '') ? '<a href="'.$facebook_url.'" rel="nofollow" target="_blank"><i class="icon-facebook"></i>Facebook</a>' : ''; ?>
+  							<?php echo ($twitter_url != '') ? '<a href="'.$twitter_url.'" rel="nofollow" target="_blank"><i class="icon-twitter"></i>Twitter</a>' : ''; ?>
+  						</div>
+  						<!--/footer-nav-social-->
+  					</div>
+  					<!--/footer-col-->
+  					<?php } ?>
+          <?php endif; ?>
 
 				</div>
 				<!-- /footer__columns -->
