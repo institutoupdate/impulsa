@@ -1,4 +1,20 @@
 <?php
+function impulsa_get_current_country() {
+  $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
+  $countries = get_terms([
+      'taxonomy' => 'countries',
+      'hide_empty' => false,
+  ]);
+
+  if(count($countries) == 1) {
+    $country_code = get_field('country_code', 'term_' . $countries[0]->term_id);
+    $current_country = $country_code;
+    $current_country_slug = $countries[0]->slug;
+  }
+
+  return $current_country;
+}
 function country_redirects() {
 
     if(!current_user_can("edit_posts")) return;
@@ -6,7 +22,7 @@ function country_redirects() {
     global $wp;
     $permalink = home_url( $wp->request ).'/';
 
-    $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+    $current_country = impulsa_get_current_country();
 
     $countries = get_terms([
         'taxonomy' => 'countries',

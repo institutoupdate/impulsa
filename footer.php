@@ -132,72 +132,88 @@ require get_template_directory() . '/global-templates/newsletter.php';
 					</div>
 					<!-- /logos__rows-2 -->
 
-					<div class="logos__rows-5">
-						<div class="logos__item">
-							<a href="https://www.instagram.com/puxadinho__/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/puxadinho.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://www.instagram.com/paviocriativo" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/pavio-criativo.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://www.facebook.com/votenelas2020/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/vote-nelas.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://www.bancadaativista.org/" target="_blank" rel="external" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/bancada-ativista.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://somosmuitas.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/muitas.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-					</div>
-					<!-- /logos__rows -->
+          <?php
+          $current_country = impulsa_get_current_country();
+          if($current_country == "CH") :
+            ?>
+            <div class="logos__rows-2">
+  						<div class="logos__item">
+  							<a href="https://twitter.com/votaxnosotras" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/vxn.png" alt="VOTA X NOSOTRAS"></a>
+  						</div>
+            </div>
+          <?php
+          endif;
+          if($current_country == "BR") :
+            ?>
+  					<div class="logos__rows-5">
+  						<div class="logos__item">
+  							<a href="https://www.instagram.com/puxadinho__/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/puxadinho.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://www.instagram.com/paviocriativo" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/pavio-criativo.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://www.facebook.com/votenelas2020/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/vote-nelas.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://www.bancadaativista.org/" target="_blank" rel="external" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/bancada-ativista.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://somosmuitas.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/muitas.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  					</div>
+  					<!-- /logos__rows -->
 
-					<div class="logos__rows-4">
-						<div class="logos__item">
-							<a href="http://www.juventudenegrapolitica.org/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/juventude-negra-politica.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://legislabrasil.org/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/legisla-brasil.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://www.goianasnaurna.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/goianas.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://www.instagram.com/cria.preta/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/cria-preto.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-					</div>
-					<!-- /logos__rows -->
+  					<div class="logos__rows-4">
+  						<div class="logos__item">
+  							<a href="http://www.juventudenegrapolitica.org/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/juventude-negra-politica.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://legislabrasil.org/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/legisla-brasil.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://www.goianasnaurna.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/goianas.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://www.instagram.com/cria.preta/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/cria-preto.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  					</div>
+  					<!-- /logos__rows -->
 
-					<!-- A esta fila se le pueden agregar logos nuevos -->
-					<div class="logos__rows-5">
-						<div class="logos__item">
-							<a href="https://www.facebook.com/Allma-hub-criativo-101790571172853/" target="_blank" rel="external" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/allma.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://www.instagram.com/institutocasamae" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/casa-mae.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="http://instagram.com/ocoletivomassa" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/massa.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://www.mefareiouvir.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/me-farei-ouvir.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
-						<div class="logos__item">
-							<a href="https://www.atados.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/atados.svg" alt=""></a>
-						</div>
-						<!-- /logo__item -->
+  					<!-- A esta fila se le pueden agregar logos nuevos -->
+  					<div class="logos__rows-5">
+  						<div class="logos__item">
+  							<a href="https://www.facebook.com/Allma-hub-criativo-101790571172853/" target="_blank" rel="external" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/allma.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://www.instagram.com/institutocasamae" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/casa-mae.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="http://instagram.com/ocoletivomassa" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/massa.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://www.mefareiouvir.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/me-farei-ouvir.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+  						<div class="logos__item">
+  							<a href="https://www.atados.com.br/" rel="external" target="_blank" class="logo"><img src="<?php echo bloginfo('template_url'); ?>/images/svg/atados.svg" alt=""></a>
+  						</div>
+  						<!-- /logo__item -->
+              <?php
+            endif;
+            ?>
 					</div>
 					<!-- /logos__rows -->
 
