@@ -27,6 +27,7 @@ if ( ! function_exists( 'theme_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'main-nav' => 'Main Menu',
+			'footer-main-nav' => 'Main Footer Menu',
 			'footer-nav' => 'Footer Menu',
 			'alt-nav' => 'Alt Menu',
 		) );

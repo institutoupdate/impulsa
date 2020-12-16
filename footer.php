@@ -5,7 +5,15 @@ $youtube_url = get_field( 'youtube_url', 'option' );
 $facebook_url = get_field( 'facebook_url', 'option' );
 $twitter_url = get_field( 'twitter_url', 'option' );
 
-// Main Menu
+$footer_main_nav_menu = wp_nav_menu( array(
+   'theme_location' => 'footer-main-nav',
+   'echo' => FALSE,
+   'container' => FALSE,
+   'menu_class' => 'footer__main_nav',
+   'fallback_cb' => '__return_false'
+) );
+
+// About Menu
 $footer_nav_menu = wp_nav_menu( array(
    'theme_location' => 'footer-nav',
    'echo' => FALSE,
@@ -38,6 +46,9 @@ require get_template_directory() . '/global-templates/newsletter.php';
 	<div class="container">
 		<div class="footer__grid">
 			<div class="footer__content">
+        <?php if ( ! empty ( $footer_main_nav_menu ) ) { ?>
+          <?php echo $footer_main_nav_menu; ?>
+        <?php } ?>
 				<div class="footer__columns">
 
 					<?php if ( ! empty ( $footer_nav_menu ) ) { ?>
