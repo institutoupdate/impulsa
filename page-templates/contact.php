@@ -6,6 +6,8 @@ $form_result = null;
 if(!empty($_POST['data-submit']) AND empty($_POST['url']))
     require get_template_directory() . '/global-templates/forms/contact.php';
 
+$current_country = impulsa_get_current_country();
+
 // Redes sociales
 $instagram_url = get_field( 'instagram_url', 'option' );
 $youtube_url = get_field( 'youtube_url', 'option' );
@@ -14,7 +16,7 @@ $twitter_url = get_field( 'twitter_url', 'option' );
 
 $headline = get_field('headline');
 
-if (have_posts()) : while (have_posts()) : the_post(); 
+if (have_posts()) : while (have_posts()) : the_post();
 ?>
 <main class="block block--pad-3 js-first-block">
     <div class="container">
@@ -30,20 +32,24 @@ if (have_posts()) : while (have_posts()) : the_post();
                    <?php echo $headline; ?>
                 </h3>
                 <?php } ?>
-                
+
                 <div class="text-3 text-3--m-bottom">
                     <?php the_content(); ?>
                 </div>
                 <!--/text-->
-                
-                <ul class="social-list">
-                    <?php echo ($instagram_url != '') ? '<li><a href="'.$instagram_url.'" rel="nofollow" target="_blank"><i class="icon-instagram"></i>Instagram</a></li>' : ''; ?>
-                    <?php echo ($youtube_url != '') ? '<li><a href="'.$youtube_url.'" rel="nofollow" target="_blank"><i class="icon-youtube-play"></i>Youtube</a></li>' : ''; ?>
-                    <?php echo ($facebook_url != '') ? '<li><a href="'.$facebook_url.'" rel="nofollow" target="_blank"><i class="icon-facebook"></i>Facebook</a></li>' : ''; ?>
-                    <?php echo ($twitter_url != '') ? '<li><a href="'.$twitter_url.'" rel="nofollow" target="_blank"><i class="icon-twitter"></i>Twitter</a></li>' : ''; ?>
-                </ul>
-                <!--/social-list-->
-                
+                <?php
+                if($current_country == "BR") :
+                  ?>
+                  <ul class="social-list">
+                      <?php echo ($instagram_url != '') ? '<li><a href="'.$instagram_url.'" rel="nofollow" target="_blank"><i class="icon-instagram"></i>Instagram</a></li>' : ''; ?>
+                      <?php echo ($youtube_url != '') ? '<li><a href="'.$youtube_url.'" rel="nofollow" target="_blank"><i class="icon-youtube-play"></i>Youtube</a></li>' : ''; ?>
+                      <?php echo ($facebook_url != '') ? '<li><a href="'.$facebook_url.'" rel="nofollow" target="_blank"><i class="icon-facebook"></i>Facebook</a></li>' : ''; ?>
+                      <?php echo ($twitter_url != '') ? '<li><a href="'.$twitter_url.'" rel="nofollow" target="_blank"><i class="icon-twitter"></i>Twitter</a></li>' : ''; ?>
+                  </ul>
+                  <!--/social-list-->
+                  <?php
+                endif;
+                ?>
             </aside>
             <!--/sidebar-->
 
@@ -77,6 +83,21 @@ if (have_posts()) : while (have_posts()) : the_post();
                                 <!--/input-box-->
                             </div>
                             <!--/input-->
+
+                            <div class="input">
+                              <label class="input__label" for="input-country"><?php echo pll__("País"); ?></label>
+                              <div class="input__select">
+                                <select name="data-country" id="input-country">
+                                  <option value=""></option>
+                                  <option value="AR"><?php pll_e("Argentina"); ?></option>
+                                  <option value="BR"><?php pll_e("Brasil"); ?></option>
+                                  <option value="CH"><?php pll_e("Chile"); ?></option>
+                                  <option value="CO"><?php pll_e("Colômbia"); ?></option>
+                                  <option value="MX"><?php pll_e("México"); ?></option>
+                                  <option value=""><?php pll_e("Outro"); ?></option>
+                                </select>
+                              </div>
+                            </div>
 
                             <div class="input">
                                 <label class="input__label" for="input-message"><?php echo pll__('Mensagem'); ?></label>
@@ -121,7 +142,7 @@ grecaptcha.ready(function() {
 });
 </script>
 
-<?php 
+<?php
 endwhile; else: endif;
 get_footer();
 ?>
