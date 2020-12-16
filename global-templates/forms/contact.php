@@ -10,6 +10,7 @@ if(isset($_POST['g-recaptcha-response']) and $_POST['g-recaptcha-response']) {
 // Contacto
 $data_name = $_POST['data-name'];
 $data_email = $_POST['data-email'];
+$data_country = $_POST['data-country'];
 $data_message = $_POST['data-message'];
 
 require get_template_directory() . '/vendor/php/phpmailer/PHPMailerAutoload.php';
@@ -31,6 +32,7 @@ $mail1->Subject = 'Contato do '. get_bloginfo('name').' - '.get_the_title();
 
 $mail1->Body = '<ul><li>Nome e sobrenome: '.$data_name.'</li>';
 $mail1->Body .= '<li>Correio eletrônico: '.$data_email.'</li>';
+$mail1->Body .= '<li>País: '.$data_country.'</li>';
 $mail1->Body .= '<li>Mensagem: '.$data_message.'</li></ul>';
 
 if($mail1->send()) {
