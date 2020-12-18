@@ -111,7 +111,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 					<div class="footer__content">
 						<div class="footer__copy">
 							<img src="<?php echo bloginfo('template_url'); ?>/images/svg/cc-heart.svg" alt="">
-							<span><?php echo pll__('Todo o conteúdo desta Plataforma está disponível em Creative Commons BY-SA 4.0'); ?></span>
+							<span><?php echo pll__('Todo o conteúdo desta Plataforma está disponível em Creative Commons By-SA 4.0'); ?></span>
 						</div>
 						<!--/footer-copy-->
 						<a href="https://onlines.com.ar" class="footer__logo" target="_blank">
