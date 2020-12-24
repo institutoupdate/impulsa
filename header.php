@@ -41,7 +41,7 @@ $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_countr
             <!--/header-nav-->
             <?php } ?>
 
-            <?php $countries && count($countries) > 1) { ?>
+            <?php if($countries && count($countries) > 1) { ?>
             <div class="language">
                 <div class="input input--btn">
                     <div class="input__select">

@@ -88,7 +88,7 @@ require get_template_directory() . '/global-templates/newsletter.php';
 
 				<div class="footer__bottom">
 
-					<?php $countries && count($countries) > 1) { ?>
+					<?php if($countries && count($countries) > 1) { ?>
 					<div class="language">
 						<div class="input input--btn">
 							<div class="input__select">
