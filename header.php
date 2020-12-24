@@ -41,7 +41,7 @@ $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_countr
             <!--/header-nav-->
             <?php } ?>
 
-            <?php if(current_user_can("edit_posts") && $countries && count($countries) > 1) { ?>
+            <?php $countries && count($countries) > 1) { ?>
             <div class="language">
                 <div class="input input--btn">
                     <div class="input__select">
