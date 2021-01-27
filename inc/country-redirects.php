@@ -1,21 +1,33 @@
 <?php
 function impulsa_get_current_country() {
-  $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
 
   $countries = get_terms([
       'taxonomy' => 'countries',
       'hide_empty' => false,
   ]);
 
-  if(count($countries) == 1) {
-    $country_code = get_field('country_code', 'term_' . $countries[0]->term_id);
-    $current_country = $country_code;
-    $current_country_slug = $countries[0]->slug;
+  $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
+  if(!$current_country && is_single()) {
+    global $post;
+    $post_countries = wp_get_post_terms($post->ID, "countries");
+    if(!empty($post_countries)) {
+      $current_country = get_field('country_code', 'term_' . $post_countries[0]->term_id);
+    }
+  }
+
+  if(!$current_country && count($countries) == 1) {
+    $current_country = get_field('country_code', 'term_' . $countries[0]->term_id);
   }
 
   return $current_country;
 }
 function country_redirects() {
+
+    // Do not redirect direct links to single content
+    if(!$_SERVER["HTTP_REFERER"] && is_single()) {
+      return;
+    }
 
     global $wp;
     $permalink = home_url( $wp->request ).'/';
@@ -26,12 +38,6 @@ function country_redirects() {
         'taxonomy' => 'countries',
         'hide_empty' => false,
     ]);
-
-    if(count($countries) == 1) {
-      $country_code = get_field('country_code', 'term_' . $countries[0]->term_id);
-      $current_country = $country_code;
-      $current_country_slug = $countries[0]->slug;
-    }
 
     if( $current_country ) {
 
