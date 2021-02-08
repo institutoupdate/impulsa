@@ -147,75 +147,77 @@ add_filter('upload_mimes', 'cc_mime_types');
 add_action('init', function() {
 
 	// General
-	pll_register_string('Track', 'Trilha', 'General');
-	pll_register_string('Tracks', 'Trilhas', 'General');
-	pll_register_string('You are on the track', 'Você está na trilha', 'General');
-	pll_register_string('Materials', 'Materais', 'General');
-	pll_register_string('Material', 'Material', 'General');
+	if( function_exists( 'pll_register_string' ) ) {
+		pll_register_string('Track', 'Trilha', 'General');
+		pll_register_string('Tracks', 'Trilhas', 'General');
+		pll_register_string('You are on the track', 'Você está na trilha', 'General');
+		pll_register_string('Materials', 'Materais', 'General');
+		pll_register_string('Material', 'Material', 'General');
 
-	pll_register_string('Latest materials', 'Materiais mais recentes', 'General');
-	pll_register_string('See more articles from', 'Ver mais matérias de', 'General');
+		pll_register_string('Latest materials', 'Materiais mais recentes', 'General');
+		pll_register_string('See more articles from', 'Ver mais matérias de', 'General');
 
-	pll_register_string('Download materials', 'Descargar materais', 'General');
-	pll_register_string('Related tracks', 'Trilhas relacionadas', 'General');
-	pll_register_string('Related materials', 'Materais relacionadas', 'General');
-	pll_register_string('About track', 'Sobre la trilha', 'General');
+		pll_register_string('Download materials', 'Descargar materais', 'General');
+		pll_register_string('Related tracks', 'Trilhas relacionadas', 'General');
+		pll_register_string('Related materials', 'Materais relacionadas', 'General');
+		pll_register_string('About track', 'Sobre la trilha', 'General');
 
-	pll_register_string('Prev material', 'Materais anterior', 'General');
-	pll_register_string('Next material', 'Seguinte materais', 'General');
-	pll_register_string('Prev', 'Anterior', 'General');
-	pll_register_string('Next', 'Seguinte', 'General');
+		pll_register_string('Prev material', 'Materais anterior', 'General');
+		pll_register_string('Next material', 'Seguinte materais', 'General');
+		pll_register_string('Prev', 'Anterior', 'General');
+		pll_register_string('Next', 'Seguinte', 'General');
 
-	pll_register_string('Recent posts', 'Postagens recentes', 'General');
-	pll_register_string('Previous posts', 'Postagens anteriores', 'General');
-	pll_register_string('Recent', 'Recentes', 'General');
-	pll_register_string('Previous', 'Anteriores', 'General');
+		pll_register_string('Recent posts', 'Postagens recentes', 'General');
+		pll_register_string('Previous posts', 'Postagens anteriores', 'General');
+		pll_register_string('Recent', 'Recentes', 'General');
+		pll_register_string('Previous', 'Anteriores', 'General');
 
-	pll_register_string('Order by', 'Ordenar por', 'General');
-	pll_register_string('Newer', 'Mais recente', 'General');
-	pll_register_string('Older', 'Mais antiga', 'General');
-	pll_register_string('Clean filters', 'Limpar filtros', 'General');
-	pll_register_string('No results found', 'Nenhum resultado encontrado', 'General');
+		pll_register_string('Order by', 'Ordenar por', 'General');
+		pll_register_string('Newer', 'Mais recente', 'General');
+		pll_register_string('Older', 'Mais antiga', 'General');
+		pll_register_string('Clean filters', 'Limpar filtros', 'General');
+		pll_register_string('No results found', 'Nenhum resultado encontrado', 'General');
 
-	pll_register_string('See more', 'Ver mais', 'General');
-	pll_register_string('Share', 'Compartilhe', 'General');
-	pll_register_string('Like', 'Gostou?', 'General');
+		pll_register_string('See more', 'Ver mais', 'General');
+		pll_register_string('Share', 'Compartilhe', 'General');
+		pll_register_string('Like', 'Gostou?', 'General');
 
-  // Newsletter
-  pll_register_string('Newsletter title', 'Fique por dentro!', 'Newsletter');
-  pll_register_string('Newsletter subtitle', 'Receba as novidades da Im.pulsa no seu e-mail', 'Newsletter');
-	pll_register_string('Name', 'Nome', 'Newsletter');
-	pll_register_string('E-mail', 'E-mail', 'Newsletter');
-	pll_register_string('Submit', 'Cadastrar', 'Newsletter');
+	  // Newsletter
+	  pll_register_string('Newsletter title', 'Fique por dentro!', 'Newsletter');
+	  pll_register_string('Newsletter subtitle', 'Receba as novidades da Im.pulsa no seu e-mail', 'Newsletter');
+		pll_register_string('Name', 'Nome', 'Newsletter');
+		pll_register_string('E-mail', 'E-mail', 'Newsletter');
+		pll_register_string('Submit', 'Cadastrar', 'Newsletter');
 
-	// Footer
-	pll_register_string('Copyright', 'Todo o conteúdo desta Plataforma está disponível em Creative Commons By-SA 4.0', 'Footer');
-	pll_register_string('About Impulsa', 'Sobre Im.pulsa', 'Footer');
-	pll_register_string('Impulsa in the media', 'Im.pulsa na media', 'Footer');
-	pll_register_string('Social Networks', 'Redes', 'Footer');
-	pll_register_string('Impulsa project', 'Im.pulsa é um projeto das', 'Footer');
-	pll_register_string('Developed by', 'Desenvolvido por', 'Footer');
+		// Footer
+		pll_register_string('Copyright', 'Todo o conteúdo desta Plataforma está disponível em Creative Commons By-SA 4.0', 'Footer');
+		pll_register_string('About Impulsa', 'Sobre Im.pulsa', 'Footer');
+		pll_register_string('Impulsa in the media', 'Im.pulsa na media', 'Footer');
+		pll_register_string('Social Networks', 'Redes', 'Footer');
+		pll_register_string('Impulsa project', 'Im.pulsa é um projeto das', 'Footer');
+		pll_register_string('Developed by', 'Desenvolvido por', 'Footer');
 
-	// Search
-	pll_register_string('Placeholder', 'Procura algo? Tente “redes sociais” ou “voluntariado”', 'Search');
+		// Search
+		pll_register_string('Placeholder', 'Procura algo? Tente “redes sociais” ou “voluntariado”', 'Search');
 
-	// Library
-	pll_register_string('Title', 'Biblioteca', 'Library');
-	pll_register_string('Filters', 'Filtros', 'Library');
+		// Library
+		pll_register_string('Title', 'Biblioteca', 'Library');
+		pll_register_string('Filters', 'Filtros', 'Library');
 
-	// Contact
-	pll_register_string('Title', 'Algo para nos contar?', 'Contact');
-	pll_register_string('Success', 'A mensagem foi enviada com êxito. Iremos responder prontamente', 'Contact');
-	pll_register_string('Error', 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.', 'Contact');
-	pll_register_string('Name', 'Nome', 'Contact');
-	pll_register_string('E-mail', 'E-mail', 'Contact');
-	pll_register_string('Message', 'Mensagem', 'Contact');
-	pll_register_string('Submit', 'Enviar mensagem', 'Contact');
+		// Contact
+		pll_register_string('Title', 'Algo para nos contar?', 'Contact');
+		pll_register_string('Success', 'A mensagem foi enviada com êxito. Iremos responder prontamente', 'Contact');
+		pll_register_string('Error', 'Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.', 'Contact');
+		pll_register_string('Name', 'Nome', 'Contact');
+		pll_register_string('E-mail', 'E-mail', 'Contact');
+		pll_register_string('Message', 'Mensagem', 'Contact');
+		pll_register_string('Submit', 'Enviar mensagem', 'Contact');
 
-	// FAQ
-	pll_register_string('Contact section', 'Dúvidas? Você pode nos escrever em nossa seção de contato', 'FAQ');
+		// FAQ
+		pll_register_string('Contact section', 'Dúvidas? Você pode nos escrever em nossa seção de contato', 'FAQ');
 
-    // Publishings
-	pll_register_string('Media', 'Midia', 'Publishings');
-	pll_register_string('Open on external website', 'Abrir em site externo', 'Publishings');
+	    // Publishings
+		pll_register_string('Media', 'Midia', 'Publishings');
+		pll_register_string('Open on external website', 'Abrir em site externo', 'Publishings');
+	}
 }, 5);

@@ -29,6 +29,12 @@ function country_redirects() {
       return;
     }
 
+    // Do not redirect if navigating inside track materials
+    parse_str(parse_url($_SERVER["HTTP_REFERER"], PHP_URL_QUERY), $referer_query);
+    if($referer_query && $referer_query["track"] && $referer_query["track"] == $_GET["track"]) {
+      return;
+    }
+
     global $wp;
     $permalink = home_url( $wp->request ).'/';
 

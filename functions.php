@@ -1,5 +1,8 @@
 <?php
 
+// Polylang fallback functions.
+require get_template_directory() . '/inc/pll-failsafe.php';
+
 // Theme setup and custom theme supports.
 require get_template_directory() . '/inc/setup.php';
 
