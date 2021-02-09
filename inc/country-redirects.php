@@ -24,13 +24,22 @@ function impulsa_get_current_country() {
 }
 function country_redirects() {
 
-    // Do not redirect direct links to single content
-    if(!$_SERVER["HTTP_REFERER"] && is_single()) {
+    $referer_url_host = parse_url($_SERVER["HTTP_REFERER"], PHP_URL_HOST);
+
+    // Do not redirect external links to single content
+    if(
+      (
+        !$_SERVER["HTTP_REFERER"] ||
+        $referer_url_host != $_SERVER["SERVER_NAME"]
+      ) &&
+      is_single()
+    ) {
       return;
     }
 
     // Do not redirect if navigating inside track materials
-    parse_str(parse_url($_SERVER["HTTP_REFERER"], PHP_URL_QUERY), $referer_query);
+    $referer_url_query = parse_url($_SERVER["HTTP_REFERER"], PHP_URL_QUERY);
+    parse_str($referer_url_query, $referer_query);
     if($referer_query && $referer_query["track"] && $referer_query["track"] == $_GET["track"]) {
       return;
     }
