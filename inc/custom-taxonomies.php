@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function register_taxonomies() {
 
@@ -16,7 +16,7 @@ function register_taxonomies() {
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
 	);
-	register_taxonomy( 'countries', array( 'materials', 'tracks', 'post' ), $args );
+	register_taxonomy( 'countries', array( 'materials', 'tracks', 'post', 'page' ), $args );
 
 	// Types
 	$labels = array(

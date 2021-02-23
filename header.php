@@ -1,8 +1,10 @@
 <?php get_template_part('head');
 
+$current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
 // Main Menu
 $main_nav_menu = wp_nav_menu( array(
-    'theme_location' => 'main-nav',
+    'theme_location' => 'main-nav-' . strtolower($current_country),
     'echo' => FALSE,
     'container' => FALSE,
     'fallback_cb' => '__return_false'
@@ -14,7 +16,6 @@ $countries = get_terms([
     'hide_empty' => false,
 ]);
 
-$current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
 ?>
 <body class="body--p-top">
 

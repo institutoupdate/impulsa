@@ -25,12 +25,17 @@ if ( ! function_exists( 'theme_setup' ) ) :
 		add_theme_support( 'automatic-feed-links' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'main-nav' => 'Main Menu',
-			'footer-main-nav' => 'Main Footer Menu',
-			'footer-nav' => 'Footer Menu',
-			'alt-nav' => 'Alt Menu',
-		) );
+		$countries_front_pages = impulsa_get_countries_front_pages();
+		$menus = array();
+		foreach($countries_front_pages as $country_code => $page_id) {
+			$menus = array_merge($menus, array(
+				'main-nav-' . strtolower($country_code) => 'Main Menu ' . $country_code,
+				'footer-main-nav-' . strtolower($country_code) => 'Main Footer Menu ' . $country_code,
+				'footer-nav-' . strtolower($country_code) => 'Footer Menu ' . $country_code,
+				'alt-nav-' . strtolower($country_code) => 'Alt Menu ' . $country_code,
+			));
+		}
+		register_nav_menus($menus);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -95,7 +100,7 @@ if ( ! function_exists( 'theme_setup' ) ) :
 
 	}
 endif; // theme_setup.
-add_action( 'after_setup_theme', 'theme_setup' );
+add_action( 'init', 'theme_setup', 20 );
 
 
 // old editor wordpress

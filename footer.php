@@ -1,4 +1,6 @@
 <?php
+$current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
 // Redes sociales
 $instagram_url = get_field( 'instagram_url', 'option' );
 $youtube_url = get_field( 'youtube_url', 'option' );
@@ -6,7 +8,7 @@ $facebook_url = get_field( 'facebook_url', 'option' );
 $twitter_url = get_field( 'twitter_url', 'option' );
 
 $footer_main_nav_menu = wp_nav_menu( array(
-   'theme_location' => 'footer-main-nav',
+   'theme_location' => 'footer-main-nav-' . strtolower($current_country),
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__main_nav',
@@ -15,7 +17,7 @@ $footer_main_nav_menu = wp_nav_menu( array(
 
 // About Menu
 $footer_nav_menu = wp_nav_menu( array(
-   'theme_location' => 'footer-nav',
+   'theme_location' => 'footer-nav-' . strtolower($current_country),
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__nav',
@@ -24,7 +26,7 @@ $footer_nav_menu = wp_nav_menu( array(
 
 // Alt Menu
 $alt_nav_menu = wp_nav_menu( array(
-   'theme_location' => 'alt-nav',
+   'theme_location' => 'alt-nav-' . strtolower($current_country),
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__nav',

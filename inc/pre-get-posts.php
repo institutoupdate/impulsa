@@ -7,7 +7,7 @@
  */
 function alter_main_query( $query ) {
 
-    if ( $query->is_admin || $query->is_single || !$query->is_main_query() )
+    if ( $query->is_admin || $query->is_singular() || !$query->is_main_query() )
         return $query;
 
     $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
