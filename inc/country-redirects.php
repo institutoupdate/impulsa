@@ -154,12 +154,11 @@ class Impulsa_Country {
         !$_SERVER["HTTP_REFERER"] ||
         $referer_url_host != $_SERVER["SERVER_NAME"]
       ) &&
-      is_singular(array("track", "material", "post", "page")) &&
+      is_singular(array("track", "materials", "post", "page")) &&
       !is_front_page()
     ) {
       return;
     }
-
 
     // Do not redirect if navigating inside track materials
     $referer_url_query = parse_url($_SERVER["HTTP_REFERER"], PHP_URL_QUERY);
