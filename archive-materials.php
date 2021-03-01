@@ -46,7 +46,7 @@ $count = $wp_query->found_posts;
                                     <?php foreach ($topics as $topic) { ?>
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="topic[]" value="<?php echo $topic->slug; ?>" <?php if( $topics_selected && in_array($topic->slug, $topics_selected ) ) { echo 'checked'; } ?> >
+                                            <input type="checkbox" name="topic[]" onchange="this.form.submit()" value="<?php echo $topic->slug; ?>" <?php if( $topics_selected && in_array($topic->slug, $topics_selected ) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $topic->name; ?></span>
                                         </label>
@@ -65,7 +65,7 @@ $count = $wp_query->found_posts;
                                     <?php foreach ($types as $type) { ?>
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="type[]" value="<?php echo $type->slug; ?>" <?php if( $types_selected && in_array($type->slug, $types_selected ) ) { echo 'checked'; } ?> >
+                                            <input type="checkbox" name="type[]" onchange="this.form.submit()" value="<?php echo $type->slug; ?>" <?php if( $types_selected && in_array($type->slug, $types_selected ) ) { echo 'checked'; } ?> >
                                             <span class="checkmark"><i class="icon-ok"></i></span>
                                             <span class="checkbox__text"><?php echo $type->name; ?></span>
                                         </label>
@@ -103,9 +103,9 @@ $count = $wp_query->found_posts;
                 ?>
 
                 <div class="search-header">
-                
+
                     <span class="title-3 title-3--sm2 title-3--strong-c-2 title--lowercase"><strong><?php echo $count; ?></strong> <?php if($count === 1) { echo pll__('Material'); } else { echo pll__('Materais'); } ?></span>
-                    
+
                     <div class="input input--order">
                         <label for="form__order" class="input__label"><?php echo pll__('Ordenar por'); ?></label>
                         <div class="input__select">
@@ -124,7 +124,7 @@ $count = $wp_query->found_posts;
 
                 <?php if (have_posts()) : ?>
                 <div class="grid grid--1-box grid--m-bottom-lg">
-                <?php while (have_posts()) : the_post(); 
+                <?php while (have_posts()) : the_post();
 						get_template_part('loop-templates/article-material');
                     endwhile; ?>
                 </div>
@@ -134,7 +134,7 @@ $count = $wp_query->found_posts;
                 <?php endif; ?>
 
                 <div class="pagination pagiantion--c-1">
-                    <?php 
+                    <?php
                     $args_pagination = array(
                         'current'            => $paged,
                         'show_all'           => false,
@@ -143,7 +143,7 @@ $count = $wp_query->found_posts;
                         'next_text'          => __('<i class="icon-angle-right-solid"></i>'),
                         'type'               => 'list'
                     );
-                    echo paginate_links( $args_pagination ); 
+                    echo paginate_links( $args_pagination );
                     ?>
                 </div>
                 <!--/pagination-->
@@ -157,6 +157,6 @@ $count = $wp_query->found_posts;
     <!--/container-->
 </main>
 <!--/block-->
-<?php 
+<?php
 get_footer();
 ?>
