@@ -2716,11 +2716,23 @@ select {
         align-items: center;
         justify-content: space-between;
         margin-bottom: 15px;
+        h4 {
+          margin-right: 15px;
+        }
+        .box__header_fill {
+          flex: 1 1 auto;
+        }
         @include breakpoint(tablet-lg) {
             margin-bottom: 20px;
+            h4 {
+              margin-right: 20px;
+            }
         }
         @include breakpoint(desktop-xlg) {
             margin-bottom: 25px;
+            h4 {
+              margin-right: 25px;
+            }
         }
     }
     .box__content {

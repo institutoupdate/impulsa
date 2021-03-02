@@ -13,7 +13,7 @@ $countries = get_terms([
 ]);
 
 if($countries) {
-    foreach ($countries as $country) { 
+    foreach ($countries as $country) {
         $country_code = get_field('country_code', 'term_' . $country->term_id);
         if($country_code === $current_country) {
             $current_country_slug = $country->slug;
@@ -48,12 +48,6 @@ if( $featured_topcis ):
             <?php foreach( $featured_topcis as $topic ): ?>
             <div class="box box--border box--bg-gray box--pad-3">
 
-                <div class="box__header">
-                    <h4 class="title-3 title-3--uppercase"><?php echo esc_html( $topic->name ); ?></h4>
-                    <a href="<?php echo esc_url( get_term_link( $topic ) ); ?>" class="btn btn--c-gray"><?php echo pll__('Ver mais'); ?> <i class="icon-arrow-right"></i></a>
-                </div>
-                <!-- box-header-->
-                
                 <?php
                     if ($current_country)  {
 
@@ -63,7 +57,7 @@ if( $featured_topcis ):
                             'hide_empty' => false,
                             'exclude'    => $current_country_id,
                         ]);
-            
+
                         // Convert array of term objects to array of term slugs
                         $countries_slugs = wp_list_pluck( $countries, 'slug' );
 
@@ -103,9 +97,17 @@ if( $featured_topcis ):
                     $latestTracks = new WP_Query($args);
                     if($latestTracks->have_posts()) {
                 ?>
+
+                <div class="box__header">
+                    <h4 class="title-3 title-3--uppercase"><a href="<?php echo esc_url( get_term_link( $topic ) ); ?>"><?php echo esc_html( $topic->name ); ?></a></h4>
+                    <p class="box__header_fill">
+                      <?php printf( _n("%d trilha nesta categoria", "%d trilhas nesta categoria", $latestTracks->found_posts, "impulsa"), $latestTracks->found_posts); ?>
+                    </p>
+                </div>
+                <!-- box-header-->
                 <div class="grid grid--3-box">
-                    <?php 
-                    while($latestTracks->have_posts()) { $latestTracks->the_post(); 
+                    <?php
+                    while($latestTracks->have_posts()) { $latestTracks->the_post();
                         set_query_var( 'article_excerpt', 125);
                         get_template_part('loop-templates/article-track');
                     }
@@ -115,9 +117,9 @@ if( $featured_topcis ):
                 <?php } ?>
 
             </div>
-            <!--/box--> 
+            <!--/box-->
             <?php endforeach; ?>
-             
+
         </div>
         <!--/grid-1-box-->
 
@@ -126,7 +128,7 @@ if( $featured_topcis ):
 </section>
 <!--/block-->
 
-<?php 
+<?php
 endif;
 get_footer();
 ?>
