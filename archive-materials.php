@@ -23,10 +23,10 @@ $count = $wp_query->found_posts;
 <main class="block block--pad-3 js-first-block">
     <div class="container">
         <h2 class="title-2 title-2--m-bottom-lg "><?php echo pll__('Biblioteca'); ?></h2>
-        <form action="#" method="GET" class="grid grid--4y8">
+        <div class="grid grid--4y8">
 
             <aside class="sidebar">
-
+              <form action="#" method="GET">
                 <div class="dropdown dropdown--sticky">
 
                     <div class="dropdown__header">
@@ -35,7 +35,7 @@ $count = $wp_query->found_posts;
                     </div>
                     <!--/dropdwon-header-->
 
-                    <div class="box box--bg-gray box--border box--pad box--dropdown js-box--dropdown">
+                    <div class="box box--bg-gray box--border box--pad box--dropdown">
 
                         <div class="form">
 
@@ -90,7 +90,7 @@ $count = $wp_query->found_posts;
                     <!--/box-gray-->
                 </div>
                 <!--/dropdown-->
-
+              </form>
             </aside>
             <!--/sidebar-->
 
@@ -151,7 +151,7 @@ $count = $wp_query->found_posts;
             </section>
             <!--/block-main-->
 
-        </form>
+        </div>
         <!--/grid-4y8-->
     </div>
     <!--/container-->

@@ -1,9 +1,12 @@
-<?php 
+<?php
 // Template name: Home
 
-get_header(); 
+get_header();
 
-if (have_posts()) : while (have_posts()) : the_post(); 
+if (have_posts()) : while (have_posts()) : the_post();
+
+    global $wp_query;
+    // echo '<pre>' . var_export($wp_query, true) . '</pre>';
 
     // Hero
     require get_template_directory() . '/global-templates/home/hero.php';
@@ -17,7 +20,7 @@ if (have_posts()) : while (have_posts()) : the_post();
     // Items
     require get_template_directory() . '/global-templates/home/items.php';
 
-endwhile; endif; 
+endwhile; endif;
 
 get_footer();
 ?>
