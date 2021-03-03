@@ -3235,6 +3235,11 @@ select {
             width: 100%;
         }
     }
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #fff;
+      padding: 25px;
+    }
     .swiper-pagination {
         transition: none;
         transform: none;
