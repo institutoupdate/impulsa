@@ -3222,13 +3222,13 @@ select {
                 font-size: 35px;
             }
             @include breakpoint(tablet-lg) {
-                font-size: 50px;
+                font-size: 45px;
             }
             @include breakpoint(desktop-lg) {
-                font-size: 65px;
+                font-size: 55px;
             }
             @include breakpoint(desktop-xlg) {
-                font-size: 80px;
+                font-size: 75px;
             }
         }
         .container {
