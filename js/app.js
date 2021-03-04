@@ -172,7 +172,6 @@
       });
 
       $('.js-enter-submit').keydown(function(ev) {
-        console.log("hi");
         if(ev.keyCode == 13) this.form.submit();
       })
 
