@@ -23,10 +23,10 @@ $count = $wp_query->found_posts;
 <main class="block block--pad-3 js-first-block">
     <div class="container">
         <h2 class="title-2 title-2--m-bottom-lg "><?php echo pll__('Biblioteca'); ?></h2>
+        <form action="#" method="GET">
         <div class="grid grid--4y8">
 
             <aside class="sidebar">
-              <form action="#" method="GET">
                 <div class="dropdown dropdown--sticky">
 
                     <div class="dropdown__header">
@@ -78,7 +78,6 @@ $count = $wp_query->found_posts;
                             <?php } ?>
 
                             <div class="btn-box btn-box--filter btn-box--m-top">
-                                <button type="submit" class="btn-bg btn-bg--border-1 btn-bg--sz-sm">Filtrar</button>
                                 <a href="<?php echo get_post_type_archive_link( 'materials' ); ?>" class="link-underline link-underline--c-1"><?php echo pll__('Limpar filtros'); ?></a>
                             </div>
                             <!--/btn-box-filter-->
@@ -90,7 +89,6 @@ $count = $wp_query->found_posts;
                     <!--/box-gray-->
                 </div>
                 <!--/dropdown-->
-              </form>
             </aside>
             <!--/sidebar-->
 
@@ -109,9 +107,10 @@ $count = $wp_query->found_posts;
                     <div class="input input--order">
                         <label for="form__order" class="input__label"><?php echo pll__('Ordenar por'); ?></label>
                         <div class="input__select">
-                            <select name="order" id="form__order" class="js-order">
+                            <select onchange="this.form.submit()" name="order" id="form__order" class="js-order">
                                 <option value="DESC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'DESC')) { echo 'selected'; } ?>><?php echo pll__('Mais recente'); ?></option>
                                 <option value="ASC" <?php if(isset($_GET['order']) && ($_GET['order'] == 'ASC' )) { echo 'selected'; } ?>><?php echo pll__('Mais antiga'); ?></option>
+                                <option value="POP" <?php if(isset($_GET['order']) && ($_GET['order'] == 'POP' )) { echo 'selected'; } ?>><?php echo pll__('Mais populares'); ?></option>
                             </select>
                             <i class="icon-angle-down-solid"></i>
                         </div>
@@ -153,6 +152,8 @@ $count = $wp_query->found_posts;
 
         </div>
         <!--/grid-4y8-->
+        <input type="submit" />
+      </form>
     </div>
     <!--/container-->
 </main>

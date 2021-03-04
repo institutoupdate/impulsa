@@ -171,6 +171,11 @@
           $(this).parents('form').submit();
       });
 
+      $('.js-enter-submit').keydown(function(ev) {
+        console.log("hi");
+        if(ev.keyCode == 13) this.form.submit();
+      })
+
 	$('.js-change-country').change(function(){
 		value = $(this).val();
 		console.log(value);

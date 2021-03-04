@@ -16,7 +16,7 @@ if ( ! function_exists( 'enqueue_scripts' ) ) {
 		wp_enqueue_script( 'jquery-fancybox', get_template_directory_uri() . '/vendor/js/jquery.fancybox.min.js', array(), '', true);
 		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/vendor/js/swiper.min.js', array(), '', true);
 
-		wp_enqueue_script( 'theme-scripts', get_template_directory_uri() . '/js/app.min.js', array('jquery', 'jquery-fancybox', 'swiper'), '2.0.0', true );
+		wp_enqueue_script( 'theme-scripts', get_template_directory_uri() . '/js/app.min.js', array('jquery', 'jquery-fancybox', 'swiper'), '2.0.1', true );
 
 		wp_localize_script( 'theme-scripts', 'config', array(
 			'ajax_url'	=>	admin_url('admin-ajax.php'),

@@ -33,6 +33,9 @@ require get_template_directory() . '/inc/ajax.php';
 // Shortcodes
 require get_template_directory() . '/inc/shortcodes.php';
 
+// WP Popular Posts
+require get_template_directory() . '/inc/popular-posts.php';
+
 // Custom functions
 require get_template_directory() . '/inc/custom-functions.php';
 

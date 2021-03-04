@@ -74,6 +74,7 @@ function materials_pre_get_posts($query) {
       $order = isset($_GET['order']) ? $_GET['order'] : '';
       $topic = isset($_GET['topic']) ? $_GET['topic'] : '';
       $type = isset($_GET['type']) ? $_GET['type'] : '';
+      $text = isset($_GET['text']) ? $_GET['text'] : '';
 
       $count = 0;
       $tax_arr = array($topic, $type);
@@ -87,8 +88,17 @@ function materials_pre_get_posts($query) {
       }
 
       // Order
-      if( $order ) {
+      if( $order == "ASC" || $order == "DESC" ) {
           $query->set('order', $order);
+      }
+      if( $order == "POP" ) {
+        $query->set("meta_key", "views_total");
+        $query->set("orderby", "meta_value_num");
+        $query->set("order", "DESC");
+      }
+
+      if($text) {
+        $query->set("s", $text);
       }
 
       // Taxonomies
