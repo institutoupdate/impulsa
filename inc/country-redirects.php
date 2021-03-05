@@ -140,12 +140,15 @@ class Impulsa_Country {
     return $this->get_country_front_page($this->current_country);
   }
   public function get_current_country() {
+
+    $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
+    if($current_country == "global") return "global";
+
     $countries = get_terms([
       'taxonomy' => 'countries',
       'hide_empty' => false,
     ]);
-
-    $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
 
     if (!$current_country && is_single()) {
       global $post;
@@ -240,16 +243,16 @@ class Impulsa_Country {
 
     $page_id = get_queried_object_id();
     if(is_front_page() || ($page_id && in_array_r($page_id, $this->front_pages))) {
-      if($current_country) {
-        if($page_id !== $this->front_pages[$current_country]) {
-          wp_redirect(get_permalink($this->front_pages[$current_country]));
-          exit;
-        }
-      } else {
+      if(!$current_country || $current_country == "global") {
         $curlang = pll_current_language("slug");
         $lang_page_id = $this->front_pages["global_" . $curlang][0];
         if($page_id !== $lang_page_id) {
           wp_redirect(get_permalink($lang_page_id));
+          exit;
+        }
+      } else {
+        if($page_id !== $this->front_pages[$current_country]) {
+          wp_redirect(get_permalink($this->front_pages[$current_country]));
           exit;
         }
       }
@@ -260,7 +263,7 @@ class Impulsa_Country {
       'hide_empty' => false,
     ]);
 
-    if ($current_country) {
+    if ($current_country && $current_country != "global") {
       if ($countries && !$country_code) {
         foreach ($countries as $country) {
           $country_code = get_field('country_code', 'term_' . $country->term_id);
@@ -269,9 +272,7 @@ class Impulsa_Country {
           }
         }
       }
-
       $country = get_term_by('slug', $current_country_slug, 'countries');
-
       if ($country) {
         $country_name = $country->name;
         $country_slug = $country->slug;
@@ -288,7 +289,7 @@ class Impulsa_Country {
         wp_redirect($translation_url_selected);
         exit;
       }
-    } else {
+    } elseif(!$current_country) {
       $userIP = getUserIP();
 
       $getCountry = unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$userIP));

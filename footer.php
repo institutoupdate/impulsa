@@ -95,8 +95,8 @@ require get_template_directory() . '/global-templates/newsletter.php';
 						<div class="input input--btn">
 							<div class="input__select">
 								<select name="data-language" class="js-change-country">
-                  <option <?php if(!$current_country) { echo 'selected'; } ?> value="">
-                    <?php if(!$current_country) : pll_e("País"); else : pll_e("Global"); endif; ?>
+                  <option <?php if(!$current_country || $current_country == "global") { echo 'selected'; } ?> value="global">
+                    <?php if(!$current_country || $current_country == "global") : pll_e("País"); else : pll_e("Global"); endif; ?>
                   </option>
 									<?php foreach ($countries as $country) {
 										$countryCode = get_field('country_code', 'term_' . $country->term_id);
