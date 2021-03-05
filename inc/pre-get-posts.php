@@ -27,7 +27,7 @@ function alter_main_query( $query ) {
         }
     }
 
-    if ($query->is_home() && $current_country) {
+    if ($query->is_home() && $current_country && $current_country != "global") {
 
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 

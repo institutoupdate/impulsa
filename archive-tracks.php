@@ -49,7 +49,7 @@ if( $featured_topcis ):
             <div class="box box--border box--bg-gray box--pad-3">
 
                 <?php
-                    if ($current_country)  {
+                    if ($current_country && $current_country != "global")  {
 
                         // Get all terms in the taxonomy and exclude current country ID
                         $countries = get_terms([

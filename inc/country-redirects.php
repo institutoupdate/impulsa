@@ -41,10 +41,12 @@ class Impulsa_Country {
     $this->front_pages = array();
     // Language pages
     $languages = pll_the_languages(array('raw'=>1));
-    foreach($languages as $lang_slug => $lang_data) {
-      $page_id = $this->get_language_front_page($lang_slug);
-      if($page_id) {
-        $this->front_pages["global_" . $lang_slug] = array($page_id);
+    if($languages) {
+      foreach($languages as $lang_slug => $lang_data) {
+        $page_id = $this->get_language_front_page($lang_slug);
+        if($page_id) {
+          $this->front_pages["global_" . $lang_slug] = array($page_id);
+        }
       }
     }
     // Country pages

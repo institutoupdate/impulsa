@@ -13,7 +13,7 @@ $countries = get_terms([
 ]);
 
 if($countries) {
-    foreach ($countries as $country) { 
+    foreach ($countries as $country) {
         $country_code = get_field('country_code', 'term_' . $country->term_id);
         if($country_code === $current_country) {
             $current_country_slug = $country->slug;
@@ -25,7 +25,7 @@ if($countries) {
 ?>
 <section class="block block--pad-4 js-first-block">
     <div class="container">
-        
+
         <ul class="breadcrum">
             <li><a href="<?php echo get_post_type_archive_link('tracks'); ?>"><?php echo pll__('Trilhas'); ?></a><i class="icon-angle-right-solid"></i></li>
             <li><?php single_term_title(); ?></li>
@@ -39,7 +39,7 @@ if($countries) {
         <!--/block-header-->
 
         <?php
-            if ($current_country)  {
+            if ($current_country && $current_country != "global")  {
 
                 // Get all terms in the taxonomy and exclude current country ID
                 $countries = get_terms([
@@ -47,7 +47,7 @@ if($countries) {
                     'hide_empty' => false,
                     'exclude'    => $current_country_id,
                 ]);
-    
+
                 // Convert array of term objects to array of term slugs
                 $countries_slugs = wp_list_pluck( $countries, 'slug' );
 
@@ -94,8 +94,8 @@ if($countries) {
             <!--/box-header-->
 
             <div class="grid grid--3-box">
-                <?php 
-                while($latestTracks->have_posts()) { $latestTracks->the_post(); 
+                <?php
+                while($latestTracks->have_posts()) { $latestTracks->the_post();
                     set_query_var( 'article_excerpt', 125);
                     get_template_part('loop-templates/article-track');
                 }
@@ -103,7 +103,7 @@ if($countries) {
             </div>
             <!--/grid-->
         </div>
-        <!--/box--> 
+        <!--/box-->
         <?php }  ?>
 
     </div>
@@ -155,8 +155,8 @@ if($countries) {
 
                 <h4 class="title-3 title-3--uppercase title-3--m-bottom"><?php echo pll__('Materiais mais recentes'); ?></h4>
                 <div class="grid grid--1-box grid--m-bottom-lg">
-                    <?php 
-                    while($latestMaterials->have_posts()) { $latestMaterials->the_post(); 
+                    <?php
+                    while($latestMaterials->have_posts()) { $latestMaterials->the_post();
                         set_query_var( 'article_excerpt', 335);
                         get_template_part('loop-templates/article-material');
                     }
@@ -179,6 +179,6 @@ if($countries) {
 <!--/block-->
 <?php } ?>
 
-<?php 
+<?php
 get_footer();
 ?>
