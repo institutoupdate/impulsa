@@ -4,7 +4,7 @@ $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_countr
 
 // Main Menu
 $main_nav_menu = wp_nav_menu( array(
-    'theme_location' => 'main-nav-' . strtolower($current_country),
+    'theme_location' => $current_country ? 'main-nav-' . strtolower($current_country) : 'main-nav',
     'echo' => FALSE,
     'container' => FALSE,
     'fallback_cb' => '__return_false'
@@ -47,6 +47,9 @@ $countries = get_terms([
                 <div class="input input--btn">
                     <div class="input__select">
                         <select name="data-language" class="js-change-country">
+                          <option <?php if(!$current_country) { echo 'selected'; } ?> value="">
+                            <?php if(!$current_country) : pll_e("País"); else : pll_e("Global"); endif; ?>
+                          </option>
                             <?php foreach ($countries as $country) {
                                 $countryCode = get_field('country_code', 'term_' . $country->term_id);
                             ?>

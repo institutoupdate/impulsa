@@ -19,21 +19,32 @@ if ( ! function_exists( 'theme_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
+	function impulsa_get_country_nav_config($country) {
+		return array(
+			'main-nav-' . strtolower($country) => '['. $country . '] Main Menu',
+			'footer-main-nav-' . strtolower($country) => '['. $country . '] Main Footer Menu',
+			'footer-nav-' . strtolower($country) => '['. $country . '] Footer Menu',
+			'alt-nav-' . strtolower($country) => '['. $country . '] Alt Menu',
+		);
+	}
 	function theme_setup() {
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
 		// This theme uses wp_nav_menu() in one location.
-		$countries_front_pages = impulsa_get_countries_front_pages();
-		$menus = array();
+		$countries_front_pages = impulsa_get_front_pages();
+		$menus = array(
+			'main-nav' => '[Global] Main Menu',
+			'footer-main-nav' => '[Global] Main Footer Menu',
+			'footer-nav' => '[Global] Footer Menu',
+			'alt-nav' => '[Global] Alt Menu',
+		);
+
 		foreach($countries_front_pages as $country_code => $page_id) {
-			$menus = array_merge($menus, array(
-				'main-nav-' . strtolower($country_code) => 'Main Menu ' . $country_code,
-				'footer-main-nav-' . strtolower($country_code) => 'Main Footer Menu ' . $country_code,
-				'footer-nav-' . strtolower($country_code) => 'Footer Menu ' . $country_code,
-				'alt-nav-' . strtolower($country_code) => 'Alt Menu ' . $country_code,
-			));
+			if(strpos($country_code, "global_") === false) {
+				$menus = array_merge($menus, impulsa_get_country_nav_config($country_code));
+			}
 		}
 		register_nav_menus($menus);
 

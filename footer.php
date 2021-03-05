@@ -8,7 +8,7 @@ $facebook_url = get_field( 'facebook_url', 'option' );
 $twitter_url = get_field( 'twitter_url', 'option' );
 
 $footer_main_nav_menu = wp_nav_menu( array(
-   'theme_location' => 'footer-main-nav-' . strtolower($current_country),
+   'theme_location' => $current_country ? 'footer-main-nav-' . strtolower($current_country) : 'footer-main-nav',
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__main_nav',
@@ -17,7 +17,7 @@ $footer_main_nav_menu = wp_nav_menu( array(
 
 // About Menu
 $footer_nav_menu = wp_nav_menu( array(
-   'theme_location' => 'footer-nav-' . strtolower($current_country),
+   'theme_location' => $current_country ? 'footer-nav-' . strtolower($current_country) : 'footer-nav',
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__nav',
@@ -26,7 +26,7 @@ $footer_nav_menu = wp_nav_menu( array(
 
 // Alt Menu
 $alt_nav_menu = wp_nav_menu( array(
-   'theme_location' => 'alt-nav-' . strtolower($current_country),
+   'theme_location' => $current_country ? 'alt-nav-' . strtolower($current_country) : 'alt-nav',
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__nav',
@@ -95,6 +95,9 @@ require get_template_directory() . '/global-templates/newsletter.php';
 						<div class="input input--btn">
 							<div class="input__select">
 								<select name="data-language" class="js-change-country">
+                  <option <?php if(!$current_country) { echo 'selected'; } ?> value="">
+                    <?php if(!$current_country) : pll_e("País"); else : pll_e("Global"); endif; ?>
+                  </option>
 									<?php foreach ($countries as $country) {
 										$countryCode = get_field('country_code', 'term_' . $country->term_id);
 									?>
