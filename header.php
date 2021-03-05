@@ -4,7 +4,7 @@ $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_countr
 
 // Main Menu
 $main_nav_menu = wp_nav_menu( array(
-    'theme_location' => $current_country ? 'main-nav-' . strtolower($current_country) : 'main-nav',
+    'theme_location' => $current_country && $current_country != "global" ? 'main-nav-' . strtolower($current_country) : 'main-nav',
     'echo' => FALSE,
     'container' => FALSE,
     'fallback_cb' => '__return_false'

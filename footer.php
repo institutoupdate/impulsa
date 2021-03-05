@@ -8,7 +8,7 @@ $facebook_url = get_field( 'facebook_url', 'option' );
 $twitter_url = get_field( 'twitter_url', 'option' );
 
 $footer_main_nav_menu = wp_nav_menu( array(
-   'theme_location' => $current_country ? 'footer-main-nav-' . strtolower($current_country) : 'footer-main-nav',
+   'theme_location' => $current_country && $current_country != "global" ? 'footer-main-nav-' . strtolower($current_country) : 'footer-main-nav',
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__main_nav',
@@ -17,7 +17,7 @@ $footer_main_nav_menu = wp_nav_menu( array(
 
 // About Menu
 $footer_nav_menu = wp_nav_menu( array(
-   'theme_location' => $current_country ? 'footer-nav-' . strtolower($current_country) : 'footer-nav',
+   'theme_location' => $current_country && $current_country != "global" ? 'footer-nav-' . strtolower($current_country) : 'footer-nav',
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__nav',
@@ -26,7 +26,7 @@ $footer_nav_menu = wp_nav_menu( array(
 
 // Alt Menu
 $alt_nav_menu = wp_nav_menu( array(
-   'theme_location' => $current_country ? 'alt-nav-' . strtolower($current_country) : 'alt-nav',
+   'theme_location' => $current_country && $current_country != "global" ? 'alt-nav-' . strtolower($current_country) : 'alt-nav',
    'echo' => FALSE,
    'container' => FALSE,
    'menu_class' => 'footer__nav',
