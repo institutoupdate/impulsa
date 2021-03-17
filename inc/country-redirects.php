@@ -188,7 +188,7 @@ class Impulsa_Country {
     if (
       (
         !$_SERVER["HTTP_REFERER"] ||
-        $referer_url_host != $_SERVER["SERVER_NAME"]
+        preg_replace('#^www\.#', '', strtolower($referer_url_host)) != preg_replace('#^www\.#', '', strtolower($_SERVER["SERVER_NAME"]))
       ) &&
       is_singular(array("tracks", "materials", "post", "page")) &&
       !is_front_page() &&
