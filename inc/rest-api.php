@@ -5,7 +5,7 @@ function impulsa_rest_prepare_tracks($response, $post) {
   if($track_related_posts) {
       $reading_time_array = array();
       foreach( $track_related_posts as $related_post ) {
-          $id = $related_post instanceof WP_Post ? $related_post->ID : $related_post["ID"];
+          $id = $related_post->ID;
           $reading_time = get_field('reading-time', $id);
           $reading_time_array[] = $reading_time;
       }
