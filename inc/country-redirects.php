@@ -181,6 +181,9 @@ class Impulsa_Country {
   public function template_redirect() {
     $referer_url_host = parse_url($_SERVER["HTTP_REFERER"], PHP_URL_HOST);
 
+    $page_id = get_queried_object_id();
+    $is_front_page = $page_id && in_array_r($page_id, $this->front_pages);
+
     // Do not redirect external links to single content
     if (
       (
@@ -188,7 +191,8 @@ class Impulsa_Country {
         $referer_url_host != $_SERVER["SERVER_NAME"]
       ) &&
       is_singular(array("tracks", "materials", "post", "page")) &&
-      !is_front_page()
+      !is_front_page() &&
+      !$is_front_page
     ) {
       return;
     }
@@ -206,8 +210,7 @@ class Impulsa_Country {
     $current_country = $this->current_country;
 
     // print("<pre>".print_r($this->front_pages,true)."</pre>");
-    $page_id = get_queried_object_id();
-    if(is_front_page() || ($page_id && in_array_r($page_id, $this->front_pages))) {
+    if(is_front_page() || $is_front_page) {
       if(!$current_country || $current_country == "global") {
         $curlang = pll_current_language("slug");
         $lang_page_id = $this->front_pages["global_" . $curlang][0];
