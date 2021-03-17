@@ -22,7 +22,6 @@ class Impulsa_Country {
     add_action("init", array($this, "init"), 15);
     add_action("template_redirect", array($this, "template_redirect"), 10);
 		// Integration with WP customizer
-		add_action( 'customize_register', array( $this, 'create_nav_menu_locations' ), 6 );
   }
   public function init() {
     $this->current_country = $this->get_current_country();
@@ -179,43 +178,6 @@ class Impulsa_Country {
       }
     }
   }
-  public function theme_mod_nav_menu_locations( $menus ) {
-    // Prefill locations with 0 value in case a location does not exist in $menus
-    $locations = get_registered_nav_menus();
-    if ( is_array( $locations ) ) {
-      $locations = array_fill_keys( array_keys( $locations ), 0 );
-      $menus = is_array( $menus ) ? array_merge( $locations, $menus ) : $locations;
-    }
-
-    if ( is_array( $menus ) ) {
-      foreach ( array_keys( $menus ) as $loc ) {
-        foreach ( $this->front_pages as $country => $page_id ) {
-          if ( ! empty( $this->options['nav_menus'][ $this->theme ][ $country ][ $lang->slug ] ) ) {
-            $menus[$country] = $this->options['nav_menus'][ $this->theme ][ $loc ][ $lang->slug ];
-          }
-        }
-      }
-    }
-
-    return $menus;
-  }
-  public function create_nav_menu_locations() {
-    static $once;
-    global $_wp_registered_nav_menus;
-
-    $arr = array();
-
-    if ( isset( $_wp_registered_nav_menus ) && ! $once ) {
-      foreach ( $_wp_registered_nav_menus as $loc => $name ) {
-        foreach ( $this->front_pages as $country => $page_id ) {
-          $arr[$country] = $name . ' ' . $country;
-        }
-      }
-
-      $_wp_registered_nav_menus = $arr;
-      $once = true;
-    }
-  }
   public function template_redirect() {
     $referer_url_host = parse_url($_SERVER["HTTP_REFERER"], PHP_URL_HOST);
 
@@ -243,6 +205,7 @@ class Impulsa_Country {
 
     $current_country = $this->current_country;
 
+    // print("<pre>".print_r($this->front_pages,true)."</pre>");
     $page_id = get_queried_object_id();
     if(is_front_page() || ($page_id && in_array_r($page_id, $this->front_pages))) {
       if(!$current_country || $current_country == "global") {

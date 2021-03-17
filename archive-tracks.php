@@ -46,7 +46,6 @@ if( $featured_topcis ):
         <div class="grid grid--1-box">
 
             <?php foreach( $featured_topcis as $topic ): ?>
-            <div class="box box--border box--bg-gray box--pad-3">
 
                 <?php
                     if ($current_country && $current_country != "global")  {
@@ -97,6 +96,7 @@ if( $featured_topcis ):
                     $latestTracks = new WP_Query($args);
                     if($latestTracks->have_posts()) {
                 ?>
+                <div class="box box--border box--bg-gray box--pad-3">
 
                 <div class="box__header">
                     <h4 class="title-3 title-3--uppercase"><a href="<?php echo esc_url( get_term_link( $topic ) ); ?>"><?php echo esc_html( $topic->name ); ?></a></h4>
@@ -114,10 +114,10 @@ if( $featured_topcis ):
                     ?>
                 </div>
                 <!--/grid-3-box-->
-                <?php } ?>
+                </div>
+                <!--/box-->
+              <?php } ?>
 
-            </div>
-            <!--/box-->
             <?php endforeach; ?>
 
         </div>
