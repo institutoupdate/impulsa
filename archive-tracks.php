@@ -48,7 +48,7 @@ if( $featured_topcis ):
             <?php foreach( $featured_topcis as $topic ): ?>
 
                 <?php
-                    if ($current_country && $current_country != "global")  {
+                    if ($current_country)  {
 
                         // Get all terms in the taxonomy and exclude current country ID
                         $countries = get_terms([

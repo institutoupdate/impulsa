@@ -27,7 +27,7 @@ function alter_main_query( $query ) {
         }
     }
 
-    if ($query->is_home() && $current_country && $current_country != "global") {
+    if ($query->is_home() && $current_country) {
 
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
@@ -62,6 +62,23 @@ add_action( 'pre_get_posts', 'alter_main_query' );
 function materials_pre_get_posts($query) {
 
   if ($query->is_admin || !$query->is_main_query()) return;
+
+  $current_country = isset($_COOKIE['current_country']) ? $_COOKIE['current_country'] : '';
+
+  $countries = get_terms([
+      'taxonomy' => 'countries',
+      'hide_empty' => false,
+  ]);
+
+  if($countries) {
+      foreach ($countries as $country) {
+          $country_code = get_field('country_code', 'term_' . $country->term_id);
+          if($country_code === $current_country) {
+              $current_country_slug = $country->slug;
+              $current_country_id = $country->term_id;
+          }
+      }
+  }
 
   if ($query->is_post_type_archive('materials')) {
 
