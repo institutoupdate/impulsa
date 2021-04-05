@@ -119,9 +119,8 @@ function materials_pre_get_posts($query) {
       }
 
       // Taxonomies
+      $tax_query = array();
       if( $topic || $type ){
-          $tax_query = array();
-
           // Topic
           if( $topic ) {
               $tax_query[] = array(
@@ -139,8 +138,6 @@ function materials_pre_get_posts($query) {
                   'terms' => $type
               );
           }
-
-          $query->set('tax_query', $tax_query);
       }
 
       if ($current_country)  {
@@ -155,14 +152,16 @@ function materials_pre_get_posts($query) {
           // Convert array of term objects to array of term slugs
           $countries_slugs = wp_list_pluck( $countries, 'slug' );
 
-          $tax_query = array();
           $tax_query[] = array(
               'taxonomy' => 'countries',
               'field' => 'slug',
               'terms' => $countries_slugs,
               'operator' => 'NOT IN'
           );
-          $query->set('tax_query', $tax_query);
+      }
+
+      if($tax_query && !empty($tax_query)) {
+        $query->set('tax_query', $tax_query);
       }
 
   }
