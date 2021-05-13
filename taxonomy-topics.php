@@ -63,9 +63,9 @@ if($countries) {
                         ),
                         array(
                             'taxonomy' => 'countries',
-                            'field' => 'slug',
-                            'terms' => $countries_slugs,
-                            'operator' => 'NOT IN'
+                            'field' => 'id',
+                            'terms' => array( $current_country_id ),
+                            'operator' => 'IN'
                         )
                     ),
                 );
