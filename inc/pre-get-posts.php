@@ -35,22 +35,19 @@ function alter_main_query( $query ) {
         $query->set('posts_per_page',4);
         $query->set('paged',$paged);
 
-        // Get all terms in the taxonomy and exclude current country ID
-        $countries = get_terms([
-            'taxonomy'   => 'countries',
-            'hide_empty' => false,
-            'exclude'    => $current_country_id,
-        ]);
-
-        // Convert array of term objects to array of term slugs
-        $countries_slugs = wp_list_pluck( $countries, 'slug' );
-
         $tax_query = array();
         $tax_query[] = array(
-            'taxonomy' => 'countries',
-            'field' => 'slug',
-            'terms' => $countries_slugs,
-            'operator' => 'NOT IN'
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'countries',
+                'field' => 'id',
+                'terms' => array( $current_country_id ),
+                'operator' => 'IN'
+            ),
+            array(
+                'taxonomy' => 'countries',
+                'operator' => 'NOT EXISTS'
+            )
         );
         $query->set('tax_query', $tax_query);
 
@@ -141,23 +138,19 @@ function materials_pre_get_posts($query) {
       }
 
       if ($current_country)  {
-
-          // Get all terms in the taxonomy and exclude current country ID
-          $countries = get_terms([
-              'taxonomy'   => 'countries',
-              'hide_empty' => false,
-              'exclude'    => $current_country_id,
-          ]);
-
-          // Convert array of term objects to array of term slugs
-          $countries_slugs = wp_list_pluck( $countries, 'slug' );
-
-          $tax_query[] = array(
-              'taxonomy' => 'countries',
-              'field' => 'slug',
-              'terms' => $countries_slugs,
-              'operator' => 'NOT IN'
-          );
+        $tax_query[] = array(
+            'relation' => 'OR',
+            array(
+                'taxonomy' => 'countries',
+                'field' => 'id',
+                'terms' => array( $current_country_id ),
+                'operator' => 'IN'
+            ),
+            array(
+                'taxonomy' => 'countries',
+                'operator' => 'NOT EXISTS'
+            )
+        );
       }
 
       if($tax_query && !empty($tax_query)) {

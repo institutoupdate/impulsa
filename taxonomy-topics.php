@@ -131,10 +131,17 @@ if($countries) {
                     'field' => 'slug',
                 ),
                 array(
-                    'taxonomy' => 'countries',
-                    'field' => 'slug',
-                    'terms' => $countries_slugs,
-                    'operator' => 'NOT IN'
+                    'relation' => 'OR',
+                    array(
+                        'taxonomy' => 'countries',
+                        'field' => 'id',
+                        'terms' => array( $current_country_id ),
+                        'operator' => 'IN'
+                    ),
+                    array(
+                        'taxonomy' => 'countries',
+                        'operator' => 'NOT EXISTS'
+                    )
                 )
             ),
         );
